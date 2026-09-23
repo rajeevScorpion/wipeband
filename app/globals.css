@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-teal-700: #0A4D57;
+  --color-teal-800: #073B43;
+  --color-teal-900: #052A30;
+  --color-green-500: #62B44A;
+  --color-green-600: #539E3D;
+  --color-coral-500: #F36F6B;
+  --color-aqua-400: #66C5CD;
+  --color-amber-400: #FDB515;
+  --color-ink: #123B42;
+  --color-muted: #637A7E;
+  --color-border: #DDE7E4;
+  --color-white: #FFFFFF;
+  --color-offwhite: #FAFCFA;
+
+  --surface-mint: #EEF7EA;
+  --surface-cream: #FFF5DE;
+  --surface-aqua: #EEF9FA;
+  --surface-coral: #FFF1EF;
+}
+
+html {
+  scroll-behavior: smooth;
+  color: var(--color-ink);
+  background-color: #FFFFFF;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #123B42;
+  background-color: #FFFFFF;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-nunito), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background-color: #0A4D57;
+  color: #FFFFFF;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

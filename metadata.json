@@ -1,0 +1,8 @@
+{
+  "name": "Wipeband",
+  "description": "A soft, refillable tissue pad worn like a watch. Ready for school, travel and play.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
+  "permissions": []
+}
