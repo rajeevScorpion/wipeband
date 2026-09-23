@@ -1,0 +1,63 @@
+You are building the complete Wipeband website from the attached prompt pack.
+
+The finished result must look like a complete, presentation-ready website — not a wireframe or scaffold. The only unfinished elements should be the final image assets, which must be represented by polished, brand-aligned placeholders that preserve the final aspect ratios and can later be replaced without changing the layout.
+
+Start by reading, in this exact order:
+
+1. `prompt-pack/01_MASTER_BUILD_BRIEF.md`
+2. `canonical-copy-bank/21_DESIGN_SYSTEM.md`
+3. `canonical-copy-bank/19_COPY_STYLE_GUIDE.md`
+4. `canonical-copy-bank/20_FACT_CHECKLIST.md`
+5. `prompt-pack/03_ROUTE_MAP.md`
+6. `prompt-pack/04_COMPONENT_MAP.md`
+7. `prompt-pack/05_CONTENT_SEEDING_RULES.md`
+8. `prompt-pack/08_STRIPE_COMMERCE.md`
+9. `seed-data/site.json`, `navigation.json`, `products.json`, `assets.json`, and `seo.json`
+10. all page-specific Markdown files in `canonical-copy-bank/`
+
+Then build the entire site using Next.js App Router + TypeScript.
+
+Non-negotiable requirements:
+
+- Build every route and link it correctly.
+- Seed the actual approved copy from the Markdown files. No lorem ipsum.
+- Use the design tokens, typography, spacing, cards, CTA hierarchy and responsive behavior defined in `21_DESIGN_SYSTEM.md`.
+- The site must be fully responsive across mobile, tablet, desktop and wide desktop.
+- Do **not** implement dark mode or a theme toggle. This is a light-theme-only website.
+- Use designed image placeholders only. Do not generate or invent final visual assets.
+- The placeholders must look intentional and presentation-ready, not like empty developer boxes.
+- Keep Wipeband.com direct purchase as the primary purchase path and Amazon visually secondary.
+- Implement a lightweight cart and a safe server-side Stripe Checkout scaffold using environment variables. Never fake a successful payment.
+- Do not invent unresolved facts listed in `20_FACT_CHECKLIST.md`.
+- Keep campaign pages out of primary navigation and mark them `noindex`.
+
+Motion and interaction are part of the intended final experience.
+
+Use Framer Motion where appropriate for:
+- micro-interactions
+- button/card hover and press behavior
+- section reveal animations
+- staggered content entrances
+- refined mobile-menu and cart transitions
+- subtle scroll-triggered storytelling motion
+- page/route transitions
+
+Keep motion elegant and restrained. Avoid scroll-jacking, excessive parallax, continuous bouncing, long intro sequences, or anything that delays access to content. Respect `prefers-reduced-motion`.
+
+If the scope is too large for a single internal pass, execute in this order:
+1. complete every page and responsive layout
+2. complete navigation, cart and Stripe scaffold
+3. add core micro-interactions
+4. add scroll/reveal animations
+5. add page transitions and final motion polish
+
+Do not treat steps 3–5 as optional future work. They are in scope for the finished build.
+
+Do not stop after scaffolding. When implementation is complete, run the checklist in `prompt-pack/09_ACCEPTANCE_CHECKLIST.md`, fix issues, run build/typecheck/lint, and only then give me a concise handoff report containing:
+- what is complete
+- required environment variables
+- unresolved factual placeholders
+- any approved-copy changes you had to make
+- any remaining implementation risks
+
+Preserve the supplied copy unless a tiny implementation-specific microcopy change is necessary. If you change approved copy, list every change explicitly in your handoff.

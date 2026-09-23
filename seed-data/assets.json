@@ -1,0 +1,56 @@
+{
+  "policy": "Placeholders only in this build. Final visuals supplied later.",
+  "home": [
+    {
+      "path": "/assets/lifestyle/home_hero_child-using-wipeband_desktop.webp",
+      "ratio": "16:10",
+      "role": "hero lifestyle"
+    },
+    {
+      "path": "/assets/lifestyle/home_hero_child-using-wipeband_mobile.webp",
+      "ratio": "4:5",
+      "role": "mobile hero lifestyle"
+    },
+    {
+      "path": "/assets/product/home_hero_wipeband-product.webp",
+      "ratio": "1:1",
+      "role": "hero product close-up"
+    },
+    {
+      "path": "/assets/lifestyle/home_howitworks_wear.webp",
+      "ratio": "4:3",
+      "role": "wear step"
+    },
+    {
+      "path": "/assets/lifestyle/home_howitworks_wipe.webp",
+      "ratio": "4:3",
+      "role": "wipe step"
+    },
+    {
+      "path": "/assets/lifestyle/home_howitworks_tear.webp",
+      "ratio": "4:3",
+      "role": "tear step"
+    },
+    {
+      "path": "/assets/product/home_features_exploded-product.webp",
+      "ratio": "4:3",
+      "role": "product engineering"
+    },
+    {
+      "path": "/assets/lifestyle/home_usecase_school.webp",
+      "ratio": "4:3",
+      "role": "school"
+    },
+    {
+      "path": "/assets/lifestyle/home_usecase_playdate.webp",
+      "ratio": "4:3",
+      "role": "playdate"
+    },
+    {
+      "path": "/assets/lifestyle/home_usecase_travel.webp",
+      "ratio": "4:3",
+      "role": "travel"
+    }
+  ],
+  "criticalFutureRule": "If Wipeband is shown wiping a nose, the tissue surface must face and naturally contact the nose."
+}

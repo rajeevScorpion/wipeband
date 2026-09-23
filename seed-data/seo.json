@@ -1,0 +1,54 @@
+{
+  "/": {
+    "title": "Wipeband",
+    "description": "A refillable wearable tissue band designed to keep a tissue within reach for school, travel, play and everyday life."
+  },
+  "/how-it-works": {
+    "title": "How Wipeband Works",
+    "description": "See the simple Wear It. Wipe It. Tear It. routine and learn how the reusable Wipeband and replacement tissue packs work."
+  },
+  "/shop": {
+    "title": "Shop Wipeband",
+    "description": "Shop the Wipeband Starter Kit, Family Bundle and replacement tissue refills."
+  },
+  "/refills": {
+    "title": "Wipeband Refills",
+    "description": "Keep the band and refresh the tissues with replacement Wipeband tissue packs."
+  },
+  "/our-story": {
+    "title": "Our Story | Wipeband",
+    "description": "Learn how an everyday parent observation led to the idea behind Wipeband."
+  },
+  "/faq": {
+    "title": "Wipeband FAQ",
+    "description": "Answers about using Wipeband, refills, fit, orders, shipping and support."
+  },
+  "/schools": {
+    "title": "Schools & Bulk Orders | Wipeband",
+    "description": "Explore Wipeband options for schools, daycares, camps and group orders."
+  },
+  "/contact": {
+    "title": "Contact Wipeband",
+    "description": "Get help with Wipeband products, orders, refills and bulk enquiries."
+  },
+  "/feedback": {
+    "title": "Wipeband Feedback",
+    "description": "Share a product issue, compliment, suggestion or general feedback with Wipeband."
+  },
+  "/track-order": {
+    "title": "Track Your Wipeband Order",
+    "description": "Check the status of a direct Wipeband order."
+  },
+  "/shipping-returns": {
+    "title": "Shipping & Returns | Wipeband",
+    "description": "Review Wipeband shipping, return and refund information."
+  },
+  "/privacy-policy": {
+    "title": "Privacy Policy | Wipeband",
+    "description": "Wipeband privacy policy."
+  },
+  "/terms-conditions": {
+    "title": "Terms & Conditions | Wipeband",
+    "description": "Wipeband website and purchase terms."
+  }
+}

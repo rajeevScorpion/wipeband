@@ -1,0 +1,15 @@
+{
+  "brand": "Wipeband",
+  "tagline": "Little everyday moments. A little less mess.",
+  "supportEmail": "support@wipeband.com",
+  "primaryPurchaseChannel": "direct",
+  "secondaryPurchaseChannel": "amazon",
+  "implementation": {
+    "framework": "Next.js",
+    "router": "App Router",
+    "language": "TypeScript",
+    "checkout": "Stripe Checkout scaffold",
+    "visualAssets": "placeholders until approved assets are supplied"
+  },
+  "factsStatus": "See canonical-copy-bank/20_FACT_CHECKLIST.md"
+}
