@@ -1,6 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+
+import Image from 'next/image';
 
 interface PlaceholderMediaProps {
   assetId: string;
@@ -20,9 +22,11 @@ export function PlaceholderMedia({
   className = '',
   category = 'lifestyle',
   stepNumber,
-  calloutText,
   children,
 }: PlaceholderMediaProps) {
+  const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   const aspectClasses = {
     '1:1': 'aspect-square',
     '4:3': 'aspect-[4/3]',
@@ -32,6 +36,13 @@ export function PlaceholderMedia({
     '21:9': 'aspect-[21/9]',
     '3:2': 'aspect-[3/2]',
   };
+
+  // Determine potential file path in /public/assets/...
+  const imageSrc = assetId.startsWith('/')
+    ? assetId
+    : category === 'product' || category === 'explainer'
+    ? `/assets/product/${assetId}`
+    : `/assets/lifestyle/${assetId}`;
 
   // Render stylized SVG compositions matching the landing page art style
   const renderVisualContent = () => {
@@ -176,18 +187,37 @@ export function PlaceholderMedia({
       data-asset-id={assetId}
       aria-label={alt}
     >
-      {/* Visual representation */}
-      {renderVisualContent()}
+      {/* Real image if placed in /public/assets/... */}
+      {!imageError && (
+        <Image
+          src={imageSrc}
+          alt={alt}
+          fill
+          referrerPolicy="no-referrer"
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageError(true)}
+          className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+            imageLoaded ? 'opacity-100 z-10' : 'opacity-0'
+          }`}
+        />
+      )}
+
+      {/* Stylized visual fallback if image file not loaded */}
+      {(!imageLoaded || imageError) && (
+        <div className="w-full h-full transition-transform duration-500 group-hover:scale-105">
+          {renderVisualContent()}
+        </div>
+      )}
 
       {/* Step number badge if provided */}
       {stepNumber && (
-        <div className="absolute top-3 left-3 w-8 h-8 rounded-full bg-[#62B44A] text-white font-heading font-black text-sm flex items-center justify-center shadow-md">
+        <div className="absolute top-3 left-3 z-20 w-8 h-8 rounded-full bg-[#62B44A] text-white font-heading font-black text-sm flex items-center justify-center shadow-md">
           {stepNumber}
         </div>
       )}
 
       {/* Asset Identifier Badge (subtle, non-intrusive metadata per brief) */}
-      <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm text-[10px] font-mono text-white/90 opacity-40 group-hover:opacity-100 transition-opacity select-none pointer-events-none">
+      <div className="absolute bottom-2 right-2 z-20 px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm text-[10px] font-mono text-white/90 opacity-40 group-hover:opacity-100 transition-opacity select-none pointer-events-none">
         {assetId}
       </div>
     </div>

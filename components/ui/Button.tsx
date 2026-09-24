@@ -23,7 +23,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center font-heading font-bold rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.98] select-none cursor-pointer';
+    'inline-flex items-center justify-center font-heading font-bold rounded-full transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.96] select-none cursor-pointer hover:-translate-y-0.5';
 
   const sizeStyles = {
     sm: 'text-sm px-4 py-2 min-h-[38px]',
@@ -33,17 +33,17 @@ export function Button({
 
   const variantStyles = {
     primary:
-      'bg-teal-700 hover:bg-teal-800 text-white shadow-sm hover:shadow-md focus-visible:ring-teal-700',
+      'bg-teal-700 hover:bg-teal-800 text-white shadow-sm hover:shadow-md focus-visible:ring-teal-700 active:bg-teal-900',
     secondary:
       'bg-teal-700/10 hover:bg-teal-700/15 text-teal-800 focus-visible:ring-teal-700',
     outline:
       'border-2 border-teal-700 text-teal-700 hover:bg-teal-700/5 focus-visible:ring-teal-700',
     amazon:
-      'bg-teal-800 hover:bg-teal-900 text-white/95 focus-visible:ring-teal-800 border border-teal-700/40',
+      'bg-teal-800 hover:bg-teal-900 text-white/95 focus-visible:ring-teal-800 border border-teal-700/40 shadow-sm hover:shadow-md',
     white:
       'bg-white text-teal-800 hover:bg-offwhite shadow-sm hover:shadow-md focus-visible:ring-white',
     ghost:
-      'text-teal-700 hover:bg-teal-50 focus-visible:ring-teal-700',
+      'text-teal-700 hover:bg-teal-50 focus-visible:ring-teal-700 hover:translate-y-0',
   };
 
   const widthStyle = fullWidth ? 'w-full' : '';
