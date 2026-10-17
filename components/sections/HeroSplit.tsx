@@ -8,14 +8,18 @@ import { Button } from '@/components/ui/Button';
 import { PlaceholderMedia } from '@/components/ui/PlaceholderMedia';
 import { useCart } from '@/lib/cart';
 import { STARTER_KIT_PRODUCT } from '@/lib/products';
-import { SITE_CONFIG } from '@/lib/site';
+
+const PATTERN_SWATCHES: Record<string, string> = {
+  dinosaur: '#62B44A',
+  unicorn: '#F36F6B',
+  'wonder-wings': '#3BA59B',
+};
 
 export function HeroSplit() {
   const { selectedPattern, setSelectedPattern, addStarterKit } = useCart();
   const [justAdded, setJustAdded] = useState(false);
 
   const variants = STARTER_KIT_PRODUCT.variants || [];
-  const activeVariant = variants.find((v) => v.id === selectedPattern) || variants[0];
 
   const handleHeroAddToCart = () => {
     addStarterKit(selectedPattern, 1);
@@ -24,129 +28,122 @@ export function HeroSplit() {
   };
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16 bg-white border-b border-border/60">
-      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Text & Direct Purchase Column */}
+    <section className="relative overflow-hidden pt-10 pb-8 lg:pt-16 lg:pb-10 bg-gradient-to-br from-[#FFFDF9] via-[#FFF6EC] to-[#EDF9F6] border-b border-teal-900/10">
+      {/* Warm playful ambient color washes */}
+      <div className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#F57642]/10 blur-3xl" />
+      <div className="pointer-events-none absolute top-1/3 right-0 w-96 h-96 rounded-full bg-[#62B44A]/12 blur-3xl" />
+
+      <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column: Strict 3-Tier Typographic Hierarchy (Headline -> Lead -> Action) */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 space-y-5"
+            className="lg:col-span-6 space-y-7"
           >
-            <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-heading font-bold text-teal-800">
-              <span>Wear → Wipe → Tear</span>
-              <span aria-hidden="true" className="text-teal-700/40">·</span>
-              <span className="text-green-700">Designed for kids ages 2–6.</span>
-            </div>
-
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-[3.4rem] font-black text-teal-900 tracking-tight leading-[1.08] text-balance">
-              No more wiping runny noses on sleeves.
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-[3.65rem] font-black text-teal-950 tracking-[-0.03em] leading-[1.06] text-balance">
+              No more wiping runny noses{' '}
+              <span className="text-[#F57642] relative inline-block">
+                on sleeves.
+                <svg
+                  className="absolute -bottom-1.5 left-0 w-full h-2.5 text-[#62B44A]/70"
+                  viewBox="0 0 200 10"
+                  fill="none"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M3 7 Q100 1 197 6"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
             </h1>
 
-            <div className="space-y-2 max-w-xl">
-              <p className="font-heading text-xl sm:text-2xl font-extrabold text-teal-800 leading-snug">
-                Meet Wipeband, the wearable tissue for little ones.
-              </p>
-              <p className="text-base sm:text-lg text-ink/80 leading-relaxed">
-                Soft, refillable tissues worn right on their wrist, so kids can wipe their nose wherever they are.
-              </p>
-            </div>
+            <p className="text-lg sm:text-xl text-teal-950/75 font-normal leading-relaxed max-w-lg">
+              Meet Wipeband — soft, refillable tissues worn right on their wrist, so little ones can wipe their nose wherever they are.
+            </p>
 
-            {/* Inline Pattern Selector */}
-            <div className="pt-2 space-y-2.5">
-              <div className="flex items-center justify-between max-w-md">
-                <span className="text-xs font-heading font-bold text-teal-900">
-                  Choose Starter Kit pattern ({STARTER_KIT_PRODUCT.tagline}):
-                </span>
-                <span className="text-xs font-semibold text-green-700">
-                  {activeVariant?.name}
-                </span>
-              </div>
-
-              <div className="inline-flex flex-wrap items-center gap-2 p-1.5 bg-[#F4F8F6] rounded-2xl border border-teal-700/10">
+            {/* Clean Swatch Selector + Primary Purchase Action */}
+            <div className="space-y-4 pt-1">
+              <div className="inline-flex flex-wrap items-center gap-2 p-1.5 bg-white/90 backdrop-blur-md rounded-2xl border border-teal-900/10 shadow-xs">
                 {variants.map((v) => {
                   const isSelected = selectedPattern === v.id;
+                  const swatchColor = PATTERN_SWATCHES[v.id] || '#62B44A';
                   return (
                     <button
                       key={v.id}
                       type="button"
                       onClick={() => setSelectedPattern(v.id)}
-                      className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-heading font-bold transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer whitespace-nowrap shrink-0 ${
                         isSelected
-                          ? 'bg-white text-teal-900 shadow-sm border border-teal-700/20'
-                          : 'text-ink/70 hover:text-teal-900'
+                          ? 'bg-teal-950 text-white shadow-xs'
+                          : 'text-teal-950/75 hover:text-teal-950 hover:bg-teal-900/5'
                       }`}
                     >
-                      {v.name}
+                      <span
+                        className="w-2.5 h-2.5 rounded-full shrink-0"
+                        style={{ backgroundColor: swatchColor }}
+                      />
+                      <span>{v.name}</span>
                     </button>
                   );
                 })}
               </div>
-            </div>
 
-            {/* Primary CTA + Secondary How It Works Anchor */}
-            <div className="flex flex-wrap items-center gap-4 pt-1">
-              <Button
-                onClick={handleHeroAddToCart}
-                variant="primary"
-                size="lg"
-                className="whitespace-nowrap shrink-0 shadow-md"
-              >
-                {justAdded ? (
-                  <span className="inline-flex items-center gap-1.5">
-                    <Check className="w-4 h-4" /> Added to Cart — ${STARTER_KIT_PRODUCT.price.toFixed(2)}
-                  </span>
-                ) : (
-                  `Add to Cart — $${STARTER_KIT_PRODUCT.price.toFixed(2)}`
-                )}
-              </Button>
+              <div className="flex flex-wrap items-center gap-5">
+                <Button
+                  onClick={handleHeroAddToCart}
+                  variant="primary"
+                  size="lg"
+                  className="whitespace-nowrap shrink-0 bg-[#F57642] hover:bg-[#E0632F] text-white border-0 shadow-[0_10px_24px_rgba(245,118,66,0.28)] px-8"
+                >
+                  {justAdded ? (
+                    <span className="inline-flex items-center gap-2">
+                      <Check className="w-5 h-5" /> Added — ${STARTER_KIT_PRODUCT.price.toFixed(2)}
+                    </span>
+                  ) : (
+                    `Add to Cart — $${STARTER_KIT_PRODUCT.price.toFixed(2)}`
+                  )}
+                </Button>
 
-              <Link
-                href="#how-it-works"
-                className="inline-flex items-center text-teal-800 font-heading font-bold hover:text-green-600 transition-colors text-sm sm:text-base px-3 py-2 whitespace-nowrap shrink-0 group"
-              >
-                See how it works
-                <ArrowDown className="w-4 h-4 ml-1.5 transform group-hover:translate-y-0.5 transition-transform duration-150" />
-              </Link>
-            </div>
-
-            {/* Tertiary Amazon link */}
-            <div className="pt-1">
-              <a
-                href={SITE_CONFIG.amazonStarterKitUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-xs sm:text-sm font-medium text-muted hover:text-teal-800 underline underline-offset-4 transition-colors"
-              >
-                Prefer Amazon? Buy here →
-              </a>
+                <span className="text-sm text-teal-950/65 font-medium">
+                  1 reusable band + 30 fresh wipes
+                </span>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right Visual Column: Hero Silent Loop Video Slot with Poster Fallback */}
+          {/* Right Visual Column */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative mx-auto max-w-lg lg:max-w-none">
+            <div className="relative mx-auto max-w-lg lg:max-w-none p-2.5 rounded-[2rem] bg-white/80 backdrop-blur-sm border border-teal-900/10 shadow-[0_20px_50px_rgba(10,77,87,0.08)]">
               <PlaceholderMedia
                 assetId="home_hero_usage_loop.mp4"
                 alt="Child wearing Wipeband on wrist and wiping nose on the top soft tissue layer"
                 aspectRatio="16:10"
                 category="video"
-                className="shadow-hover rounded-3xl"
+                className="rounded-[1.5rem]"
               />
-              <div className="mt-3 flex items-center justify-between px-2 text-xs text-ink/70">
-                <span>1 reusable Wipeband + 5 soft tissue packs (30 wipes)</span>
-                <span className="font-heading font-bold text-teal-800 tabular-nums">
-                  ${STARTER_KIT_PRODUCT.price.toFixed(2)}
-                </span>
-              </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Centered "See how it works" Scroll Cue just above the bottom divider line */}
+        <div className="mt-10 lg:mt-12 flex justify-center">
+          <Link
+            href="#how-it-works"
+            className="inline-flex items-center gap-2 text-sm font-medium text-teal-950/65 hover:text-teal-950 transition-colors py-1.5 px-4 rounded-full hover:bg-teal-900/5 group"
+          >
+            <span>See how it works</span>
+            <ArrowDown className="w-4 h-4 text-[#F57642] transform group-hover:translate-y-0.5 transition-transform duration-200" />
+          </Link>
         </div>
       </div>
     </section>
