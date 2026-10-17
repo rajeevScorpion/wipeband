@@ -1,10 +1,24 @@
 export const SITE_CONFIG = {
   name: 'Wipeband',
   legalEntity: 'Atah Life LLC',
-  tagline: 'Little everyday moments. A little less mess.',
-  announcement: 'Little everyday moments. A little less mess.',
+  tagline: 'The tissue little noses can actually reach.',
+  announcement: 'Meet Wipeband, the wearable tissue for little ones (ages 2–6).',
   supportEmail: 'support@wipeband.com',
   patentNotice: 'U.S. Patent 12,383,048',
+  tianaUrl: 'https://tianaswebsite.com/',
+  amazonStarterKitUrl:
+    process.env.NEXT_PUBLIC_AMAZON_STARTER_KIT_URL ||
+    'https://www.amazon.com/dp/B0WIPEBAND1',
+  amazonRefillsUrl:
+    process.env.NEXT_PUBLIC_AMAZON_REFILLS_URL ||
+    'https://www.amazon.com/dp/B0WIPEREFILL10',
+  trustSignals: [
+    'Soft, kid-friendly silicone',
+    '30-day returns',
+    'Secure checkout',
+    'Refillable and reusable',
+    'Patented design',
+  ],
   primaryNav: [
     { label: 'How it works', href: '/how-it-works' },
     { label: 'Shop', href: '/shop' },
@@ -15,10 +29,13 @@ export const SITE_CONFIG = {
   footerNav: {
     shop: [
       { label: 'Wipeband Starter Kit', href: '/products/wipeband-starter-kit' },
-      { label: 'Family Bundle', href: '/products/family-bundle' },
       { label: 'Tissue Refills', href: '/products/tissue-refills' },
       { label: 'Shop All', href: '/shop' },
-      { label: 'Shop on Amazon', href: 'https://www.amazon.com/dp/placeholder-starter-kit', isExternal: true },
+      {
+        label: 'Prefer Amazon? Buy here →',
+        href: 'https://www.amazon.com/dp/B0WIPEBAND1',
+        isExternal: true,
+      },
     ],
     help: [
       { label: 'FAQ', href: '/faq' },
@@ -41,5 +58,5 @@ export const SITE_CONFIG = {
     { label: 'Instagram', href: 'https://instagram.com/wipeband' },
     { label: 'Facebook', href: 'https://facebook.com/wipeband' },
     { label: 'YouTube', href: 'https://youtube.com/@wipeband' },
-  ]
+  ],
 };

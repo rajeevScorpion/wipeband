@@ -3,9 +3,10 @@ import Stripe from 'stripe';
 
 const ALLOWED_PRICE_MAP: Record<string, string | undefined> = {
   'wipeband-starter-kit': process.env.STRIPE_PRICE_STARTER_KIT,
-  'family-bundle': process.env.STRIPE_PRICE_FAMILY_BUNDLE,
   'tissue-refills': process.env.STRIPE_PRICE_REFILLS,
 };
+
+const ALLOWED_VARIANTS = new Set(['dinosaur', 'unicorn', 'wonder-wings']);
 
 export async function POST(req: Request) {
   try {
@@ -18,13 +19,33 @@ export async function POST(req: Request) {
       );
     }
 
+    for (const item of items) {
+      if (!(item.slug in ALLOWED_PRICE_MAP)) {
+        return NextResponse.json(
+          { error: `Product '${item.slug}' is not currently available for direct checkout.` },
+          { status: 400 }
+        );
+      }
+      if (
+        item.slug === 'wipeband-starter-kit' &&
+        item.variantId &&
+        !ALLOWED_VARIANTS.has(item.variantId)
+      ) {
+        return NextResponse.json(
+          { error: `Invalid pattern variant '${item.variantId}' selected.` },
+          { status: 400 }
+        );
+      }
+    }
+
     const secretKey = process.env.STRIPE_SECRET_KEY;
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
     if (!secretKey) {
       return NextResponse.json({
         configured: false,
-        message: 'Stripe is currently in scaffold mode. Set STRIPE_SECRET_KEY and price IDs in environment variables to enable live payments.',
+        message:
+          'Stripe checkout is in scaffold mode until live keys are configured in environment variables.',
       });
     }
 

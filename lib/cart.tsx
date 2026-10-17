@@ -2,10 +2,12 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { CartItem } from './types';
+import { STARTER_KIT_PRODUCT, ACTIVE_PRODUCTS } from './products';
 
 interface CartContextType {
   items: CartItem[];
   addItem: (item: Omit<CartItem, 'quantity'> & { quantity?: number }) => void;
+  addStarterKit: (variantId?: string, quantity?: number) => void;
   removeItem: (productId: string, variantId?: string) => void;
   updateQuantity: (productId: string, quantity: number, variantId?: string) => void;
   clearCart: () => void;
@@ -13,20 +15,27 @@ interface CartContextType {
   totalItems: number;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
+  selectedPattern: string;
+  setSelectedPattern: (patternId: string) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
+
+const ALLOWED_SLUGS = new Set(ACTIVE_PRODUCTS.map((p) => p.slug));
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
+  const [selectedPattern, setSelectedPattern] = useState<string>('dinosaur');
 
   useEffect(() => {
     try {
       const saved = localStorage.getItem('wipeband_cart');
       if (saved) {
-        setItems(JSON.parse(saved));
+        const parsed: CartItem[] = JSON.parse(saved);
+        const validItems = parsed.filter((item) => ALLOWED_SLUGS.has(item.slug));
+        setItems(validItems);
       }
     } catch {
       // localStorage may fail in restricted iframe environments
@@ -44,6 +53,9 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, [items, hasLoaded]);
 
   const addItem = (newItem: Omit<CartItem, 'quantity'> & { quantity?: number }) => {
+    if (!ALLOWED_SLUGS.has(newItem.slug)) {
+      return;
+    }
     setItems((prev) => {
       const qtyToAdd = newItem.quantity || 1;
       const existingIndex = prev.findIndex(
@@ -57,6 +69,24 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       return [...prev, { ...newItem, quantity: qtyToAdd }];
     });
     setIsCartOpen(true);
+  };
+
+  const addStarterKit = (variantId?: string, quantity = 1) => {
+    const targetVariantId = variantId || selectedPattern || 'dinosaur';
+    const variantObj =
+      STARTER_KIT_PRODUCT.variants?.find((v) => v.id === targetVariantId) ||
+      STARTER_KIT_PRODUCT.variants?.[0];
+
+    addItem({
+      productId: STARTER_KIT_PRODUCT.id,
+      slug: STARTER_KIT_PRODUCT.slug,
+      name: STARTER_KIT_PRODUCT.name,
+      price: STARTER_KIT_PRODUCT.price,
+      quantity,
+      image: STARTER_KIT_PRODUCT.image,
+      variantId: variantObj?.id || 'dinosaur',
+      variantName: variantObj?.name || 'Dinosaur',
+    });
   };
 
   const removeItem = (productId: string, variantId?: string) => {
@@ -92,6 +122,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       value={{
         items,
         addItem,
+        addStarterKit,
         removeItem,
         updateQuantity,
         clearCart,
@@ -99,6 +130,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         totalItems,
         isCartOpen,
         setIsCartOpen,
+        selectedPattern,
+        setSelectedPattern,
       }}
     >
       {children}

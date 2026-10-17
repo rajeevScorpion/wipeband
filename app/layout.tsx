@@ -21,11 +21,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Wipeband — A soft, refillable tissue pad worn like a watch',
-  description: 'A soft, refillable tissue pad worn like a watch. Ready for school, travel and play. Keeps a tissue within reach for kids.',
+  title: 'Wipeband — Meet Wipeband, the wearable tissue for little ones (ages 2–6)',
+  description:
+    'No more wiping runny noses on sleeves. Soft, refillable tissues worn right on their wrist, so kids ages 2–6 can wipe their nose wherever they are.',
   openGraph: {
-    title: 'Wipeband — No more messy sleeves',
-    description: 'A soft, refillable tissue pad worn like a watch. Ready for school, travel and play.',
+    title: 'Wipeband — No more wiping runny noses on sleeves',
+    description:
+      'Meet Wipeband, the wearable tissue for little ones. Soft, refillable tissues worn right on their wrist (ages 2–6).',
     siteName: 'Wipeband',
     type: 'website',
   },
