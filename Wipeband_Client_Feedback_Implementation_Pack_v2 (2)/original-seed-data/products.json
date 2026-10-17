@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "wipeband-starter-kit",
+    "name": "Wipeband Starter Kit",
+    "type": "starter",
+    "canonicalCopy": "04_PRODUCT_STARTER_KIT.md",
+    "price": null,
+    "currency": "USD",
+    "stripePriceEnv": "STRIPE_PRICE_STARTER_KIT",
+    "amazonUrlEnv": "NEXT_PUBLIC_AMAZON_STARTER_KIT_URL",
+    "image": "/assets/product/product_starter-kit_hero.webp",
+    "status": "commercial-details-required"
+  },
+  {
+    "slug": "family-bundle",
+    "name": "Wipeband Family Bundle",
+    "type": "bundle",
+    "canonicalCopy": "05_PRODUCT_FAMILY_BUNDLE.md",
+    "price": null,
+    "currency": "USD",
+    "stripePriceEnv": "STRIPE_PRICE_FAMILY_BUNDLE",
+    "amazonUrlEnv": null,
+    "image": "/assets/product/product_family-bundle_hero.webp",
+    "status": "commercial-configuration-required"
+  },
+  {
+    "slug": "tissue-refills",
+    "name": "Wipeband Tissue Refills",
+    "type": "refill",
+    "canonicalCopy": "06_PRODUCT_REFILLS.md",
+    "price": null,
+    "currency": "USD",
+    "stripePriceEnv": "STRIPE_PRICE_REFILLS",
+    "amazonUrlEnv": "NEXT_PUBLIC_AMAZON_REFILLS_URL",
+    "image": "/assets/product/product_refills_hero.webp",
+    "status": "commercial-details-required"
+  }
+]

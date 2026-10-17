@@ -1,0 +1,128 @@
+[
+  {
+    "path": "/",
+    "source": "01_HOME.md",
+    "nav": "home",
+    "index": true
+  },
+  {
+    "path": "/how-it-works",
+    "source": "02_HOW_IT_WORKS.md",
+    "nav": "primary",
+    "index": true
+  },
+  {
+    "path": "/shop",
+    "source": "03_SHOP.md",
+    "nav": "primary",
+    "index": true
+  },
+  {
+    "path": "/products/wipeband-starter-kit",
+    "source": "04_PRODUCT_STARTER_KIT.md",
+    "nav": "product",
+    "index": true
+  },
+  {
+    "path": "/products/family-bundle",
+    "source": "05_PRODUCT_FAMILY_BUNDLE.md",
+    "nav": "product",
+    "index": true
+  },
+  {
+    "path": "/products/tissue-refills",
+    "source": "06_PRODUCT_REFILLS.md",
+    "nav": "product",
+    "index": true
+  },
+  {
+    "path": "/refills",
+    "source": "07_REFILLS.md",
+    "nav": "primary",
+    "index": true
+  },
+  {
+    "path": "/our-story",
+    "source": "08_OUR_STORY.md",
+    "nav": "primary",
+    "index": true
+  },
+  {
+    "path": "/faq",
+    "source": "09_FAQ.md",
+    "nav": "primary",
+    "index": true
+  },
+  {
+    "path": "/schools",
+    "source": "10_SCHOOLS_BULK.md",
+    "nav": "footer",
+    "index": true
+  },
+  {
+    "path": "/contact",
+    "source": "11_CONTACT_SUPPORT.md",
+    "nav": "footer",
+    "index": true
+  },
+  {
+    "path": "/feedback",
+    "source": "12_FEEDBACK.md",
+    "nav": "footer",
+    "index": true
+  },
+  {
+    "path": "/track-order",
+    "source": "13_TRACK_ORDER.md",
+    "nav": "footer",
+    "index": true
+  },
+  {
+    "path": "/shipping-returns",
+    "source": "14_SHIPPING_RETURNS.md",
+    "nav": "footer",
+    "index": true
+  },
+  {
+    "path": "/privacy-policy",
+    "source": "15_PRIVACY_POLICY.md",
+    "nav": "footer",
+    "index": true
+  },
+  {
+    "path": "/terms-conditions",
+    "source": "16_TERMS_CONDITIONS.md",
+    "nav": "footer",
+    "index": true
+  },
+  {
+    "path": "/cart",
+    "source": null,
+    "nav": "cart",
+    "index": false
+  },
+  {
+    "path": "/school",
+    "source": "17_CAMPAIGN_LANDING_TEMPLATE.md",
+    "nav": "campaign",
+    "index": false
+  },
+  {
+    "path": "/travel",
+    "source": "17_CAMPAIGN_LANDING_TEMPLATE.md",
+    "nav": "campaign",
+    "index": false
+  },
+  {
+    "path": "/cold-season",
+    "source": "17_CAMPAIGN_LANDING_TEMPLATE.md",
+    "nav": "campaign",
+    "index": false
+  },
+  {
+    "path": "/back-to-school",
+    "source": "17_CAMPAIGN_LANDING_TEMPLATE.md",
+    "nav": "campaign",
+    "index": false
+  }
+]

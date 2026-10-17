@@ -1,0 +1,24 @@
+ID,Client review item,Requested change,Observed before implementation,Action status,Implementation evidence,Client input / approval needed
+C01,1 — Hero clarity,"Explicit runny nose wearable-tissue explanation, stronger hero and clear practical CTA",Hero headline does not explicitly mention runny noses.,Pending — not implemented by this pack,,Need client media or placeholder
+C02,2 — First-screen simplicity,Remove/relocate early competing benefit strip,,Pending — not implemented by this pack,,No asset
+C03,3 — CTA hierarchy,Primary direct Add to Cart / Buy now with live price; tertiary Amazon text link,Amazon CTAs displayed beside direct CTAs.,Pending — not implemented by this pack,,Stripe/stock audit
+C04,4 — Move Wear Wipe Tear,Compact educational three-step immediately after hero,,Pending — not implemented by this pack,,Asset slots
+C05,5 — Short demo,6–10s silent loop near hero; optional reuse by purchase; fallback poster,No approved full 6–10s demo source confirmed.,Pending — not implemented by this pack,,Video or GIF supplied/approved
+C06,6 — Problem insight,Move short sleeve-vs-tissue comparison to homepage high up,,Pending — not implemented by this pack,,No asset
+C07,7 — Independence benefits,Cleaner / Independent / Ready below problem,,Pending — not implemented by this pack,,Wording proof
+C08,8 — Age positioning,Client asks 2–6; validate specification and apply consistently,"Live FAQ says 2 and up, conflict with client 2–6 request.",Pending — not implemented by this pack,,Conflicts with live 2+ wording
+C09,9 — Real reviews,Actual sourced Amazon/Instagram/customer quotes and direct source links; remove unverifiable proof,Named testimonial/verification badges shown without corroborating source supplied here.,Pending — not implemented by this pack,,Verified originals/permissions
+C10,10 — Trust beside Buy,"Soft silicone, returns, secure checkout, refillability, patent as approved",,Pending — not implemented by this pack,,Claim & policy confirmation
+C11,11 — Starter Kit purchase module,"Dominant 19.95 starter kit, 1+5 packs, 30 layers, pattern control, direct add cart",,Pending — not implemented by this pack,,Price and variants from real catalog
+C12,12 — Family Bundle remove,Hide bundle promotions; suspend sale until mechanics exist,Homepage has no bundle; Shop/product route still offers unverified bundle.,Pending — not implemented by this pack,,Current homepage already has only 2 options
+C13,13 — Visual six-layer explanation,Consumer benefit headline and removable layer visual,,Pending — not implemented by this pack,,Approved six-layer animation/visual
+C15,15 — Parent-friendly language,Simplify engineered terms and technical jargon,,Pending — not implemented by this pack,,No asset
+C16,16 — Less repetition,Shorten redundant sections and prevent duplicate selling points,,Pending — not implemented by this pack,,Content review
+C17,17 — Homepage order,Hero > demo > problem > benefits > layers > uses > reviews > starter > trust > FAQ > CTA,,Pending — not implemented by this pack,,Preserve SEO/accessibility
+C18,18 — Mobile sticky cart,Show price+Add to Cart after hero; avoid nav overlap,,Pending — not implemented by this pack,,Cart UI/state
+C19,19 — Direct pattern-to-cart,Select pattern + add to cart from homepage,,Pending — not implemented by this pack,,Server verified variant and availability
+C20,20 — Objection-led FAQ,"Answers on wear, used tissue, age, wipes, fit, washing, returns",,Pending — not implemented by this pack,,Age/returns/care facts
+C21,21 — UGC after use cases,"3–4 authentic vertical clips/photos, links and captions",,Pending — not implemented by this pack,,Source/permission
+C22,22 — Brand payoff,"Promote within-reach line, demote cleaner sleeves to supporting line",,Pending — not implemented by this pack,,No asset
+C23,23 — Founder humanity,"Add Why we invented, Sachin+Tiana, relevant source/link",,Pending — not implemented by this pack,,Client-approved exact inventor bios
+C24,24 — Core customer question,Consistently explain why a wearable tissue matters vs ordinary tissue,,Pending — not implemented by this pack,,No asset

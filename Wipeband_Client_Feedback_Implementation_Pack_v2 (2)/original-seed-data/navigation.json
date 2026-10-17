@@ -1,0 +1,98 @@
+{
+  "primary": [
+    {
+      "label": "How It Works",
+      "href": "/how-it-works"
+    },
+    {
+      "label": "Shop",
+      "href": "/shop"
+    },
+    {
+      "label": "Refills",
+      "href": "/refills"
+    },
+    {
+      "label": "Our Story",
+      "href": "/our-story"
+    },
+    {
+      "label": "FAQ",
+      "href": "/faq"
+    }
+  ],
+  "cart": {
+    "label": "Cart",
+    "href": "/cart"
+  },
+  "footer": {
+    "Shop": [
+      {
+        "label": "Wipeband Starter Kit",
+        "href": "/products/wipeband-starter-kit"
+      },
+      {
+        "label": "Family Bundle",
+        "href": "/products/family-bundle"
+      },
+      {
+        "label": "Refills",
+        "href": "/products/tissue-refills"
+      },
+      {
+        "label": "Shop All",
+        "href": "/shop"
+      },
+      {
+        "label": "Amazon",
+        "href": "__CONFIG_AMAZON__"
+      }
+    ],
+    "Help": [
+      {
+        "label": "FAQ",
+        "href": "/faq"
+      },
+      {
+        "label": "Contact Us",
+        "href": "/contact"
+      },
+      {
+        "label": "Track Order",
+        "href": "/track-order"
+      },
+      {
+        "label": "Shipping & Returns",
+        "href": "/shipping-returns"
+      }
+    ],
+    "About": [
+      {
+        "label": "Our Story",
+        "href": "/our-story"
+      },
+      {
+        "label": "Schools & Bulk Orders",
+        "href": "/schools"
+      },
+      {
+        "label": "Feedback",
+        "href": "/feedback"
+      }
+    ],
+    "Legal": [
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy-policy"
+      },
+      {
+        "label": "Terms & Conditions",
+        "href": "/terms-conditions"
+      },
+      {
+        "label": "Refund Policy",
+        "href": "/shipping-returns#returns"
+      }
+    ]
+  }
+}
