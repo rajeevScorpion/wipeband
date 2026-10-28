@@ -44,3 +44,7 @@ Study 03 reuses the full study-02 review frame, refreshed with the current
 local v2 page and approved teal corrections. No frozen template is approved.
 Original image assets are unchanged; mockup embeds WebP copies.
 Review at http://localhost:3011/hero-options.html .
+
+Study 03 revision: full-viewport desktop preview without an outer box; Phone
+retains its frame. Smaller scene scale, larger product overlay. Use this desktop
+review convention for future website studies. Awaiting approval.

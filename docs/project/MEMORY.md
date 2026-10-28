@@ -52,3 +52,7 @@
   (teal-800), and matching teal tints. Why: orange violates the approved
   design system. Apply to headings, CTAs, navigation, icons and illustrations;
   do not reintroduce hardcoded #F57642/#E0632F in future visual work.
+
+- Website desktop mockups must span the viewport without an outer box, border,
+  radius or surrounding gutter. Keep inner content centered. A device frame is
+  appropriate only for the Phone preview (owner correction).

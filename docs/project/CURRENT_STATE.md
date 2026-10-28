@@ -130,3 +130,8 @@ three owner-supplied images, with two scene choices, product overlay and mint
 wave. Full page preserved; Desktop/Phone, Motion and notes controls available.
 Headless content/link fidelity, image rendering, safe demo actions and phone
 overflow checks passed. Awaiting image/composition choice; app source unchanged.
+
+Hero study 03 revised: desktop preview is edge-to-edge; phone frame retained.
+Classroom artwork is scaled down to fit the hero, and product overlay increased
+from 320px to 440px desktop (210px to 270px phone). Full-width, phone overflow
+and content fidelity checks passed. Still a mockup; application unchanged.

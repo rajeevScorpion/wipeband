@@ -59,3 +59,7 @@ Owner requested two supplied hero scenes, transparent product overlay and fluid
 wave. Built as a standalone mockup; no live hero changes. Await owner selection.
 Preview server: Python loopback port 3011 (exec session 58067). Source assets in
 public/assets/sections remain owner-supplied untracked files.
+
+Study 03 latest revision removes the desktop outer frame, reduces the classroom
+scene scale and enlarges the product overlay. Same preview URL. Preserve this
+full-width desktop review convention for subsequent website mockups.
