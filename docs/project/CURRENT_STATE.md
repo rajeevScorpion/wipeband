@@ -8,7 +8,7 @@ Baseline correction: local main now integrates GitHub main at cb2e76d (including
 f682182 checkout/feedback implementation) with our shared tooling. The old local
 base was f49359f. All assessments/mockups made on that old base are historical,
 not the current storefront baseline. App source is origin/main plus the approved
-primary-CTA token correction described below.
+approved teal corrections and implemented hero study 03 described below.
 
 Existing Wipeband website repository with Next.js 14, React 18, Tailwind,
 motion libraries, and Stripe dependency, as declared in package.json.
@@ -169,3 +169,19 @@ Hero right fade now uses a feathered elliptical radial mask instead of a
 straight linear fade, retaining the bottom edge mask. This creates a rounded
 organic boundary while preserving the boy and wristband. Content checks pass
 at three desktop widths; 1920px screenshot inspected.
+
+## Approved hero implemented
+
+Owner approved study 03 and requested the build. HeroSplit now uses the wider
+classroom image, organic rounded right fade, responsive wave, enlarged product
+beside the CTA, gentle levitation and ground shadow. Single action: Add to Cart
+$19.95; supporting labels/secondary link removed as approved. Next Image serves
+responsive assets. Existing pattern/cart logic retained; pressed state and
+reduced-motion support included. Remaining sections and header unchanged.
+
+Validation: lint/TypeScript pass; production build generates 27/27 pages.
+Headless checks pass at 375/700/768/1440/1920/2547px: images render, no horizontal
+overflow, exact CTA, Unicorn selection reaches cart at $19.95, persisted cart
+survives refresh, reduced motion disables levitation, no browser errors. Desktop
+and mobile screenshots inspected; mobile overlay shifted away from wristband.
+Served locally at http://localhost:3000/ using production server. No push/deploy.

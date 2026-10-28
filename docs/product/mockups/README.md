@@ -14,7 +14,7 @@ changing storefront content/order and for an underdeveloped admin workflow.
 
 | Mockup | Local artifact | Status | Date | Decisions |
 |---|---|---|---|---|
-| Hero image comparison 03 | [Two-option review](hero-options.html) | Draft | 2026-10-28 | Supplied hero options 1/2, transparent product overlay, mint wave. Current v2 capture; Desktop/Phone and Motion controls. |
+| Hero image comparison 03 | [Two-option review](hero-options.html) | Built locally | 2026-10-28 | Supplied hero options 1/2, transparent product overlay, mint wave. Current v2 capture; Desktop/Phone and Motion controls. |
 | Landing page visual study 02 | [Historical prototype](storefront-operations.html) | Obsolete — stale app baseline | 2026-10-28 | Content audit passed against f49359f, not the newer deployment. Rebuild from v2 before review. |
 | Storefront + admin study 01 | [Archived first draft](archive/storefront-operations-v1.html) | Rejected | 2026-10-28 | Storefront content/order must not change. Admin requires a separate, considered operational design. |
 
@@ -50,3 +50,8 @@ retains its frame. Smaller scene scale, larger product overlay. Use this desktop
 review convention for future website studies. Awaiting approval.
 
 Option 1 now uses Hero_option_01-wider.png with its natural desktop fade.
+
+Approved hero implemented in HeroSplit.tsx and HeroSplit.module.css.
+Review frame source: src/hero-review.html (approved full-width desktop frame);
+use it for future website reviews, refreshing captured content from the current
+site. The saved hero-options.html is the agreed historical design spec.

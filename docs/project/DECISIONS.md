@@ -51,3 +51,7 @@
   were unchanged by merge; cb2e76d added orange per-instance overrides. Removed
   those overrides on hero and starter purchase buttons. Verified normal #0A4D57
   and hover #073B43 in the browser; no copy, layout or global token changes.
+
+- 2026-10-28: Owner approved hero study 03 for implementation. Use wider option 1,
+  rounded gradual right fade, mint wave, floating product near Add to Cart, and
+  single clean price-bearing CTA. Preserve actual cart behavior and other sections.
