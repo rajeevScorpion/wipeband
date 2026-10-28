@@ -211,3 +211,11 @@ No composition or mobile changes; bottom mask remains.
 Minimal fade validation: production build passes (27/27), including lint/types.
 Computed desktop fade and rendered screenshot checked. Local server restarted;
 not pushed.
+
+Owner approved and authorized pushing the replacement image/minimal fade.
+Mockup rebuilt directly from current production-rendered page/CSS so the
+preview matches implementation. Embeds rendered images/fonts, retains image
+comparison and responsive controls, and pauses live commerce/navigation.
+Content fidelity, embedded images, option switching, safe CTA and phone overflow
+checks pass; desktop screenshot inspected. Remote fetched with no divergence.
+Push triggers Hostinger; deployment completion remains unverified.

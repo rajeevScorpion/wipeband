@@ -55,3 +55,9 @@ Approved hero implemented in HeroSplit.tsx and HeroSplit.module.css.
 Review frame source: src/hero-review.html (approved full-width desktop frame);
 use it for future website reviews, refreshing captured content from the current
 site. The saved hero-options.html is the agreed historical design spec.
+
+Latest synchronization: hero-options.html captures the actual built website,
+including revised wider image and minimal right-edge fade. Current generator
+embeds rendered images/fonts and uses captured production CSS; historic
+hero-treatment.css is no longer applied. hero-treatment.js supplies review-only
+controls and pauses live actions. Content/desktop/phone/image checks passed.

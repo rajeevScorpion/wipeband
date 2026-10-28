@@ -27,14 +27,6 @@ const data = (mime, buffer) => `data:${mime};base64,${buffer.toString('base64')}
       const norm = s => s.replace(/\s+/g, ' ').trim();
       return { sections: [...document.querySelectorAll('main section')].map(s => norm(s.textContent)), links: [...document.querySelectorAll('a')].map(a => ({ text: norm(a.textContent), href: a.getAttribute('href') })) };
     });
-    // Explicitly approved hero simplification; all other content remains unchanged.
-    baseline.sections[0] = baseline.sections[0]
-      .replace('1 reusable band + 30 fresh wipes', '')
-      .replace('WearWipeTear', '')
-      .replace('See how it works', '')
-      .replace(/Add to Cart\s*\u2014\s*/, 'Add to Cart ');
-    const heroLink = baseline.links.findIndex(a => a.href === '#how-it-works' && a.text === 'See how it works');
-    if (heroLink !== -1) baseline.links.splice(heroLink, 1);
     assert(baseline.sections.length > 5);
     const bodies = await page.evaluate(() => {
       const goodImages = new Set([...document.images].filter(el => el.complete && el.naturalWidth > 0).map(el => el.getAttribute('src')));
@@ -43,7 +35,15 @@ const data = (mime, buffer) => `data:${mime};base64,${buffer.toString('base64')}
       clone.querySelectorAll('main [style]').forEach(el => {
         if (el.style.opacity !== '') { el.style.opacity = '1'; el.style.transform = 'none'; }
       });
-      clone.querySelectorAll('img').forEach(el => { if (!goodImages.has(el.getAttribute('src'))) el.remove(); });
+      const encoded = new Map([...document.images].filter(i => i.complete && i.naturalWidth).map(i => {
+        const canvas = document.createElement('canvas'); canvas.width = i.naturalWidth; canvas.height = i.naturalHeight;
+        canvas.getContext('2d').drawImage(i, 0, 0); return [i.getAttribute('src'), canvas.toDataURL('image/webp', .94)];
+      }));
+      clone.querySelectorAll('img').forEach(el => {
+        const embedded = encoded.get(el.getAttribute('src'));
+        if (!embedded) { el.remove(); return; }
+        el.removeAttribute('srcset'); el.removeAttribute('sizes'); el.setAttribute('src', embedded);
+      });
       return { body: clone.outerHTML, css: [...document.querySelectorAll('link[rel="stylesheet"]')].map(el => el.href) };
     });
     let css = '';
@@ -68,7 +68,7 @@ const data = (mime, buffer) => `data:${mime};base64,${buffer.toString('base64')}
       const encode = async name => { const img = new Image(); img.src='/assets/sections/'+name; await img.decode(); const canvas=document.createElement('canvas'); canvas.width=img.naturalWidth; canvas.height=img.naturalHeight; canvas.getContext('2d').drawImage(img,0,0); return canvas.toDataURL('image/webp',.92); };
       return Promise.all(['Hero_option_01-wider.png','Hero_option_02.png'].map(encode));
     });
-    const document = `<!doctype html><html lang="en" class="${htmlAttrs}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><style>${read('hero-treatment.css') + ` .hero-study{--scene-one:url('${scenes[0]}');--scene-two:url('${scenes[1]}')}`}</style></head>${body}<script>${escapeScript(library)}</script><script>${escapeScript(read('hero-treatment.js').replace('%%PRODUCT%%', data('image/png', fs.readFileSync(path.join(root,'public/assets/sections/wipeband-transparent.png')))))}</script></html>`;
+    const document = `<!doctype html><html lang="en" class="${htmlAttrs}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><style>html{scrollbar-width:none}body{margin:0}html[data-motion=off] main section:first-child *{animation:none!important;transition:none!important}html[data-motion=off] main section:first-child *::before{animation:none!important}</style></head>${body}<script>${escapeScript(read('hero-treatment.js').replace('%%SCENE_TWO%%', scenes[1]))}</script></html>`;
     const output = read('hero-review.html').replace('%%MANIFEST%%', escapeScript(JSON.stringify(baseline))).replace('%%DOCUMENT%%', escapeScript(JSON.stringify(document)));
     assert(!output.includes('%%DOCUMENT%%'));
     const target = path.join(artifactRoot, 'hero-options.html');

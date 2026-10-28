@@ -108,3 +108,7 @@ push requested. Other alternate uploads remain untracked.
 
 Latest image refinement restores only a minimal desktop right-edge CSS fade
 (final 14% of scene), preserving the new image's natural fade. Not pushed.
+
+Latest release: owner authorized push of replacement image, minimal CSS fade
+and synced mockup. Preview now captures current built page/CSS directly.
+Checks pass; Hostinger deployment outcome remains unverified after push.
