@@ -12,7 +12,7 @@ export function WearWipeTear() {
       title: 'Put Wipeband on like a watch.',
       assetId: 'home_howitworks_wear.webp',
       alt: 'Putting Wipeband on wrist like a watch',
-      bgTint: 'bg-[#FFF7EE] border-[#F57642]/20',
+      bgTint: 'bg-teal-50 border-teal-700/20',
     },
     {
       num: '02',
@@ -45,7 +45,7 @@ export function WearWipeTear() {
         >
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-teal-950 tracking-[-0.025em] text-balance">
             Wear it. <span className="text-[#3BA59B]">Wipe it.</span>{' '}
-            <span className="text-[#F57642]">Tear it.</span>
+            <span className="text-teal-700">Tear it.</span>
           </h2>
           <p className="mt-3 text-base sm:text-lg text-teal-950/75 leading-relaxed">
             Six soft tissues stacked in one tiny wrist pack. After a wipe, peel and toss the top layer so a fresh one is immediately ready.
@@ -73,7 +73,7 @@ export function WearWipeTear() {
                 />
 
                 {idx < 2 && (
-                  <div className="hidden md:flex absolute -right-7 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-teal-900/10 shadow-sm items-center justify-center text-[#F57642]">
+                  <div className="hidden md:flex absolute -right-7 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-teal-900/10 shadow-sm items-center justify-center text-teal-700">
                     <ArrowRight className="w-5 h-5 stroke-[2.25]" />
                   </div>
                 )}

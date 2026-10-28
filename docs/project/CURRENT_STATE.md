@@ -111,3 +111,13 @@ and SKU mappings still need assessment before implementation. Routine order
 email is customer confirmation + tracking only; merchant checks admin. No push,
 deployment or production commerce changes have been made. Local work remains
 on local main, per owner instruction. No push/deployment authorized.
+
+## Site accent correction
+
+All hardcoded orange accents in runtime components now use the existing dark
+teal token (#0A4D57), with #073B43 for hover and teal tints for accent surfaces.
+Includes headings, navigation, CTAs, icons, placeholder illustrations and fallback
+logo. Copy, catalog and section order preserved. Source scan finds no old orange
+accent; headless homepage check found no rendered orange and all four purchase
+buttons plus the sleeve headline resolve to dark teal. Lint and TypeScript pass.
+Local only; no push or deployment.

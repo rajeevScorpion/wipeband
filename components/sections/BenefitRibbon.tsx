@@ -6,7 +6,7 @@ import { motion } from 'motion/react';
 
 export function BenefitRibbon() {
   const comparisons = [
-    { item: 'Tissue box?', status: 'Across the room.', tint: 'bg-[#FFF5EC] border-[#F57642]/20' },
+    { item: 'Tissue box?', status: 'Across the room.', tint: 'bg-teal-50 border-teal-700/20' },
     { item: 'Tissue pack?', status: 'In the backpack.', tint: 'bg-[#EEF9F7] border-[#3BA59B]/20' },
     { item: 'Their wrist?', status: 'Always right there.', tint: 'bg-[#EEF9EA] border-[#62B44A]/30' },
   ];
@@ -16,7 +16,7 @@ export function BenefitRibbon() {
       icon: Shirt,
       title: 'Cleaner sleeves',
       description: 'Less wiping runny noses on shirts and jackets.',
-      iconBg: 'bg-[#F57642]/12 text-[#F57642]',
+      iconBg: 'bg-teal-700/12 text-teal-700',
     },
     {
       icon: Hand,
@@ -45,7 +45,7 @@ export function BenefitRibbon() {
           >
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-teal-950 tracking-[-0.025em] text-balance">
               The tissue is far away.{' '}
-              <span className="text-[#F57642]">The sleeve isn&apos;t.</span>
+              <span className="text-teal-700">The sleeve isn&apos;t.</span>
             </h2>
             <p className="text-base sm:text-lg text-teal-950/75 leading-relaxed max-w-lg">
               Kids don&apos;t stop playing to hunt for a tissue box — so we put the tissue where they already reach.

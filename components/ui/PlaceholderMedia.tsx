@@ -58,7 +58,7 @@ export function PlaceholderMedia({
       return (
         <div className="relative w-full h-full flex flex-col items-center justify-center p-6 sm:p-8 bg-gradient-to-br from-[#FFF3E6] via-[#E8F8F5] to-[#E2F4EA] overflow-hidden">
           {/* Ambient decorative blobs */}
-          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-[#F57642]/15 blur-2xl pointer-events-none" />
+          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-teal-700/15 blur-2xl pointer-events-none" />
           <div className="absolute -bottom-12 -left-12 w-52 h-52 rounded-full bg-[#62B44A]/20 blur-2xl pointer-events-none" />
 
           <svg
@@ -87,7 +87,7 @@ export function PlaceholderMedia({
               strokeLinecap="round"
             />
             {/* Rosy cheek */}
-            <circle cx="164" cy="126" r="8" fill="#F57642" fillOpacity="0.35" />
+            <circle cx="164" cy="126" r="8" fill="var(--color-teal-700)" fillOpacity="0.35" />
             {/* Little nose */}
             <circle cx="218" cy="122" r="7" fill="#F4B8A0" />
 
@@ -143,8 +143,8 @@ export function PlaceholderMedia({
               </text>
             </g>
             <g transform="translate(292, 56)">
-              <rect width="84" height="30" rx="15" fill="#FFFFFF" stroke="#F57642" strokeWidth="1.5" />
-              <circle cx="16" cy="15" r="5" fill="#F57642" />
+              <rect width="84" height="30" rx="15" fill="#FFFFFF" stroke="var(--color-teal-700)" strokeWidth="1.5" />
+              <circle cx="16" cy="15" r="5" fill="var(--color-teal-700)" />
               <text x="28" y="19" fill="#0A4D57" fontSize="11" fontWeight="800" fontFamily="sans-serif">
                 Wipe
               </text>
@@ -179,7 +179,7 @@ export function PlaceholderMedia({
                 </div>
               ))}
             </div>
-            <div className="w-full py-2.5 px-4 rounded-2xl bg-[#F57642] text-white text-center text-xs font-heading font-bold shadow-sm">
+            <div className="w-full py-2.5 px-4 rounded-2xl bg-teal-700 text-white text-center text-xs font-heading font-bold shadow-sm">
               Soft Silicone Wristband
             </div>
           </div>
@@ -230,7 +230,7 @@ export function PlaceholderMedia({
               x="120"
               y="108"
               textAnchor="middle"
-              fill="#F57642"
+              fill="var(--color-teal-700)"
               fontSize="10"
               fontWeight="700"
               fontFamily="sans-serif"
@@ -246,12 +246,12 @@ export function PlaceholderMedia({
     if (category === 'step') {
       const stepBg =
         stepNumber === '01'
-          ? 'from-[#FFF4E8] to-[#FFE8D1]'
+          ? 'from-teal-50 to-teal-100'
           : stepNumber === '02'
           ? 'from-[#E9F8F5] to-[#D4F1EC]'
           : 'from-[#EEF9E8] to-[#DCF2D0]';
       const accentColor =
-        stepNumber === '01' ? '#F57642' : stepNumber === '02' ? '#3BA59B' : '#62B44A';
+        stepNumber === '01' ? 'var(--color-teal-700)' : stepNumber === '02' ? '#3BA59B' : '#62B44A';
 
       return (
         <div
@@ -271,7 +271,7 @@ export function PlaceholderMedia({
     return (
       <div className="relative w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-[#FFF6EC] via-[#EEF9F7] to-[#EFF8EB] text-center">
         <div className="w-14 h-14 rounded-2xl bg-white/90 shadow-xs flex items-center justify-center mb-3">
-          <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-[#F57642] to-[#62B44A]" />
+          <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-teal-700 to-[#62B44A]" />
         </div>
         <p className="text-sm font-heading font-bold text-teal-950 max-w-[200px]">
           {alt}

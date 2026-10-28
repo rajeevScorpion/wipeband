@@ -61,7 +61,7 @@ export function SiteHeader() {
                     {isActive && (
                       <motion.div
                         layoutId="activeNavIndicator"
-                        className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-[#F57642] rounded-full"
+                        className="absolute -bottom-0.5 left-0 right-0 h-[2px] bg-teal-700 rounded-full"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -90,7 +90,7 @@ export function SiteHeader() {
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       exit={{ scale: 0 }}
-                      className="w-2 h-2 rounded-full bg-[#F57642]"
+                      className="w-2 h-2 rounded-full bg-teal-700"
                     />
                   )}
                 </AnimatePresence>

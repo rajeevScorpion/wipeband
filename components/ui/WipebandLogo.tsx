@@ -41,24 +41,24 @@ export function WipebandLogo({ className = '', size = 'md' }: LogoProps) {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Playful curved bubble letters for WIPE (Coral Orange) + BAND (Aqua Teal) */}
+          {/* Playful curved bubble letters for WIPE (Dark teal) + BAND (Aqua Teal) */}
           {/* W */}
           <path
             d="M6 10 C6 7, 10 5, 13 5 C16 5, 18 8, 19 12 L22 28 L26 12 C27 8, 29 5, 32 5 C35 5, 39 7, 39 10 L35 38 C35 41, 31 43, 28 43 C25 43, 22 41, 21 37 L18 22 L15 37 C14 41, 11 43, 8 43 C5 43, 2 41, 2 38 Z"
-            fill="#F57642"
+            fill="var(--color-teal-700)"
           />
           {/* I */}
-          <rect x="43" y="12" width="7" height="31" rx="3.5" fill="#F57642" />
-          <circle cx="46.5" cy="6" r="3.5" fill="#F57642" />
+          <rect x="43" y="12" width="7" height="31" rx="3.5" fill="var(--color-teal-700)" />
+          <circle cx="46.5" cy="6" r="3.5" fill="var(--color-teal-700)" />
           {/* P */}
           <path
             d="M55 12 C55 8, 59 5, 64 5 C72 5, 77 9, 77 17 C77 25, 72 29, 64 29 L62 29 L62 40 C62 42, 59 43, 55 43 L55 12 Z M62 12 L62 22 L64 22 C67 22, 70 20, 70 17 C70 14, 67 12, 64 12 Z"
-            fill="#F57642"
+            fill="var(--color-teal-700)"
           />
           {/* E */}
           <path
             d="M83 12 C83 8, 86 5, 90 5 L102 5 C104 5, 106 7, 106 9 C106 11, 104 13, 102 13 L90 13 L90 20 L99 20 C101 20, 103 22, 103 24 C103 26, 101 28, 99 28 L90 28 L90 35 L102 35 C104 35, 106 37, 106 39 C106 41, 104 43, 102 43 L90 43 C86 43, 83 40, 83 36 Z"
-            fill="#F57642"
+            fill="var(--color-teal-700)"
           />
 
           {/* B */}

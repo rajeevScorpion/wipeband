@@ -48,3 +48,8 @@ remain unverified. TypeScript/lint pass; isolated production build passed (27/27
 Checkout rejection checks (empty cart, disabled bundle, invalid pattern) passed;
 disabled bundle page returns 404. No valid payment/fulfillment was submitted.
 The adoption branch is fully incorporated; owner authorized removal after checks.
+
+Latest correction: all runtime orange accents replaced with existing dark teal
+tokens, including the sleeve headline, navigation, buttons and placeholder art.
+Headless homepage computed-color check, source scan, lint and TypeScript pass.
+No content/order changes and nothing pushed. Keep orange out of future UI work.

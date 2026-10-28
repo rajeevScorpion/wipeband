@@ -46,3 +46,9 @@
   old absence-of-feature findings or mockup content as current facts. Check
   upstream/deployed parity before future design work. Owner requested deleting
   fully merged local branches after verification to avoid this confusion.
+
+- Owner color rule, 2026-10-28: do not use orange accents anywhere on the
+  website. Use existing dark teal #0A4D57 (teal-700), hover #073B43
+  (teal-800), and matching teal tints. Why: orange violates the approved
+  design system. Apply to headings, CTAs, navigation, icons and illustrations;
+  do not reintroduce hardcoded #F57642/#E0632F in future visual work.

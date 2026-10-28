@@ -27,7 +27,7 @@ export function CleanerSleevesCTA() {
 
   return (
     <section className="bg-gradient-to-br from-[#0A4D57] via-[#0D5B66] to-[#156C73] py-16 sm:py-22 text-white overflow-hidden relative">
-      <div className="pointer-events-none absolute -top-24 right-10 w-80 h-80 rounded-full bg-[#F57642]/20 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 right-10 w-80 h-80 rounded-full bg-teal-700/20 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 left-10 w-80 h-80 rounded-full bg-[#62B44A]/20 blur-3xl" />
 
       <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -81,7 +81,7 @@ export function CleanerSleevesCTA() {
             onClick={handleFinalAddToCart}
             variant="primary"
             size="lg"
-            className="bg-[#F57642] hover:bg-[#E0632F] text-white border-0 shadow-lg px-8 whitespace-nowrap shrink-0"
+            className="border border-white/30 shadow-lg px-8 whitespace-nowrap shrink-0"
           >
             {justAdded ? (
               <span className="inline-flex items-center gap-1.5">

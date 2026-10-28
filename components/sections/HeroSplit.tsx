@@ -30,7 +30,7 @@ export function HeroSplit() {
   return (
     <section className="relative overflow-hidden pt-10 pb-8 lg:pt-16 lg:pb-10 bg-gradient-to-br from-[#FFFDF9] via-[#FFF6EC] to-[#EDF9F6] border-b border-teal-900/10">
       {/* Warm playful ambient color washes */}
-      <div className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#F57642]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-teal-700/10 blur-3xl" />
       <div className="pointer-events-none absolute top-1/3 right-0 w-96 h-96 rounded-full bg-[#62B44A]/12 blur-3xl" />
 
       <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -44,7 +44,7 @@ export function HeroSplit() {
           >
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-[3.65rem] font-black text-teal-950 tracking-[-0.03em] leading-[1.06] text-balance">
               No more wiping runny noses{' '}
-              <span className="text-[#F57642] relative inline-block">
+              <span className="text-teal-700 relative inline-block">
                 on sleeves.
                 <svg
                   className="absolute -bottom-1.5 left-0 w-full h-2.5 text-[#62B44A]/70"
@@ -142,7 +142,7 @@ export function HeroSplit() {
             className="inline-flex items-center gap-2 text-sm font-medium text-teal-950/65 hover:text-teal-950 transition-colors py-1.5 px-4 rounded-full hover:bg-teal-900/5 group"
           >
             <span>See how it works</span>
-            <ArrowDown className="w-4 h-4 text-[#F57642] transform group-hover:translate-y-0.5 transition-transform duration-200" />
+            <ArrowDown className="w-4 h-4 text-teal-700 transform group-hover:translate-y-0.5 transition-transform duration-200" />
           </Link>
         </div>
       </div>

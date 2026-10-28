@@ -20,7 +20,7 @@ export function ProductEngineering() {
       icon: Scissors,
       title: 'Peel & toss after wiping',
       description: 'Remove the used top sheet to reveal a fresh white tissue underneath.',
-      color: 'bg-[#F57642]/15 text-[#F57642]',
+      color: 'bg-teal-700/15 text-teal-700',
     },
     {
       icon: Watch,
@@ -96,7 +96,7 @@ export function ProductEngineering() {
                   <button
                     type="button"
                     onClick={handlePeelLayer}
-                    className="px-5 py-2.5 rounded-full bg-[#F57642] hover:bg-[#E0632F] text-white font-heading font-bold text-sm transition-colors cursor-pointer whitespace-nowrap shrink-0 shadow-xs"
+                    className="px-5 py-2.5 rounded-full bg-teal-700 hover:bg-teal-800 text-white font-heading font-bold text-sm transition-colors cursor-pointer whitespace-nowrap shrink-0 shadow-xs"
                   >
                     {peeledCount < totalLayers - 1
                       ? `Peel Layer ${activeLayer} →`

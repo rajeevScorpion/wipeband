@@ -55,7 +55,7 @@ export function ChooseWipeband() {
           className="text-center max-w-2xl mx-auto mb-12"
         >
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-teal-950 tracking-[-0.025em] text-balance">
-            Everything they need to <span className="text-[#F57642]">start.</span>
+            Everything they need to <span className="text-teal-700">start.</span>
           </h2>
           <p className="mt-3 text-base sm:text-lg text-teal-950/75">
             One reusable Wipeband and five 6-layer soft tissue packs (30 fresh wipes total).
@@ -147,7 +147,7 @@ export function ChooseWipeband() {
                     className="inline-flex items-center font-medium text-teal-950/75 hover:text-teal-950 transition-colors"
                   >
                     Already have Wipeband? Shop refills (${REFILLS_PRODUCT.price.toFixed(2)})
-                    <ArrowRight className="w-4 h-4 ml-1.5 text-[#F57642]" />
+                    <ArrowRight className="w-4 h-4 ml-1.5 text-teal-700" />
                   </Link>
                 </div>
               </div>
