@@ -2,22 +2,29 @@
 
 Updated: 2026-10-28 (Asia/Kolkata). Usage: unknown.
 
-Stopped at: six shared Ponytail skills installed and validated; project scope
-clarified; storefront motion + admin order-desk draft created and browser-checked.
+Stopped at: landing study 02 rebuilt from the actual homepage after the owner
+rejected study 01. Content/section order preserved; visual-only treatment checked.
 Earlier application TypeScript, lint and build checks passed before mockup work.
 Canonical skills: `.agents/skills/`; shared context: `docs/project/`.
 
 In flight: local prototype/context changes on chore/studio-adoption. No application
 behavior changes or helper agents. Local preview server at 127.0.0.1:3011
-(Python PID 37212) intentionally left running for review; Next dev server stopped.
+(Python PID 32628) intentionally left running for review; Next dev server stopped.
 Check git status/log for the current checkpoint. Nothing pushed or deployed.
 
 Next session: review `docs/product/mockups/storefront-operations.html` with the
-owner (Expressive/Quiet and Desktop/Phone controls). Draft, not agreed/built.
+owner (Current/Proposed, Desktop/Phone and Motion On/Off). Draft, not agreed/built.
 Preview: http://localhost:3011/storefront-operations.html . If stopped, restart
 with `python -m http.server 3011 --bind 127.0.0.1 --directory docs/product/mockups`.
 Owner will supply images and plans a Vercel preview. Minimal operational storage
 is approved. GitHub pushes trigger Hostinger production deployment.
+
+Critical correction: preserve the storefront's current data, text and ten-section
+order in mockups. Study 02 audits all section text and 28 link labels/destinations
+against the captured source. Preview is centered at 1320px. Actual Motion library
+is embedded; no Three.js. Study 01 and its admin are archived as rejected.
+Focus on the landing page first; admin needs a more considered operations design.
+Source, content manifest and meaningful artifact checks are in mockups/src/.
 
 MCF context: FBA inventory exists. Existing public Wipeband.com sends shoppers
 to Amazon and takes no direct orders. Need to verify MCF availability, SKU

@@ -30,3 +30,13 @@
 - Visual direction: retain current tokens and brand, add purposeful pointer and
   scroll motion with polished product storytelling. Avoid generic illustrations
   and effects. Owner-supplied final images are pending. Prototype before building.
+- Owner correction, 2026-10-28: the existing storefront content and section order
+  are approved. Earlier mockup changed both and was rejected. Why: visual work
+  should improve an already considered page. Apply by capturing existing text,
+  catalog and sequence, then validating content fidelity in every visual study.
+- Owner wants a professional, alive, experimental-but-grounded visual treatment:
+  intentional textures/patterns/artwork, centered composition and meaningful
+  motion. Focus on the landing page first; the admin needs a later, deeper
+  operations design. Small scope is not permission for a superficial result.
+- Tool honesty: the first draft used CSS transforms, not Three.js. Study 02
+  actually embeds the existing Motion library; it introduces no WebGL/Three.js.

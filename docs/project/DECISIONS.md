@@ -33,3 +33,9 @@
   only links to Amazon, with no direct ordering integration to preserve.
 - 2026-10-28: Installed all six Ponytail skills locally in the shared skill
   directory before further mockup work, as requested. Default coding mode full.
+- 2026-10-28: Owner rejected study 01's changed storefront content/order and
+  insufficient admin depth. Preserve existing storefront data and ten-section
+  sequence. Prioritize a considered landing-page visual study; admin follows.
+- 2026-10-28: Landing study 02 uses a snapshot of the actual homepage, original
+  design tokens and embedded Motion library. Current/Proposed comparison and
+  content audit included. Still a draft; no production implementation approved.

@@ -25,9 +25,12 @@ admin order desk, minimal customer email, and future direct ordering via MCF.
 - Shared project map, product brief, mockup index, and owner decisions are saved.
 - Six Ponytail skills are installed project-locally in the shared skill folder
   and validated. Claude and Codex resolve the same skill files.
-- A clickable storefront/order-desk draft is saved at
-  `docs/product/mockups/storefront-operations.html`. It uses the existing logo,
-  embedded fonts and tokens; fictional orders and illustrative product shapes.
+- Landing study 02 is saved at `docs/product/mockups/storefront-operations.html`.
+  It captures the actual homepage and layers visual-only texture/artwork/motion.
+  All ten section texts and 28 original link labels/destinations match the
+  snapshot. Current/Proposed, Desktop/Phone and Motion On/Off controls included.
+- Study 01 is archived as rejected: changed storefront content/order and a
+  shallow admin workflow. The admin requires a separate, considered redesign.
 - Hostinger auto-deploys GitHub pushes; Vercel testing copy is planned by owner.
 
 ## Validation
@@ -49,6 +52,10 @@ admin order desk, minimal customer email, and future direct ordering via MCF.
   Escape dismissal, retry/filter/reset/search, connections, phone overflow,
   reduced motion and no page errors. Desktop/store/admin/phone screenshots viewed.
   These do not validate the production application's ordering behavior.
+- Landing study 02 checks passed: exact section/link fidelity in both modes,
+  visible copy, centered 1320px frame, actual Motion pointer response,
+  motion-off behavior, phone reflow/overflow, reduced-motion preference, no page
+  errors or external requests. Full-page, desktop and phone screenshots inspected.
 
 ## Open / unverified
 
@@ -73,8 +80,10 @@ admin order desk, minimal customer email, and future direct ordering via MCF.
 
 ## Next
 
-Review the prototype's Expressive/Quiet motion and compact admin workflow with
-the owner. Final images and Vercel URL are pending. Owner confirms FBA inventory;
+Review landing study 02 with the owner. Preserve current storefront content and
+section sequence in all future visual work. Admin needs a deeper operational
+design after the landing direction. Final images and Vercel URL are pending.
+Owner confirms FBA inventory;
 the existing public site only redirects to Amazon. MCF availability/API access
 and SKU mappings still need assessment before implementation. Routine order
 email is customer confirmation + tracking only; merchant checks admin. No push,

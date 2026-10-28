@@ -52,6 +52,13 @@ These rules override the upstream skills' host-specific defaults.
 - The owner reports client feedback was implemented. Reconcile review items
   against current code; do not treat the pack's unchanged Pending tracker as
   evidence that all requests remain unimplemented.
+- Storefront visual mockups must preserve the actual current page's content,
+  products, prices, section order and link destinations. Change presentation
+  only unless the owner explicitly requests content changes. Capture the real
+  page and check fidelity. Keep desktop content centered at the existing width.
+- A small admin scope still needs a deliberate operational workflow, including
+  useful states and exception handling. Do not equate simplicity with a bare
+  scaffold. Settle the landing-page visual direction before the admin redesign.
 
 ## Collaboration and completion
 

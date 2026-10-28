@@ -23,6 +23,10 @@ make direct purchase clear; verify trust/commerce behavior before release.
 Next: prototype improved storefront motion and a small admin order workflow.
 Keep core wristband/refill products central; automatic subscriptions are not
 part of the request. The existing public Wipeband.com site is being redeveloped.
+Owner correction: preserve the existing storefront content, products, prices
+and section order in visual mockups. Improve presentation with considered
+texture/pattern/artwork and purposeful motion. Landing page first; the admin
+requires a separate, deeper workflow study rather than a bare scaffold.
 
 Success signals: To be agreed with the owner. Candidate checks are a clear
 product explanation, reliable pattern-to-checkout flow, and honest support/

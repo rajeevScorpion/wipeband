@@ -1,0 +1,69 @@
+/* Visual treatment only. The original site's DOM, copy and section order are retained. */
+:root{--wb-grain:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%230a4d57' opacity='.16' filter='url(%23n)' d='M0 0h160v160H0z'/%3E%3C/svg%3E");--wb-path:0;--wb-scroll:0}
+html{scroll-behavior:smooth;height:auto}body{overflow-x:clip;min-height:0!important;height:auto}main{position:relative}main [style*="opacity"]{opacity:1!important}main [data-wb-section]{isolation:isolate}main [data-wb-section]>div:not(.wb-art){position:relative;z-index:1}main .wb-art{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}main .wb-art svg{height:100%;width:100%}main .wb-ink-path{stroke-dasharray:1600;stroke-dashoffset:calc(1600 - var(--wb-path)*1600)}
+[data-design=current] .wb-art{display:none!important}
+[data-design=proposed] body{background:#FAFCFA}
+[data-design=proposed] header{background:#ffffffed;box-shadow:0 4px 24px #0a4d5707}
+[data-design=proposed] main [data-wb-section]{background-image:var(--wb-grain);background-size:150px 150px}
+[data-design=proposed] main .max-w-content{max-width:1200px}
+[data-design=proposed] main [data-wb-section="0"]{padding-top:76px;padding-bottom:86px;background-color:#FAFCFA}
+[data-design=proposed] main [data-wb-section="0"] h1{font-size:clamp(42px,4.7vw,68px);letter-spacing:-.045em;line-height:1.02}
+[data-design=proposed] main [data-wb-section="0"] h1 .text-green-500{position:relative;padding-bottom:13px}
+[data-design=proposed] main [data-wb-section="0"] h1 .text-green-500::after{content:"";position:absolute;height:9px;left:2px;right:2px;bottom:0;background:#FDB515;clip-path:polygon(0 40%,38% 0,100% 25%,98% 80%,50% 55%,0 100%);opacity:.65;transform:rotate(-1.5deg)}
+[data-design=proposed] main [data-wb-section="0"] .wb-media{border:8px solid white;border-radius:32px;box-shadow:0 1px 0 #0a4d5710,0 22px 45px -25px #0a4d574d;transform:rotate(2deg);overflow:hidden;isolation:isolate}
+[data-design=proposed] main [data-wb-section="0"] .wb-media::after{content:"";position:absolute;inset:0;background-image:var(--wb-grain);opacity:.4;pointer-events:none}
+[data-design=proposed] main [data-wb-section="0"] .wb-hero-aside{transform:rotate(-2deg);border-radius:18px;border:1px solid #0a4d5715;box-shadow:0 10px 30px -15px #0a4d573b;background:#fffefa}
+[data-design=proposed] main a.rounded-full,[data-design=proposed] main button.rounded-full{box-shadow:0 3px 0 #052a3020;transition:box-shadow .25s,transform .25s}
+[data-design=proposed] main a.rounded-full:hover,[data-design=proposed] main button.rounded-full:hover{box-shadow:0 7px 18px -8px #0a4d5755}
+[data-design=proposed] main [data-wb-section="1"]{background-color:#EEF7EA;background-image:var(--wb-grain);border-top:1px solid #0a4d5710;border-bottom:1px solid #0a4d5710}
+[data-design=proposed] main [data-wb-section="1"] h2{max-width:600px}
+[data-design=proposed] main [data-wb-section="1"] .wb-ribbon-icon{background:#ffffffb3;box-shadow:none;border-radius:50%;border-color:#0a4d5720}
+[data-design=proposed] main [data-wb-section="2"]{padding-top:96px;padding-bottom:100px;background-color:white}
+[data-design=proposed] main [data-wb-section="2"] .wb-step-card{padding:14px 14px 22px;border:1px solid #DDE7E4;border-radius:25px;background:#FFF5DE;box-shadow:0 10px 25px -22px #0a4d5766;transform:rotate(-2deg)}
+[data-design=proposed] main [data-wb-section="2"] .wb-step-card:nth-child(2){background:#EEF9FA;transform:translateY(20px) rotate(2deg)}
+[data-design=proposed] main [data-wb-section="2"] .wb-step-card:nth-child(3){background:#FFF1EF;transform:rotate(-1deg)}
+[data-design=proposed] main [data-wb-section="2"] .wb-step-card h3{padding:0 7px;font-size:19px;line-height:1.45}
+[data-design=proposed] main [data-wb-section="2"] .wb-media{background:transparent;border:0;box-shadow:none;border-radius:17px}
+[data-design=proposed] main [data-wb-section="2"] .wb-media>div:first-of-type>div{background:transparent}
+[data-design=proposed] main [data-wb-section="2"] .wb-step-card .wb-media .w-20{background:#fffefa;box-shadow:0 14px 25px -12px #0a4d5750;transform:rotate(-8deg);border-radius:24px}
+[data-design=proposed] main [data-wb-section="3"]{background-color:#EEF7EA;padding:84px 0 94px;border-top:1px solid #0a4d5710;border-bottom:1px solid #0a4d5710}
+[data-design=proposed] main [data-wb-section="3"] .wb-media{border:8px solid #ffffffb3;background:#fffefa;border-radius:48%;box-shadow:0 20px 35px -26px #0a4d5766;overflow:visible}
+[data-design=proposed] main [data-wb-section="3"] .wb-media>div:first-of-type{border-radius:48%;overflow:hidden}
+[data-design=proposed] main [data-wb-section="3"] .wb-feature{border-bottom:1px solid #0a4d5720;padding-bottom:18px}
+[data-design=proposed] main [data-wb-section="3"] .wb-feature:last-child{border-bottom:0}
+[data-design=proposed] main [data-wb-section="4"]{padding:94px 0 92px;background-color:#fffefa}
+[data-design=proposed] main [data-wb-section="4"] .wb-adventure{padding:12px 12px 20px;border:1px solid #DDE7E4;box-shadow:0 12px 30px -22px #0a4d5750;border-radius:24px;position:relative;background:white;transform:rotate(-2deg)}
+[data-design=proposed] main [data-wb-section="4"] .wb-adventure:nth-child(2){transform:translateY(22px) rotate(2deg)}
+[data-design=proposed] main [data-wb-section="4"] .wb-adventure:nth-child(3){transform:rotate(-1.5deg)}
+[data-design=proposed] main [data-wb-section="4"] .wb-adventure>div:last-child{padding:20px 8px 0}
+[data-design=proposed] main [data-wb-section="4"] .wb-media{box-shadow:none;border:0;border-radius:17px}
+[data-design=proposed] main [data-wb-section="4"] .wb-adventure:nth-child(1) .wb-media{background-color:#FFF5DE}
+[data-design=proposed] main [data-wb-section="4"] .wb-adventure:nth-child(2) .wb-media{background-color:#EEF7EA}
+[data-design=proposed] main [data-wb-section="4"] .wb-adventure:nth-child(3) .wb-media{background-color:#EEF9FA}
+[data-design=proposed] main [data-wb-section="4"] .wb-media>div.w-full.h-full{position:relative;z-index:1}
+[data-design=proposed] main [data-wb-section="4"] .wb-media>div.w-full.h-full>div{background:transparent!important}
+[data-design=proposed] main [data-wb-section="4"] .wb-media .w-16{transform:rotate(-8deg);box-shadow:0 10px 25px -12px #0a4d5750}
+[data-design=proposed] main [data-wb-section="5"]{background-color:#FAFCFA;padding-top:90px;padding-bottom:95px}
+[data-design=proposed] main [data-wb-section="5"] .wb-product-card{border:1px solid #0a4d5724;box-shadow:0 20px 35px -28px #0a4d5766;background:#fffefa;border-radius:28px;overflow:clip;position:relative}
+[data-design=proposed] main [data-wb-section="5"] .wb-product-card>div{position:relative;z-index:1}
+[data-design=proposed] main [data-wb-section="5"] .wb-product-card .wb-product-art{background-image:radial-gradient(#0a4d571a .7px,transparent .7px);background-size:9px 9px;border:1px solid #0a4d5710;border-radius:20px;overflow:hidden}
+[data-design=proposed] main [data-wb-section="5"] .wb-product-art>div{z-index:1}
+[data-design=proposed] main [data-wb-section="6"]{background-color:white;padding-bottom:65px}
+[data-design=proposed] main [data-wb-section="6"] .wb-refill-banner{background-color:#EEF7EA;background-image:var(--wb-grain);border:1px solid #0a4d5720;box-shadow:none;border-radius:26px;position:relative}
+[data-design=proposed] main [data-wb-section="7"]{background-color:white;padding-top:10px;padding-bottom:82px}
+[data-design=proposed] main [data-wb-section="7"] .wb-story-card{border-radius:27px;box-shadow:0 12px 30px -25px #0a4d5755;position:relative;background-image:var(--wb-grain)}
+[data-design=proposed] main [data-wb-section="7"] .wb-story-card:first-child{border-top:4px solid #66C5CD}
+[data-design=proposed] main [data-wb-section="7"] .wb-story-card:last-child{border-top:4px solid #FDB515}
+[data-design=proposed] main [data-wb-section="8"]{background-color:#FAFCFA;padding-top:82px;padding-bottom:90px}
+[data-design=proposed] main [data-wb-section="8"] .wb-faq{padding:24px 25px;border:1px solid #DDE7E4;background:white;border-radius:18px;border-left:3px solid #66C5CD}
+[data-design=proposed] main [data-wb-section="8"] .wb-faq:nth-child(2){border-left-color:#62B44A}
+[data-design=proposed] main [data-wb-section="8"] .wb-faq:nth-child(3){border-left-color:#FDB515}
+[data-design=proposed] main [data-wb-section="8"] .wb-faq:nth-child(4){border-left-color:#F36F6B}
+[data-design=proposed] main [data-wb-section="9"]{background-color:#0A4D57;background-image:var(--wb-grain);padding-top:100px;padding-bottom:100px}
+[data-design=proposed] main [data-wb-section="9"] .wb-art{opacity:.8}
+[data-design=proposed] main [data-wb-section="9"] h2{position:relative}
+[data-design=proposed] .wb-art{transition:opacity .25s}
+[data-design=proposed][data-motion=off] .wb-ink-path{stroke-dashoffset:0}
+@media(max-width:1023px){[data-design=proposed] main [data-wb-section="0"]{padding-top:40px;padding-bottom:56px}[data-design=proposed] main [data-wb-section="0"] h1{font-size:clamp(42px,8vw,60px)}[data-design=proposed] main [data-wb-section="3"]{padding:64px 0}[data-design=proposed] main [data-wb-section="3"] .wb-feature{max-width:500px;margin-left:auto;margin-right:auto}}
+@media(max-width:767px){[data-design=proposed] main [data-wb-section="2"],[data-design=proposed] main [data-wb-section="4"],[data-design=proposed] main [data-wb-section="5"],[data-design=proposed] main [data-wb-section="8"]{padding-top:58px;padding-bottom:58px}[data-design=proposed] main [data-wb-section="2"] .wb-step-card,[data-design=proposed] main [data-wb-section="4"] .wb-adventure{max-width:440px;width:100%;margin:auto;transform:none!important}[data-design=proposed] main [data-wb-section="2"] .wb-step-card:nth-child(2),[data-design=proposed] main [data-wb-section="4"] .wb-adventure:nth-child(2){transform:none}[data-design=proposed] main [data-wb-section="3"] .wb-media{max-width:300px;margin:auto}[data-design=proposed] main [data-wb-section="9"]{padding-top:65px;padding-bottom:65px}[data-design=proposed] main [data-wb-section="9"] h2{font-size:32px}[data-design=proposed] main [data-wb-section="9"] .wb-art{opacity:.3}main .wb-art.wb-desktop-art{display:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.wb-ink-path{stroke-dashoffset:0!important}}
