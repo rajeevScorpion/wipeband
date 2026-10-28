@@ -56,3 +56,12 @@
 - Website desktop mockups must span the viewport without an outer box, border,
   radius or surrounding gutter. Keep inner content centered. A device frame is
   appropriate only for the Phone preview (owner correction).
+
+- Hero composition preference: artwork starts flush beneath navigation, blends
+  softly into white at the right, and its lower edge stays hidden by the wave
+  on resize. Place the separate product near the purchase button, clear of the
+  wristband worn by the child. Why: visible photo edges and overlapping products
+  weaken the composition. Inspect actual rendered screenshots before sharing.
+- Keep the hero action clean: Add to Cart followed by a space and price, no dash
+  or underline. Owner explicitly removed supporting kit text, step labels and
+  secondary scroll link to reduce clutter; do not restore them unsolicited.
