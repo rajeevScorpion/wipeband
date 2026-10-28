@@ -7,7 +7,8 @@ Updated: 2026-10-28 (Asia/Kolkata). Usage: unknown.
 Baseline correction: local main now integrates GitHub main at cb2e76d (including
 f682182 checkout/feedback implementation) with our shared tooling. The old local
 base was f49359f. All assessments/mockups made on that old base are historical,
-not the current storefront baseline. Current app source matches origin/main.
+not the current storefront baseline. App source is origin/main plus the approved
+primary-CTA token correction described below.
 
 Existing Wipeband website repository with Next.js 14, React 18, Tailwind,
 motion libraries, and Stripe dependency, as declared in package.json.
@@ -47,7 +48,10 @@ Current merged v2 baseline:
 - Checkout rejects empty cart, disabled Family Bundle and invalid starter pattern
   with HTTP 400. Family Bundle page returns 404. No valid payment was submitted.
 - Application files exactly match origin/main cb2e76d; shared tooling/docs are
-  retained. The merge has no conflicts. Prior checks below are historical.
+  retained at merge time. The merge had no conflicts. Subsequent correction:
+  hero and starter purchase buttons now inherit the shared primary color rather
+  than the upstream hardcoded orange overrides. Browser computed colors pass:
+  normal #0A4D57 and hover #073B43 for both. Prior checks below are historical.
 
 - All 22 skills passed the skill-creator frontmatter validator.
 - All Claude skill paths and the product-lead role resolve to the canonical

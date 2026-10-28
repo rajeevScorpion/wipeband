@@ -2,7 +2,9 @@
 
 Assessed 2026-10-28. Local code assessment; production parity is unverified.
 Baseline updated to GitHub cb2e76d/f682182 after discovering the checkout was
-behind. Application code matches origin/main; local/live homepage headings match.
+behind. Application baseline is origin/main; local/live homepage headings match.
+Subsequent local correction removes orange overrides from the hero/starter
+purchase buttons so they use the shared primary dark-teal tokens.
 
 ## Stack and entry points
 

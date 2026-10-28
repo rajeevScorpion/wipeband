@@ -8,7 +8,9 @@ Earlier assessments and both mockups used a stale app base and are obsolete.
 Canonical skills: `.agents/skills/`; shared context: `docs/project/`.
 
 In flight: verification complete; local merge checkpoint on main. Application source matches the
-latest fetched origin/main exactly. No merge conflicts or custom source fixes.
+latest fetched origin/main, with a subsequent approved color correction: hero
+and starter purchase buttons inherit primary dark teal #0A4D57 / hover #073B43.
+Browser computed-color checks passed for both. No global token changes.
 Obsolete mockup preview servers on port 3011 stopped. Existing port-3000 app
 server (PID 38600, not started by this task) left untouched. Nothing pushed.
 

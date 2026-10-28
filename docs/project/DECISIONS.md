@@ -47,3 +47,7 @@
   parity, TypeScript, lint, isolated production build (27 pages), invalid-cart/
   pattern/bundle rejection, and disabled-bundle 404. Preserve the user's existing
   port-3000 server; stop only the obsolete agent-started mockup preview servers.
+- 2026-10-28: Owner requested restoring dark-green primary CTA color. Tokens
+  were unchanged by merge; cb2e76d added orange per-instance overrides. Removed
+  those overrides on hero and starter purchase buttons. Verified normal #0A4D57
+  and hover #073B43 in the browser; no copy, layout or global token changes.

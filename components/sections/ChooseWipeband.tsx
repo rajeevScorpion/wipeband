@@ -131,7 +131,6 @@ export function ChooseWipeband() {
                   variant="primary"
                   size="lg"
                   fullWidth
-                  className="bg-[#F57642] hover:bg-[#E0632F] text-white border-0 shadow-[0_10px_24px_rgba(245,118,66,0.25)]"
                 >
                   {justAdded ? (
                     <span className="inline-flex items-center gap-1.5">

@@ -98,7 +98,7 @@ export function HeroSplit() {
                   onClick={handleHeroAddToCart}
                   variant="primary"
                   size="lg"
-                  className="whitespace-nowrap shrink-0 bg-[#F57642] hover:bg-[#E0632F] text-white border-0 shadow-[0_10px_24px_rgba(245,118,66,0.28)] px-8"
+                  className="whitespace-nowrap shrink-0 px-8"
                 >
                   {justAdded ? (
                     <span className="inline-flex items-center gap-2">
