@@ -39,3 +39,11 @@
 - 2026-10-28: Landing study 02 uses a snapshot of the actual homepage, original
   design tokens and embedded Motion library. Current/Proposed comparison and
   content audit included. Still a draft; no production implementation approved.
+- 2026-10-28: Found local app base f49359f was behind GitHub/Hostinger v2 at
+  cb2e76d (including f682182). Owner authorized merging all local work and the
+  latest remote into local main, then deleting fully merged local branches
+  after checks. No push authorized. Studies 01/02 are obsolete baselines.
+- 2026-10-28: Verified current source against origin/main, local/live heading
+  parity, TypeScript, lint, isolated production build (27 pages), invalid-cart/
+  pattern/bundle rejection, and disabled-bundle 404. Preserve the user's existing
+  port-3000 server; stop only the obsolete agent-started mockup preview servers.

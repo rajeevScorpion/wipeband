@@ -4,6 +4,11 @@ Updated: 2026-10-28 (Asia/Kolkata). Usage: unknown.
 
 ## Summary
 
+Baseline correction: local main now integrates GitHub main at cb2e76d (including
+f682182 checkout/feedback implementation) with our shared tooling. The old local
+base was f49359f. All assessments/mockups made on that old base are historical,
+not the current storefront baseline. Current app source matches origin/main.
+
 Existing Wipeband website repository with Next.js 14, React 18, Tailwind,
 motion libraries, and Stripe dependency, as declared in package.json.
 Studio Method shared revision 4b6e124 adopted 2026-10-28. Owner confirmed the
@@ -25,15 +30,24 @@ admin order desk, minimal customer email, and future direct ordering via MCF.
 - Shared project map, product brief, mockup index, and owner decisions are saved.
 - Six Ponytail skills are installed project-locally in the shared skill folder
   and validated. Claude and Codex resolve the same skill files.
-- Landing study 02 is saved at `docs/product/mockups/storefront-operations.html`.
-  It captures the actual homepage and layers visual-only texture/artwork/motion.
-  All ten section texts and 28 original link labels/destinations match the
-  snapshot. Current/Proposed, Desktop/Phone and Motion On/Off controls included.
+- Landing study 02 is retained as an obsolete pre-v2 artifact at
+  `docs/product/mockups/storefront-operations.html`. Its content audit matched
+  the old local base, not the newer deployed version. Do not use it as a spec.
 - Study 01 is archived as rejected: changed storefront content/order and a
   shallow admin workflow. The admin requires a separate, considered redesign.
 - Hostinger auto-deploys GitHub pushes; Vercel testing copy is planned by owner.
 
 ## Validation
+
+Current merged v2 baseline:
+- Frozen dependency check passed without lock changes. TypeScript and lint pass.
+- Production build passed in an isolated temporary copy (27/27 generated),
+  avoiding interference with the existing local dev server's .next cache.
+- Local port-3000 homepage returns 200; its 24 headings match captured Hostinger.
+- Checkout rejects empty cart, disabled Family Bundle and invalid starter pattern
+  with HTTP 400. Family Bundle page returns 404. No valid payment was submitted.
+- Application files exactly match origin/main cb2e76d; shared tooling/docs are
+  retained. The merge has no conflicts. Prior checks below are historical.
 
 - All 22 skills passed the skill-creator frontmatter validator.
 - All Claude skill paths and the product-lead role resolve to the canonical
@@ -59,9 +73,9 @@ admin order desk, minimal customer email, and future direct ordering via MCF.
 
 ## Open / unverified
 
-- Owner reports the client feedback pack was implemented. Some local code
-  conflicts with its requirements; unchanged Pending tracker entries alone
-  do not establish implementation status. Reconcile code and preview itemwise.
+- Latest feedback implementation is now present: hero pattern-to-cart, revised
+  copy/order, co-inventor story, mobile sticky bar and checkout product/variant
+  allowlists. Earlier findings about their absence came from the stale base.
 - Checkout selects Stripe prices server-side, but pattern information is not
   forwarded and success UI does not verify payment. Live payment/stock/config
   state is unverified; no webhook, order store, or fulfillment adapter found.
@@ -69,23 +83,27 @@ admin order desk, minimal customer email, and future direct ordering via MCF.
   not send submissions. Contact can show success on failure; the contact and
   feedback APIs acknowledge without delivery/storage. Minimal operational
   storage is now approved for orders/fulfillment/retries; provider undecided.
-- Family Bundle is still offered; age/material/patent/policy/review claims,
-  Amazon destinations, and commercial values need confirmed sources.
+- Family Bundle is excluded from active products, product lookup and checkout
+  allowlist. Age/material/patent/policy/review claims, Amazon destinations and
+  commercial values still require owner-confirmed evidence before production.
 - Most image directories are empty; logo is present. Owner will supply images.
   No reduced-motion handling found in source. Browser accessibility, visual,
   responsive and functional QA, production parity, and deployments are unverified.
 - No application test script or tracked CI workflow. Deployment behavior is
-  owner-confirmed. Current production/preview URLs are not confirmed.
+  owner-confirmed. Hostinger preview URL is confirmed:
+  https://darkslategrey-mouse-465156.hostingersite.com/ . Local port 3000 serves
+  the same 24 headings as the captured deployed homepage. Vercel URL pending.
 - Upstream changes require an explicit merge into the shared skill copy.
 
 ## Next
 
-Review landing study 02 with the owner. Preserve current storefront content and
-section sequence in all future visual work. Admin needs a deeper operational
-design after the landing direction. Final images and Vercel URL are pending.
+Continue from updated local main. Reassess the v2 source and rebuild any future
+visual study from that version; studies 01/02 are obsolete. Preserve the deployed
+storefront content and sequence. Admin needs a deeper operational design after
+the landing direction. Final images and Vercel URL are pending.
 Owner confirms FBA inventory;
 the existing public site only redirects to Amazon. MCF availability/API access
 and SKU mappings still need assessment before implementation. Routine order
 email is customer confirmation + tracking only; merchant checks admin. No push,
 deployment or production commerce changes have been made. Local work remains
-on chore/studio-adoption.
+on local main, per owner instruction. No push/deployment authorized.

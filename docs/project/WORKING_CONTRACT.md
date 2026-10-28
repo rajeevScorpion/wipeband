@@ -44,6 +44,11 @@ These rules override the upstream skills' host-specific defaults.
   this shared copy; preserve adaptations when deliberately merging an update.
 - Keep the existing Next.js stack and current branch conventions. Installation
   alone is not full codebase adoption or permission to scaffold/migrate.
+- Owner instructed consolidation onto local main after syncing GitHub v2.
+  Work from that updated baseline. Before assessments/mockups, fetch/check the
+  upstream tip and compare deployed content so a stale branch is not treated
+  as current. Never overwrite local work while syncing. A local main merge
+  does not authorize a GitHub push or deployment.
 - Minimal durable operational storage is approved for orders, fulfillment
   references and retries. Do not expand it into a CMS or marketplace backend.
   Ship owner-supplied images in repository assets.

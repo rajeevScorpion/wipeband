@@ -1,6 +1,8 @@
 # Wipeband project map
 
 Assessed 2026-10-28. Local code assessment; production parity is unverified.
+Baseline updated to GitHub cb2e76d/f682182 after discovering the checkout was
+behind. Application code matches origin/main; local/live homepage headings match.
 
 ## Stack and entry points
 
@@ -14,11 +16,12 @@ Assessed 2026-10-28. Local code assessment; production parity is unverified.
 
 ## Routes
 
-- `/`: product explanation, benefits, three-step routine, product construction,
-  use cases, starter/refill purchase module, story/proof, FAQs and ending CTA.
+- `/`: hero/pattern-to-cart, immediate three-step routine, problem/benefits,
+  six-layer explanation, use cases/UGC slots, reviews/co-inventor story, starter
+  purchase/trust module, objection FAQs, final CTA and mobile sticky purchase bar.
 - `/how-it-works`, `/refills`, `/our-story`, `/faq`: informational pages.
-- `/shop`, `/products/[slug]`: catalog and three generated product pages:
-  wipeband-starter-kit, tissue-refills, family-bundle.
+- `/shop`, `/products/[slug]`: active starter-kit and tissue-refill products.
+  Family Bundle data is retained as unavailable; active lookup excludes it.
 - `/cart`, `/order/success`: cart and unverified checkout-return UI.
 - `/contact`, `/feedback`, `/schools`, `/track-order`: support and inquiry UI;
   several handlers are demonstrations, not delivery/tracking integrations.
@@ -30,13 +33,15 @@ Assessed 2026-10-28. Local code assessment; production parity is unverified.
 ## Shared components and state
 
 - `components/layout/`: navigation, announcement, footer.
-- `components/sections/`: ten homepage sections. ChooseWipeband owns a separate
-  hardcoded starter/refill catalog and supports pattern-to-cart locally.
+- `components/sections/`: v2 homepage composition. Hero and ChooseWipeband use
+  the shared catalog/cart selection. RefillBanner is no longer on the homepage.
+- `components/commerce/MobileStickyBar.tsx`: mobile starter purchase control.
 - `components/commerce/ProductClientView.tsx`: variant/quantity selection.
 - `components/commerce/CartDrawer.tsx`: drawer and checkout request.
 - `components/ui/`: Button, Accordion, motion helpers, logo, PlaceholderMedia.
 - `lib/cart.tsx`: React context and `wipeband_cart` localStorage persistence;
-  quantities, totals, drawer state. No database or server cart exists yet;
+  quantities, totals, drawer state, shared selectedPattern and addStarterKit;
+  filters unavailable products from persisted carts. No server cart/store yet;
   minimal operational storage for direct orders is now approved.
 - `lib/products.ts`: runtime catalog, hardcoded prices and Amazon defaults.
 - `lib/site.ts`: runtime site text, identity, navigation and claims.
@@ -47,15 +52,16 @@ Assessed 2026-10-28. Local code assessment; production parity is unverified.
 ## Services and environment names
 
 Checkout maps permitted slugs to Stripe prices on the server. Pattern data is
-not forwarded to Stripe. No webhook/order database/fulfillment adapter exists
+allowlisted for starter items but is not forwarded to Stripe. Family Bundle is
+rejected by the checkout allowlist. No webhook/order database/fulfillment adapter exists
 in this checkout; the success page does not verify payment. Contact/feedback
 API handlers acknowledge input without delivering or storing it.
 
 Environment names: NEXT_PUBLIC_SITE_URL, STRIPE_SECRET_KEY,
 STRIPE_PRICE_STARTER_KIT, STRIPE_PRICE_FAMILY_BUNDLE, STRIPE_PRICE_REFILLS,
 NEXT_PUBLIC_AMAZON_STARTER_KIT_URL, NEXT_PUBLIC_AMAZON_REFILLS_URL.
-Amazon environment names are documented but UI links currently use hardcoded
-defaults/placeholders. Never place secret values in project docs.
+`lib/site.ts` now resolves Amazon URLs from environment variables with defaults;
+verify each UI destination separately. Never place secret values in project docs.
 
 ## Inputs and assets
 
@@ -79,7 +85,8 @@ defaults/placeholders. Never place secret values in project docs.
 - No project test script, tracked CI workflow, or deployment configuration was
   found. Hostinger auto-deploys GitHub pushes according to the owner; this can
   operate without a tracked workflow. Do not push without authorization.
-- Vercel testing copy planned; URL and current production URL unconfirmed.
+- Hostinger preview: https://darkslategrey-mouse-465156.hostingersite.com/ .
+  Local homepage headings match the captured deployment. Vercel URL pending.
 
 ## Shared Studio Method
 

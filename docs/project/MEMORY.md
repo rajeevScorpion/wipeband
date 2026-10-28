@@ -40,3 +40,9 @@
   operations design. Small scope is not permission for a superficial result.
 - Tool honesty: the first draft used CSS transforms, not Three.js. Study 02
   actually embeds the existing Motion library; it introduces no WebGL/Three.js.
+- Baseline correction: assessments and mockup studies 01/02 used stale app base
+  f49359f. GitHub v2 commits f682182/cb2e76d contained the client's implementation.
+  They are now integrated into local main with the shared tooling. Do not reuse
+  old absence-of-feature findings or mockup content as current facts. Check
+  upstream/deployed parity before future design work. Owner requested deleting
+  fully merged local branches after verification to avoid this confusion.

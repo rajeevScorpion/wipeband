@@ -6,25 +6,37 @@ export const PRODUCTS: Product[] = [
     slug: 'wipeband-starter-kit',
     name: 'Wipeband Starter Kit',
     type: 'starter',
-    badge: 'BESTSELLER',
-    tagline: '1 Wipeband + 5 tissue packs',
-    shortDescription: 'A reusable, watch-like band with a layered tissue pad that keeps a tissue right where kids can reach it.',
+    tagline: '1 reusable Wipeband + 5 tissue packs (30 fresh layers)',
+    shortDescription:
+      'Meet Wipeband, the wearable tissue for little ones. Soft, refillable tissues worn right on their wrist, so kids ages 2–6 can wipe their nose wherever they are.',
     fullDescription: [
-      'Everything you need to get started with Wipeband. Designed for school, travel, play and everyday routines.',
-      'Includes one durable, skin-friendly Wipeband and 5 replaceable 6-layer tissue packs.'
+      'Everything they need to start. Designed for kids ages 2–6 for preschool, playdates, travel, and everyday routines.',
+      'Includes 1 reusable Wipeband and 5 soft tissue packs (6 layers each, 30 fresh tissue layers total). After a wipe, remove and dispose of the used layer to reveal a fresh one underneath.',
     ],
     price: 19.95,
     currency: 'USD',
     includes: [
-      '1 × Reusable Wipeband watch-style wristband',
-      '5 × Multi-layer absorbent tissue packs (6 layers each)',
-      'Quick-start guide for easy everyday wear and refill'
+      '1 reusable Wipeband',
+      '5 tissue packs',
+      '30 fresh tissue layers total',
     ],
     features: [
-      { title: 'Watch-like fit', description: 'Comfortable, adjustable strap suited for school, play and travel.' },
-      { title: '6-layer absorbent pad', description: 'Six thin layers for everyday wipes. Remove one layer at a time.' },
-      { title: 'Tear-away design', description: 'Easy to remove the used layer and reveal the next fresh tissue.' },
-      { title: 'Refillable design', description: 'Keep the band forever; pop on a fresh tissue pack when empty.' }
+      {
+        title: 'Watch-like fit for ages 2–6',
+        description: 'Soft, kid-friendly adjustable silicone strap suited for preschool, playdates, and travel.',
+      },
+      {
+        title: 'One little tissue pack. Six fresh wipes.',
+        description: 'Six soft tissue layers, ready one after another. Remove the used layer to reveal a fresh one underneath.',
+      },
+      {
+        title: 'Tear-away disposal',
+        description: 'The used tissue is removed and disposed of after wiping; children do not keep wearing the used layer.',
+      },
+      {
+        title: 'Refillable and reusable',
+        description: 'Keep the band and pop in a fresh tissue pack whenever all six layers are finished.',
+      },
     ],
     variants: [
       { id: 'dinosaur', name: 'Dinosaur', color: '#62B44A' },
@@ -36,73 +48,82 @@ export const PRODUCTS: Product[] = [
     stripePriceEnvKey: 'STRIPE_PRICE_STARTER_KIT',
     amazonUrlEnvKey: 'NEXT_PUBLIC_AMAZON_STARTER_KIT_URL',
     defaultAmazonUrl: 'https://www.amazon.com/dp/B0WIPEBAND1',
-    status: 'active'
+    status: 'active',
   },
   {
     id: 'tissue-refills',
     slug: 'tissue-refills',
     name: 'Wipeband Tissue Refills',
     type: 'refill',
-    tagline: 'Box of 10 tissue packs',
-    shortDescription: 'Fresh replacement tissue packs for the Wipeband you already own. Keep the band, refresh the tissues.',
+    tagline: 'Box of 10 soft tissue packs (60 fresh layers)',
+    shortDescription:
+      'Made to fit every Wipeband. Keep the band and refresh the soft tissues whenever a pack is finished.',
     fullDescription: [
-      'Replacement tissue packs for Wipeband families who already own the band.',
-      'Each box contains 10 fresh, multi-layer tissue packs engineered to securely snap into your Wipeband.'
+      'Replacement soft tissue packs for families who already own a Wipeband.',
+      'Made to fit every Wipeband. Each box includes 10 soft tissue packs with 6 removable layers per pack (60 fresh wipes total).',
     ],
     price: 5.99,
     currency: 'USD',
     includes: [
-      '10 × Replacement tissue packs (6 layers each = 60 fresh wipes)',
-      'Hygienic storage box to keep packs clean in school bags or glove compartments'
+      '10 soft tissue packs (6 layers each = 60 fresh wipes)',
+      'Made to fit every Wipeband strap pattern',
     ],
     features: [
-      { title: 'Exact Wipeband fit', description: 'Pre-cut and folded to fit seamlessly into any Wipeband model.' },
-      { title: 'Gentle on skin', description: 'Soft, absorbent tissue layers crafted for little faces and sensitive noses.' },
-      { title: 'Convenient multi-pack', description: 'Keep backups in classroom backpacks, cars, and bedside tables.' }
+      {
+        title: 'Made to fit every Wipeband',
+        description: 'Sized to click right into your child’s Wipeband strap.',
+      },
+      {
+        title: 'Six soft layers per pack',
+        description: 'Six gentle tissue layers per pack, ready one after another.',
+      },
+      {
+        title: 'Easy backups for busy days',
+        description: 'Keep spare packs in backpacks, coat pockets, and the car.',
+      },
     ],
     image: '/assets/product/product_refills_hero.webp',
     aspectRatio: '1:1',
     stripePriceEnvKey: 'STRIPE_PRICE_REFILLS',
     amazonUrlEnvKey: 'NEXT_PUBLIC_AMAZON_REFILLS_URL',
     defaultAmazonUrl: 'https://www.amazon.com/dp/B0WIPEREFILL10',
-    status: 'active'
+    status: 'active',
   },
   {
     id: 'family-bundle',
     slug: 'family-bundle',
     name: 'Wipeband Family Bundle',
     type: 'bundle',
-    badge: 'FAMILY FAVORITE',
     tagline: '3 Wipebands + 15 tissue packs',
-    shortDescription: 'More Wipeband for busy family routines — multiple bands and extra refill tissues in one convenient bundle.',
+    shortDescription:
+      'Multi-band family bundle (currently unavailable while bundle selection mechanics are finalized).',
     fullDescription: [
-      'The complete family setup. Perfect for siblings or keeping a spare band in the school bag and the family car.',
-      'Includes 3 adjustable Wipebands in choice of patterns plus 15 refill tissue packs.'
+      'Includes 3 adjustable Wipebands plus 15 refill tissue packs.',
     ],
     price: 44.95,
     currency: 'USD',
     includes: [
-      '3 × Reusable Wipeband watch-style wristbands (Mix & match patterns)',
-      '15 × Multi-layer tissue refill packs (90 total fresh tissue layers)',
-      'Special family savings compared to purchasing items separately'
+      '3 reusable Wipebands',
+      '15 soft tissue refill packs (90 total fresh tissue layers)',
     ],
-    features: [
-      { title: 'Sibling-ready', description: 'Give each child their own colorful Wipeband to avoid mix-ups.' },
-      { title: 'Multiple routines', description: 'Keep one for school, one for weekend sports, and one in the car.' },
-      { title: 'Best value', description: 'Stock up on refills from day one with built-in bundle savings.' }
-    ],
+    features: [],
     variants: [
       { id: 'trio-pack', name: 'All 3 Patterns (Dino, Unicorn, Wonder Wings)', color: '#0A4D57' },
-      { id: 'custom-pack', name: 'Custom Mix & Match', color: '#62B44A' }
     ],
     image: '/assets/product/product_family-bundle_hero.webp',
     aspectRatio: '1:1',
     stripePriceEnvKey: 'STRIPE_PRICE_FAMILY_BUNDLE',
-    defaultAmazonUrl: 'https://www.amazon.com/dp/B0WIPEBAND3',
-    status: 'active'
-  }
+    status: 'commercial-configuration-required',
+  },
 ];
 
+export const ACTIVE_PRODUCTS: Product[] = PRODUCTS.filter(
+  (product) => product.status === 'active'
+);
+
+export const STARTER_KIT_PRODUCT: Product = PRODUCTS[0];
+export const REFILLS_PRODUCT: Product = PRODUCTS[1];
+
 export function getProductBySlug(slug: string): Product | undefined {
-  return PRODUCTS.find(p => p.slug === slug);
+  return ACTIVE_PRODUCTS.find((p) => p.slug === slug);
 }

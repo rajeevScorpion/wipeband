@@ -1,5 +1,10 @@
 # Mockup index
 
+**Obsolete baseline notice:** Both studies below were built from local app base
+f49359f, which was behind the deployed GitHub v2 implementation at cb2e76d.
+Do not use either as the current storefront/spec. Local main is now updated;
+future studies must capture that v2 version and compare it with the deployment.
+
 ## Templates
 
 No frozen template yet. The second landing study uses the actual rendered
@@ -9,7 +14,7 @@ changing storefront content/order and for an underdeveloped admin workflow.
 
 | Mockup | Local artifact | Status | Date | Decisions |
 |---|---|---|---|---|
-| Landing page visual study 02 | [Open revised prototype](storefront-operations.html) | Draft | 2026-10-28 | Current/Proposed, Desktop/Phone, Motion On/Off. All ten sections, copy and 28 links match the captured homepage. |
+| Landing page visual study 02 | [Historical prototype](storefront-operations.html) | Obsolete — stale app baseline | 2026-10-28 | Content audit passed against f49359f, not the newer deployment. Rebuild from v2 before review. |
 | Storefront + admin study 01 | [Archived first draft](archive/storefront-operations-v1.html) | Rejected | 2026-10-28 | Storefront content/order must not change. Admin requires a separate, considered operational design. |
 
 The revised artifact embeds the existing page, fonts, logo and the installed

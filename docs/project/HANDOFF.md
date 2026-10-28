@@ -2,27 +2,26 @@
 
 Updated: 2026-10-28 (Asia/Kolkata). Usage: unknown.
 
-Stopped at: landing study 02 rebuilt from the actual homepage after the owner
-rejected study 01. Content/section order preserved; visual-only treatment checked.
-Earlier application TypeScript, lint and build checks passed before mockup work.
+Stopped at: consolidating local main with GitHub cb2e76d, including f682182
+checkout/feedback implementation, plus all shared tooling/context commits.
+Earlier assessments and both mockups used a stale app base and are obsolete.
 Canonical skills: `.agents/skills/`; shared context: `docs/project/`.
 
-In flight: local prototype/context changes on chore/studio-adoption. No application
-behavior changes or helper agents. Local preview server at 127.0.0.1:3011
-(Python PID 32628) intentionally left running for review; Next dev server stopped.
-Check git status/log for the current checkpoint. Nothing pushed or deployed.
+In flight: verification complete; local merge checkpoint on main. Application source matches the
+latest fetched origin/main exactly. No merge conflicts or custom source fixes.
+Obsolete mockup preview servers on port 3011 stopped. Existing port-3000 app
+server (PID 38600, not started by this task) left untouched. Nothing pushed.
 
-Next session: review `docs/product/mockups/storefront-operations.html` with the
-owner (Current/Proposed, Desktop/Phone and Motion On/Off). Draft, not agreed/built.
-Preview: http://localhost:3011/storefront-operations.html . If stopped, restart
-with `python -m http.server 3011 --bind 127.0.0.1 --directory docs/product/mockups`.
+Next session: continue from updated local main and freshly assess v2 before
+any new mockup. Do not review studies 01/02 as current. Current local site is
+http://localhost:3000/ ; headings match the captured Hostinger deployment at
+https://darkslategrey-mouse-465156.hostingersite.com/ .
 Owner will supply images and plans a Vercel preview. Minimal operational storage
 is approved. GitHub pushes trigger Hostinger production deployment.
 
-Critical correction: preserve the storefront's current data, text and ten-section
-order in mockups. Study 02 audits all section text and 28 link labels/destinations
-against the captured source. Preview is centered at 1320px. Actual Motion library
-is embedded; no Three.js. Study 01 and its admin are archived as rejected.
+Critical correction: preserve the current v2 storefront's data, text and section
+order in mockups. Study 02's audit was against the old base f49359f, not the
+deployed version. Its artifact checks do not establish current content fidelity.
 Focus on the landing page first; admin needs a more considered operations design.
 Source, content manifest and meaningful artifact checks are in mockups/src/.
 
@@ -42,5 +41,8 @@ Confirm the current production and future Vercel URLs when needed for testing.
 Recovery: run `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-shared-skills.ps1`
 if this checkout has moved or Claude's skill junction is missing.
 
-Open: see CURRENT_STATE.md. Browser QA, live payments, production parity and
-client-review acceptance are unverified. Build/type/lint passed locally.
+Open: see CURRENT_STATE.md. Live payments, MCF and full client-review acceptance
+remain unverified. TypeScript/lint pass; isolated production build passed (27/27).
+Checkout rejection checks (empty cart, disabled bundle, invalid pattern) passed;
+disabled bundle page returns 404. No valid payment/fulfillment was submitted.
+The adoption branch is fully incorporated; owner authorized removal after checks.
