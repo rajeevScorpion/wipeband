@@ -79,3 +79,6 @@ Hero now has a single clean Add to Cart $19.95 action: supporting kit line,
 step labels and scroll link removed by explicit request. Product levitates
 above a soft ground shadow; bottom fade supplements wave edge coverage.
 Mockup only, same URL.
+
+Latest refinement extends the right-hand CSS fade leftward (62%-85% of scene),
+balancing the image against the navigation Bag boundary. Same preview URL.

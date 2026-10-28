@@ -159,3 +159,8 @@ Motion Off/reduced-motion disables animation. Added bottom mask as responsive
 edge protection alongside the wave. Content checks now explicitly account for
 these requested removals; other sections unchanged. Checks passed at five
 widths (768 through 2547px); desktop screenshot inspected.
+
+Hero right fade widened: gradual mask starts at 62% of the scene and reaches
+full transparency at 85%, bringing the visible image boundary near the Bag
+control. Boy, product, CTA and wave positions retained. Desktop content checks
+passed at 1440/1920/2547px; 1920px screenshot visually inspected.
