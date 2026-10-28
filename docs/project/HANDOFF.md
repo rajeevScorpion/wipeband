@@ -82,3 +82,6 @@ Mockup only, same URL.
 
 Latest refinement extends the right-hand CSS fade leftward (62%-85% of scene),
 balancing the image against the navigation Bag boundary. Same preview URL.
+
+Latest mockup refinement: rounded elliptical right-edge fade replaces the
+straight fade. Same URL; mockup only.

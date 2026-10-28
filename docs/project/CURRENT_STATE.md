@@ -164,3 +164,8 @@ Hero right fade widened: gradual mask starts at 62% of the scene and reaches
 full transparency at 85%, bringing the visible image boundary near the Bag
 control. Boy, product, CTA and wave positions retained. Desktop content checks
 passed at 1440/1920/2547px; 1920px screenshot visually inspected.
+
+Hero right fade now uses a feathered elliptical radial mask instead of a
+straight linear fade, retaining the bottom edge mask. This creates a rounded
+organic boundary while preserving the boy and wristband. Content checks pass
+at three desktop widths; 1920px screenshot inspected.
