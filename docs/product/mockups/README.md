@@ -48,3 +48,5 @@ Review at http://localhost:3011/hero-options.html .
 Study 03 revision: full-viewport desktop preview without an outer box; Phone
 retains its frame. Smaller scene scale, larger product overlay. Use this desktop
 review convention for future website studies. Awaiting approval.
+
+Option 1 now uses Hero_option_01-wider.png with its natural desktop fade.

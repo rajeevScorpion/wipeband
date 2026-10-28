@@ -58,7 +58,7 @@ const data = (mime, buffer) => `data:${mime};base64,${buffer.toString('base64')}
     const library = '/*!\n' + license + '\n*/\n' + fs.readFileSync(path.join(root, 'node_modules/motion/dist/motion.js'), 'utf8');
     const scenes = await page.evaluate(async () => {
       const encode = async name => { const img = new Image(); img.src='/assets/sections/'+name; await img.decode(); const canvas=document.createElement('canvas'); canvas.width=img.naturalWidth; canvas.height=img.naturalHeight; canvas.getContext('2d').drawImage(img,0,0); return canvas.toDataURL('image/webp',.92); };
-      return Promise.all(['Hero_option_01.png','Hero_option_02.png'].map(encode));
+      return Promise.all(['Hero_option_01-wider.png','Hero_option_02.png'].map(encode));
     });
     const document = `<!doctype html><html lang="en" class="${htmlAttrs}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><style>${read('hero-treatment.css') + ` .hero-study{--scene-one:url('${scenes[0]}');--scene-two:url('${scenes[1]}')}`}</style></head>${body}<script>${escapeScript(library)}</script><script>${escapeScript(read('hero-treatment.js').replace('%%PRODUCT%%', data('image/png', fs.readFileSync(path.join(root,'public/assets/sections/wipeband-transparent.png')))))}</script></html>`;
     const output = read('hero-review.html').replace('%%MANIFEST%%', escapeScript(JSON.stringify(baseline))).replace('%%DOCUMENT%%', escapeScript(JSON.stringify(document)));

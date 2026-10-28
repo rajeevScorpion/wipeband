@@ -63,3 +63,6 @@ public/assets/sections remain owner-supplied untracked files.
 Study 03 latest revision removes the desktop outer frame, reduces the classroom
 scene scale and enlarges the product overlay. Same preview URL. Preserve this
 full-width desktop review convention for subsequent website mockups.
+
+Latest hero image: Hero_option_01-wider.png replaces option 1 in the mockup.
+Natural fade is preserved without an additional desktop fade overlay.

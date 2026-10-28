@@ -23,3 +23,5 @@
 @media(prefers-reduced-motion:reduce){.hero-study .product-wrap{transform:none;transition:none}}
 
 .hero-study .mini-steps{display:flex;gap:16px;margin-top:22px;font-size:12px;font-weight:700;color:#0A4D57}.hero-study .mini-steps span:before{content:"";display:inline-block;width:5px;height:5px;background:#62B44A;border-radius:50%;margin:0 6px 2px 0}
+
+@media(min-width:701px){.hero-study[data-option=one] .scene{width:min(100%,1440px);right:max(calc((100% - 1920px)/2),-120px);background-position:center}.hero-study[data-option=one] .scene:after{display:none}}

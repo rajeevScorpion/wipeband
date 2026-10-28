@@ -135,3 +135,7 @@ Hero study 03 revised: desktop preview is edge-to-edge; phone frame retained.
 Classroom artwork is scaled down to fit the hero, and product overlay increased
 from 320px to 440px desktop (210px to 270px phone). Full-width, phone overflow
 and content fidelity checks passed. Still a mockup; application unchanged.
+
+Hero option 1 now uses owner-supplied Hero_option_01-wider.png, preserving its
+natural desktop fade. Default preview is this wider option; option 2 remains
+for comparison. Wave, enlarged product overlay and full-width desktop retained.
