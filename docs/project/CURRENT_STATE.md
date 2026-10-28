@@ -139,3 +139,9 @@ and content fidelity checks passed. Still a mockup; application unchanged.
 Hero option 1 now uses owner-supplied Hero_option_01-wider.png, preserving its
 natural desktop fade. Default preview is this wider option; option 2 remains
 for comparison. Wave, enlarged product overlay and full-width desktop retained.
+
+Hero image alignment corrected: wider option is top-anchored directly to the
+navigation boundary, keeps its aspect ratio, and uses a CSS mask at the right
+edge. Reduced excess hero bottom spacing so the wave overlaps the scene.
+Screenshots inspected at 1440, 1920 and 2545px; image/hero top equals navigation
+bottom at every width. Content fidelity and horizontal overflow checks pass.

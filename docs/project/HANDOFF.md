@@ -66,3 +66,7 @@ full-width desktop review convention for subsequent website mockups.
 
 Latest hero image: Hero_option_01-wider.png replaces option 1 in the mockup.
 Natural fade is preserved without an additional desktop fade overlay.
+
+Latest correction fixes the floating/chopped photo top: image begins exactly
+at the navigation bottom, with a CSS right-edge fade and wave overlap.
+Visually checked at 1440/1920/2545px. Same mockup URL; no app implementation.

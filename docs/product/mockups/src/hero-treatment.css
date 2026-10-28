@@ -1,8 +1,8 @@
 .hero-study{position:relative;isolation:isolate;overflow:hidden;background:#fff;min-height:710px;padding:0;border:0}
-.hero-study .scene{position:absolute;inset:0 max(calc((100% - 1440px)/2),0px) 55px auto;width:min(100%,1180px);z-index:-3;background-image:var(--scene-one);background-size:contain;background-repeat:no-repeat;background-position:right center;transition:background-image .2s}
+.hero-study .scene{position:absolute;inset:0 max(calc((100% - 1440px)/2),0px) 55px auto;width:min(100%,1180px);z-index:-3;background-image:var(--scene-one);background-size:contain;background-repeat:no-repeat;background-position:right top;transition:background-image .2s}
 .hero-study[data-option=two] .scene{background-image:var(--scene-two)}
 .hero-study .scene:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,#ffffffed 18%,#ffffff70 32%,transparent 48%,transparent 88%,#fff 100%)}
-.hero-study .hero-inner{max-width:1200px;margin:auto;padding:48px 32px 160px;position:relative;z-index:2;pointer-events:none}
+.hero-study .hero-inner{max-width:1200px;margin:auto;padding:48px 32px 100px;position:relative;z-index:2;pointer-events:none}
 .hero-study .hero-copy{max-width:490px;pointer-events:auto}
 .hero-study h1{font-size:clamp(40px,4.4vw,61px);line-height:1.04;letter-spacing:-.04em;color:#052a30;font-weight:900;margin:0 0 24px;text-wrap:balance}
 .hero-study h1>span{color:#0A4D57}.hero-study h1>span>svg{display:none}
@@ -24,4 +24,7 @@
 
 .hero-study .mini-steps{display:flex;gap:16px;margin-top:22px;font-size:12px;font-weight:700;color:#0A4D57}.hero-study .mini-steps span:before{content:"";display:inline-block;width:5px;height:5px;background:#62B44A;border-radius:50%;margin:0 6px 2px 0}
 
-@media(min-width:701px){.hero-study[data-option=one] .scene{width:min(100%,1440px);right:max(calc((100% - 1920px)/2),-120px);background-position:center}.hero-study[data-option=one] .scene:after{display:none}}
+@media(min-width:701px){
+.hero-study[data-option=one] .scene{top:0;bottom:auto;height:auto;aspect-ratio:1916/821;width:min(100%,1440px);right:max(calc((100% - 1920px)/2),-120px);background-size:100% 100%;background-position:right top;mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%)}
+.hero-study[data-option=one] .scene:after{display:none}
+}
