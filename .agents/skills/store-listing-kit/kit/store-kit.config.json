@@ -1,0 +1,29 @@
+{
+  "product": "WowTodo",
+  "wordmark": "wowtodo",
+  "logo": "../../../app/assets/images/logo-mark.png",
+  "logoShape": "circle",
+  "canvas": { "width": 1080, "height": 1920 },
+  "rawDir": "raw",
+  "outDir": "out",
+  "reviewDir": "review",
+  "fonts": {
+    "display": { "family": "Plus Jakarta Sans", "weight": 700, "src": "../../../app/node_modules/@expo-google-fonts/plus-jakarta-sans/700Bold/PlusJakartaSans_700Bold.ttf" },
+    "body": { "family": "Inter", "weight": 500, "src": "../../../app/node_modules/@expo-google-fonts/inter/500Medium/Inter_500Medium.ttf" },
+    "script": { "family": "Noto Sans Devanagari", "weight": 700, "local": ["Noto Sans Devanagari Bold", "Nirmala UI Bold", "NirmalaUI-Bold", "Nirmala UI"] }
+  },
+  "tokens": {
+    "light": { "bg": "#FDFCF7", "fg": "#1C1917", "muted": "#6B635D", "accent": "#B45309", "glow": "rgba(224,179,87,.38)", "card": "#FFFFFF", "cardBorder": "rgba(28,25,23,.06)", "dot": "#E0B357" },
+    "dark": { "bg": "#161311", "fg": "#F5EFE9", "muted": "#A89E95", "accent": "#F59E0B", "glow": "rgba(224,160,60,.22)", "card": "#221D1A", "cardBorder": "rgba(255,240,225,.09)", "dot": "#E0B357" }
+  },
+  "phone": { "bezel": "#0E0C0B" },
+  "feature": {
+    "mode": "light",
+    "headline": "Just say it.",
+    "emphasis": "say",
+    "subline": "Speak your tasks. Get a plan.",
+    "image": "raw/tasks-list-light.png",
+    "bubble": { "text": "Call Ayesha on Sunday", "left": 470, "top": 392 }
+  },
+  "_comment": "Example values are from WowTodo (a worked reference); replace them. Paths are relative to this file. Tokens/fonts come from the app's design system. logoShape: circle | rounded | square. Delete the script font if headlines are Latin-only."
+}

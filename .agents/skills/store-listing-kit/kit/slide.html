@@ -1,0 +1,71 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Store slide</title>
+<!-- Design space is 1080 units wide: html font-size = canvasWidth/1080 px, so every size below is in rem "design pixels". -->
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;overflow:hidden;background:var(--bg)}
+#c{position:relative;overflow:hidden;background:var(--bg);color:var(--fg)}
+.glow{position:absolute;left:140rem;top:560rem;width:800rem;height:800rem;border-radius:50%;background:radial-gradient(circle,var(--glow) 0%,rgba(0,0,0,0) 70%);filter:blur(40px)}
+.text{position:absolute;left:88rem;right:88rem;top:60rem;height:540rem;display:flex;flex-direction:column;justify-content:center}
+.brand{height:72rem;margin-bottom:44rem;display:flex;align-items:center;gap:20rem;font:700 38rem var(--display),sans-serif;letter-spacing:-.5rem}
+.brand:empty{display:none}
+.brand img{width:72rem;height:72rem;object-fit:cover;display:block;border-radius:var(--logo-radius)}
+h1{margin:0;font:700 92rem/1.08 var(--display),var(--script),sans-serif;letter-spacing:-2rem;text-wrap:balance}
+h1.script{font-family:var(--script),var(--display),sans-serif;letter-spacing:0;line-height:1.2}
+h1 em{font-style:normal;color:var(--accent)}
+p{margin:28rem 0 0;font:500 40rem/1.35 var(--body),sans-serif;color:var(--muted);max-width:904rem;text-wrap:balance}
+.phone{position:absolute;left:108rem;top:640rem;width:864rem;height:4000rem;padding:22rem;border-radius:92rem;background:var(--bezel);
+ box-shadow:0 0 0 1.5px var(--rim),0 40px 90px rgba(40,25,10,.28),0 10px 24px rgba(40,25,10,.16)}
+.phone img{display:block;width:820rem;height:auto;border-radius:70rem}
+.card{position:absolute;background:var(--card);border:1px solid var(--cardBorder);border-radius:32rem;box-shadow:0 24px 60px rgba(28,25,23,.14),0 4px 12px rgba(28,25,23,.06);color:var(--fg);padding:30rem 36rem;font:500 34rem/1.35 var(--body),var(--script),sans-serif}
+[data-mode=dark] .card{box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.card.small{font-size:30rem;padding:24rem 32rem;border-radius:28rem}
+.card.script{font-family:var(--script),var(--body),sans-serif;font-weight:700}
+.dot{display:inline-block;width:22rem;height:22rem;border-radius:50%;background:var(--dot);margin-right:14rem;vertical-align:middle;position:relative;top:-3rem}
+.notif{display:flex;gap:26rem;align-items:center}
+.notif img{width:84rem;height:84rem;object-fit:cover;flex:none;border-radius:var(--logo-radius)}
+.notif .a{font-size:26rem;color:var(--muted)}.notif .t{font:700 38rem/1.25 var(--display),sans-serif;margin:4rem 0}.notif .b{font-size:30rem;color:var(--muted)}
+.chip{border-radius:999rem;padding:18rem 30rem;font-size:30rem}
+.grain{position:absolute;inset:0;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>")}
+[data-mode=dark] .grain{opacity:.04;mix-blend-mode:screen}
+</style></head><body><div id="c"><div class="glow"></div><div class="text"><div class="brand" id="brand"></div><h1 id="h"></h1><p id="s"></p></div><div class="phone"><img id="img" alt=""></div><div class="grain"></div></div>
+<script>
+// Data arrives in the URL hash from render.mjs: { slide, config, logoSrc, imageSrc, fontSrcs }.
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const NON_LATIN=/[ऀ-෿฀-๿؀-ۿ֐-׿぀-ヿ一-鿿가-힯]/;
+const D=JSON.parse(decodeURIComponent(location.hash.slice(1)));
+const {slide:s,config:cfg}=D, W=cfg.canvas.width, H=cfg.canvas.height;
+const root=document.documentElement, c=document.getElementById('c');
+root.style.fontSize=(W/1080)+'px'; c.style.width=W+'px'; c.style.height=H+'px';
+document.body.style.width=W+'px'; document.body.style.height=H+'px';
+root.dataset.mode=s.mode||'light';
+const t=cfg.tokens[s.mode||'light'];
+for(const k in t) root.style.setProperty('--'+k,t[k]);
+root.style.setProperty('--rim', s.mode==='dark'?'rgba(255,255,255,.16)':'rgba(0,0,0,0)');
+root.style.setProperty('--bezel',(cfg.phone&&cfg.phone.bezel)||'#0E0C0B');
+root.style.setProperty('--logo-radius',{circle:'50%',rounded:'22%',square:'0'}[cfg.logoShape||'circle']);
+const f=cfg.fonts||{};
+const fam=r=>f[r]?'"'+f[r].family+'"':'sans-serif';
+root.style.setProperty('--display',fam('display'));root.style.setProperty('--body',fam('body'));root.style.setProperty('--script',fam('script'));
+const loads=[];
+for(const role of ['display','body','script']){const x=f[role];if(!x)continue;
+  const srcs=[...(x.local||[]).map(n=>'local("'+n+'")'),...(D.fontSrcs[role]?['url("'+D.fontSrcs[role]+'")']:[])];
+  if(!srcs.length)continue;
+  const ff=new FontFace(x.family,srcs.join(','),{weight:String(x.weight||400)});
+  loads.push(ff.load().then(l=>document.fonts.add(l)).catch(()=>{}));}
+const h=document.getElementById('h');
+let html=esc(s.headline);
+if(s.emphasis) html=html.replace(esc(s.emphasis),'<em>$&</em>');
+h.innerHTML=html; if(NON_LATIN.test(s.headline)) h.classList.add('script');
+document.getElementById('s').textContent=s.subline||'';
+if(s.logo) document.getElementById('brand').innerHTML='<img src="'+D.logoSrc+'" alt=""><span>'+esc(cfg.wordmark||cfg.product)+'</span>';
+document.getElementById('img').src=D.imageSrc;
+(s.callouts||[]).forEach(o=>{
+  const e=document.createElement('div');
+  e.className='card'+(o.small?' small':'')+(NON_LATIN.test(o.text||'')?' script':'')+(o.type==='notif'?' notif':'')+(o.type==='chip'?' chip':'');
+  for(const k of ['left','right','top','width']) if(o[k]!=null) e.style[k]=o[k]+'rem';
+  if(o.type==='notif') e.innerHTML='<img src="'+D.logoSrc+'" alt=""><div><div class="a">'+esc(o.app||'')+'</div><div class="t">'+esc(o.title||'')+'</div><div class="b">'+esc(o.body||'')+'</div></div>';
+  else e.innerHTML=(o.mic?'<span class="dot"></span>':'')+esc(o.text||'');
+  c.appendChild(e);
+});
+Promise.all(loads).then(()=>document.fonts.ready).then(()=>{document.title='ready'});
+</script></body></html>

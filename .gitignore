@@ -1,0 +1,4 @@
+# Machine-local Claude views; recreated by scripts/setup-shared-skills.ps1.
+.claude/skills
+.claude/agents
+.claude/settings.local.json

@@ -1,0 +1,834 @@
+<title>WowTodo People Merge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap">
+<style>
+/* Layout: proposal reading column beside a sticky interactive phone; stacks phone-first under 960px.
+   Tokens mirror the app's warm stone + amber theme (app/src/design-system/themes.ts). */
+:root {
+  --page: #F3EFE7;
+  --bg: #FDFCF7;
+  --surface: #FFFFFF;
+  --inset: #F5F2EB;
+  --hair: #ECE7E1;
+  --strong: #D6D3D1;
+  --text: #1C1917;
+  --text2: #57534E;
+  --muted: #78716C;
+  --primary: #B45309;
+  --fill: #B45309;
+  --on-fill: #FFFFFF;
+  --bright: #D97706;
+  --wash: #FEF3C7;
+  --wash-border: #FCD34D;
+  --on-wash: #92400E;
+  --ok: #15803D;
+  --ok-bg: #F0FDF4;
+  --bad: #DC2626;
+  --bad-bg: #FEF2F2;
+  --info: #3B6EA8;
+  --info-bg: #EEF4FB;
+  --shadow: 0 1px 2px rgba(41,37,36,.06), 0 4px 14px rgba(41,37,36,.06);
+  --phone-shadow: 0 30px 60px -20px rgba(68,64,60,.35);
+  --scrim: rgba(28,25,23,.38);
+  --display: "Plus Jakarta Sans", "Noto Sans Devanagari", system-ui, sans-serif;
+  --body: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0E0C0A; --bg: #161311; --surface: #1F1B18; --inset: #2A2522; --hair: rgba(255,240,225,.09);
+    --strong: #3F3732; --text: #F5EFE9; --text2: #D6CCC3; --muted: #A89E95; --primary: #FBBF24;
+    --fill: #F59E0B; --on-fill: #1C1917; --bright: #F59E0B; --wash: rgba(245,158,11,.14);
+    --wash-border: rgba(252,211,77,.35); --on-wash: #FCD34D; --ok: #4ADE80; --ok-bg: rgba(74,222,128,.12);
+    --bad: #F87171; --bad-bg: rgba(248,113,113,.12); --info: #8DB4E2; --info-bg: rgba(141,180,226,.12);
+    --shadow: 0 1px 2px rgba(0,0,0,.3); --phone-shadow: 0 30px 60px -20px rgba(0,0,0,.7); --scrim: rgba(0,0,0,.55);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0E0C0A; --bg: #161311; --surface: #1F1B18; --inset: #2A2522; --hair: rgba(255,240,225,.09);
+  --strong: #3F3732; --text: #F5EFE9; --text2: #D6CCC3; --muted: #A89E95; --primary: #FBBF24;
+  --fill: #F59E0B; --on-fill: #1C1917; --bright: #F59E0B; --wash: rgba(245,158,11,.14);
+  --wash-border: rgba(252,211,77,.35); --on-wash: #FCD34D; --ok: #4ADE80; --ok-bg: rgba(74,222,128,.12);
+  --bad: #F87171; --bad-bg: rgba(248,113,113,.12); --info: #8DB4E2; --info-bg: rgba(141,180,226,.12);
+  --shadow: 0 1px 2px rgba(0,0,0,.3); --phone-shadow: 0 30px 60px -20px rgba(0,0,0,.7); --scrim: rgba(0,0,0,.55);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--page); color: var(--text); font-family: var(--body); font-size: 15px; line-height: 1.5; padding: 0 16px; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+button:focus-visible, [tabindex]:focus-visible, textarea:focus-visible { outline: 2px solid var(--bright); outline-offset: 2px; }
+svg.i { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 28px 64px; display: grid; grid-template-columns: minmax(0,1fr) 410px; gap: 48px; align-items: start; }
+.stage { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); display: flex; flex-direction: column; gap: 12px; align-items: center; grid-column: 2; grid-row: 1; }
+.doc { grid-column: 1; grid-row: 1; min-width: 0; }
+@media (max-width: 960px) {
+  .wrap { grid-template-columns: minmax(0,1fr); gap: 32px; }
+  .stage { position: static; grid-column: 1; grid-row: 1; }
+  .doc { grid-row: 2; }
+}
+
+/* ── controls ── */
+.controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 410px; }
+.pill-group { display: inline-flex; background: var(--surface); border: 1px solid var(--hair); border-radius: 999px; padding: 3px; gap: 2px; }
+.pill-group button { font-size: 12.5px; font-weight: 500; padding: 5px 11px; border-radius: 999px; color: var(--text2); }
+.pill-group button[aria-pressed="true"] { background: var(--wash); color: var(--on-wash); font-weight: 600; }
+.pill-label { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); align-self: center; padding: 0 2px 0 8px; }
+
+/* ── phone ── */
+.phone { width: 100%; max-width: 390px; height: 800px; max-height: calc(100vh - 110px); min-height: 640px; background: var(--bg); border: 1px solid var(--hair); border-radius: 40px; box-shadow: var(--phone-shadow); position: relative; overflow: hidden; display: flex; flex-direction: column; }
+@media (max-width: 960px) { .phone { max-height: none; height: 760px; } }
+.statusbar { height: 34px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 6px 26px 0; font-size: 12.5px; font-weight: 600; color: var(--text2); font-variant-numeric: tabular-nums; }
+.statusbar .dots { display: flex; gap: 4px; }
+.statusbar .dots span { width: 14px; height: 9px; border-radius: 2px; background: var(--strong); }
+.hdr { flex: none; display: flex; align-items: center; gap: 10px; padding: 8px 18px 10px; border-bottom: 1px solid var(--hair); }
+.hdr img { width: 34px; height: 34px; border-radius: 50%; }
+.brand { font-family: var(--display); font-weight: 700; font-size: 21px; letter-spacing: -.01em; flex: 1; }
+.icon-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--hair); background: var(--surface); display: grid; place-items: center; color: var(--text2); position: relative; }
+.icon-btn .dot { position: absolute; top: 8px; right: 9px; width: 9px; height: 9px; border-radius: 50%; background: var(--bright); border: 2px solid var(--surface); }
+.screen { flex: 1; overflow-y: auto; overflow-x: hidden; padding: 16px 18px 110px; scrollbar-width: thin; }
+
+h1.scr { font-family: var(--display); font-weight: 800; font-size: 28px; letter-spacing: -.02em; line-height: 1.15; margin: 0; }
+.title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border-radius: 12px; font-weight: 600; font-size: 14px; padding: 9px 14px; min-height: 40px; }
+.btn.primary { background: var(--fill); color: var(--on-fill); }
+.btn.soft { background: var(--inset); color: var(--text); }
+.btn.ghost { color: var(--text2); border: 1px solid var(--hair); background: var(--surface); }
+.btn.danger { background: var(--bad); color: #fff; }
+.btn.block { width: 100%; }
+.btn svg.i { width: 18px; height: 18px; }
+.btn.sm { min-height: 34px; padding: 6px 12px; font-size: 13px; border-radius: 10px; }
+
+.seg { display: flex; background: var(--inset); border-radius: 999px; padding: 4px; margin: 4px 0 18px; }
+.seg button { flex: 1; padding: 8px 6px; border-radius: 999px; font-weight: 600; font-size: 14px; color: var(--text2); display: inline-flex; gap: 6px; align-items: center; justify-content: center; min-width: 0; }
+.seg button[aria-pressed="true"] { background: var(--fill); color: var(--on-fill); }
+.seg .n { font-size: 12px; font-weight: 600; padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, currentColor 16%, transparent); font-variant-numeric: tabular-nums; }
+
+.sec { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 20px 2px 10px; }
+.sec:first-of-type { margin-top: 6px; }
+.sec .count { font-size: 11px; color: var(--on-wash); background: var(--wash); border-radius: 999px; padding: 1px 8px; letter-spacing: 0; }
+.stack { display: flex; flex-direction: column; gap: 10px; }
+
+.card { background: var(--surface); border: 1px solid var(--hair); border-radius: 18px; padding: 14px; box-shadow: var(--shadow); }
+.card.ask { background: var(--wash); border-color: var(--wash-border); box-shadow: none; }
+.ask-top { display: flex; gap: 12px; align-items: flex-start; }
+.ask-text { min-width: 0; font-size: 14px; color: var(--text2); }
+.ask-text b { color: var(--text); font-weight: 600; }
+.ask-title { display: block; font-family: var(--display); font-weight: 700; color: var(--text); font-size: 16px; margin-top: 2px; }
+.ask-meta { font-size: 12.5px; color: var(--muted); }
+.ask-actions { display: flex; gap: 8px; margin-top: 12px; }
+.ask-actions .btn { flex: 1; }
+
+.av { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; font-size: 14px; flex: none; color: #fff; letter-spacing: .02em; }
+.av.sm { width: 22px; height: 22px; font-size: 9.5px; }
+.av.lg { width: 64px; height: 64px; font-size: 22px; }
+.av-pair { display: inline-flex; align-items: center; }
+.av-pair .av:last-child { margin-left: -6px; box-shadow: 0 0 0 2px var(--surface); }
+
+.row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--hair); border-radius: 16px; width: 100%; text-align: left; }
+.row + .row { margin-top: 8px; }
+.row-main { flex: 1; min-width: 0; }
+.row-name { font-weight: 600; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; padding: 2px 8px; border-radius: 999px; background: var(--inset); color: var(--text2); white-space: nowrap; }
+.chip svg.i { width: 13px; height: 13px; stroke-width: 2.2; }
+.chip.from { background: var(--info-bg); color: var(--info); }
+.chip.to { background: var(--wash); color: var(--on-wash); }
+.chip.wait { background: var(--wash); color: var(--on-wash); }
+.chip.ok { background: var(--ok-bg); color: var(--ok); }
+.chip.bad { background: var(--bad-bg); color: var(--bad); }
+.chip.quiet { background: transparent; color: var(--muted); padding-left: 0; }
+.row .chev { color: var(--muted); }
+
+.task { cursor: pointer; text-align: left; width: 100%; display: block; }
+.dir { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--text2); }
+.dir .who { font-weight: 600; color: var(--text); }
+.dir .when { color: var(--muted); }
+.dir .spacer { flex: 1; }
+.task-title { font-family: var(--display); font-weight: 700; font-size: 16.5px; line-height: 1.3; margin: 8px 0 10px; text-wrap: balance; }
+.prog { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bar { flex: 1; height: 7px; border-radius: 999px; background: var(--inset); overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--bright); border-radius: inherit; }
+.bar.done > i { background: var(--ok); }
+.task-foot { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--hair); }
+.task-foot .spacer { flex: 1; }
+.link-btn { font-size: 13px; font-weight: 600; color: var(--text2); padding: 6px 2px; }
+.link-btn.danger { color: var(--bad); }
+.note { margin-top: 10px; font-size: 13px; color: var(--text2); background: var(--inset); border-radius: 10px; padding: 8px 10px; }
+.note b { font-weight: 600; color: var(--text); }
+
+.topbar { display: flex; align-items: center; gap: 6px; margin: -4px -6px 10px; }
+.topbar .back { display: inline-flex; align-items: center; gap: 2px; font-weight: 600; color: var(--primary); padding: 6px; border-radius: 10px; }
+.topbar .spacer { flex: 1; }
+.person-hero { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+.person-hero h1 { font-family: var(--display); font-weight: 800; font-size: 24px; margin: 0; line-height: 1.2; letter-spacing: -.015em; }
+.person-hero .sub { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.summary { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+
+.empty { text-align: center; padding: 28px 12px; color: var(--text2); }
+.empty .ring { width: 72px; height: 72px; border-radius: 50%; background: var(--wash); display: grid; place-items: center; margin: 0 auto 12px; color: var(--primary); }
+.empty .ring svg.i { width: 30px; height: 30px; }
+.empty h3 { font-family: var(--display); font-size: 17px; margin: 0 0 4px; color: var(--text); }
+.empty p { margin: 0; font-size: 14px; }
+
+/* dock */
+.dock { position: absolute; left: 0; right: 0; bottom: 0; height: 86px; background: var(--surface); border-top: 1px solid var(--hair); display: flex; align-items: flex-start; justify-content: space-around; padding: 10px 8px 0; }
+.dock .tab { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11.5px; font-weight: 500; color: var(--muted); width: 64px; }
+.dock .tab[aria-current="page"] { color: var(--primary); font-weight: 600; }
+.dock .tab .ic { position: relative; }
+.dock .tab .dot { position: absolute; top: -1px; right: -3px; width: 8px; height: 8px; border-radius: 50%; background: var(--bright); border: 2px solid var(--surface); }
+.dock .mic { width: 66px; height: 66px; margin-top: -30px; border-radius: 50%; background: linear-gradient(145deg, #F59E0B, #D97706); color: #fff; display: grid; place-items: center; box-shadow: 0 0 0 6px var(--surface), 0 10px 24px -8px rgba(217,119,6,.6); }
+.dock .mic svg.i { width: 28px; height: 28px; }
+.dock .home-bar { position: absolute; bottom: 7px; left: 50%; width: 120px; height: 4px; margin-left: -60px; border-radius: 4px; background: var(--strong); }
+
+/* sheets, dialogs, toast */
+.scrim { position: absolute; inset: 0; background: var(--scrim); display: flex; flex-direction: column; justify-content: flex-end; z-index: 5; }
+.scrim.center { justify-content: center; padding: 24px; }
+.sheet { background: var(--surface); border-radius: 26px 26px 0 0; padding: 10px 20px 28px; max-height: 82%; overflow-y: auto; }
+.sheet .grab { width: 40px; height: 4px; border-radius: 4px; background: var(--strong); margin: 0 auto 14px; }
+.sheet h2, .dialog h2 { font-family: var(--display); font-weight: 700; font-size: 19px; margin: 0 0 4px; line-height: 1.3; text-wrap: balance; }
+.sheet .lead, .dialog p { color: var(--text2); font-size: 14px; margin: 0 0 14px; }
+.steps { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.steps li { display: flex; gap: 10px; align-items: center; padding: 9px 4px; border-bottom: 1px solid var(--hair); font-size: 14.5px; }
+.steps li::before { content: ""; width: 18px; height: 18px; border-radius: 6px; border: 1.5px solid var(--strong); flex: none; }
+.sheet-actions { display: flex; gap: 10px; }
+.sheet-actions .btn { flex: 1; }
+.menu-list { display: flex; flex-direction: column; }
+.menu-list button { display: flex; gap: 12px; align-items: center; padding: 13px 4px; font-size: 15px; font-weight: 500; border-bottom: 1px solid var(--hair); text-align: left; }
+.menu-list button:last-child { border-bottom: 0; }
+.menu-list .danger { color: var(--bad); }
+.menu-list .hint { display: block; font-size: 12.5px; color: var(--muted); font-weight: 400; }
+.pick { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.pick label { display: flex; gap: 12px; align-items: center; padding: 12px; border: 1px solid var(--hair); border-radius: 14px; cursor: pointer; }
+.pick label.on { border-color: var(--wash-border); background: var(--wash); }
+.pick label.off { opacity: .55; cursor: default; }
+.pick input { accent-color: var(--bright); width: 18px; height: 18px; }
+.pick .t { flex: 1; min-width: 0; font-weight: 500; }
+.pick .s { font-size: 12px; color: var(--muted); }
+.dialog { background: var(--surface); border-radius: 22px; padding: 20px; }
+.dialog textarea { width: 100%; min-height: 74px; border: 1px solid var(--hair); border-radius: 12px; padding: 10px; font: inherit; font-size: 14px; background: var(--bg); color: var(--text); resize: none; margin-bottom: 14px; }
+.toast { position: absolute; left: 16px; right: 16px; bottom: 98px; background: var(--text); color: var(--bg); border-radius: 14px; padding: 11px 14px; font-size: 13.5px; z-index: 6; box-shadow: 0 10px 30px -10px rgba(0,0,0,.5); transition: opacity .2s, transform .2s; }
+.toast[hidden] { display: none !important; }
+
+/* ── doc column ── */
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); margin: 0 0 10px; }
+.doc h1 { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 4.2vw, 44px); line-height: 1.08; letter-spacing: -.025em; margin: 0 0 14px; text-wrap: balance; }
+.doc .intro { font-size: 17px; color: var(--text2); max-width: 60ch; margin: 0 0 30px; }
+.doc h2 { font-family: var(--display); font-weight: 700; font-size: 21px; margin: 40px 0 14px; letter-spacing: -.01em; }
+.changes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; counter-reset: c; }
+.change { background: var(--surface); border: 1px solid var(--hair); border-radius: 18px; padding: 16px 18px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 6px 16px; align-items: start; }
+.change h3 { margin: 0; font-size: 16px; font-weight: 600; font-family: var(--display); grid-column: 1; }
+.ba { grid-column: 1; display: grid; grid-template-columns: 52px minmax(0,1fr); gap: 4px 10px; font-size: 14px; color: var(--text2); }
+.ba dt { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.ba dd { margin: 0; }
+.ba dd.after { color: var(--text); }
+.show { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-size: 13px; font-weight: 600; color: var(--primary); border: 1px solid var(--wash-border); background: var(--wash); border-radius: 999px; padding: 6px 12px; white-space: nowrap; display: inline-flex; gap: 4px; align-items: center; }
+.show svg.i { width: 15px; height: 15px; }
+@media (max-width: 520px) { .change { grid-template-columns: minmax(0,1fr); } .show { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; } }
+.table-wrap { overflow-x: auto; border: 1px solid var(--hair); border-radius: 16px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 420px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--hair); vertical-align: top; }
+th { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+.decide { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.decide li { border-left: 3px solid var(--bright); padding: 4px 0 4px 14px; }
+.decide b { display: block; font-weight: 600; }
+.decide span { color: var(--text2); font-size: 14px; }
+.notes { color: var(--text2); font-size: 14.5px; padding-left: 18px; margin: 0; }
+.notes li + li { margin-top: 6px; }
+@media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+</style>
+
+<div class="wrap">
+  <section class="stage" aria-label="Interactive mockup">
+    <div class="controls" role="group" aria-label="Mockup options">
+      <span class="pill-label">Theme</span>
+      <div class="pill-group" id="ctl-theme">
+        <button data-theme-set="auto" aria-pressed="true">Auto</button>
+        <button data-theme-set="light" aria-pressed="false">Light</button>
+        <button data-theme-set="dark" aria-pressed="false">Dark</button>
+      </div>
+      <span class="pill-label">Lang</span>
+      <div class="pill-group" id="ctl-lang">
+        <button data-lang="en" aria-pressed="true">EN</button>
+        <button data-lang="hi" aria-pressed="false">हिं</button>
+      </div>
+      <span class="pill-label">Dock</span>
+      <div class="pill-group" id="ctl-dock">
+        <button data-dock="B" aria-pressed="true">3 tabs</button>
+        <button data-dock="A" aria-pressed="false">5 tabs</button>
+      </div>
+      <div class="pill-group"><button id="ctl-reset">Reset data</button></div>
+    </div>
+    <div class="phone" id="phone">
+      <div class="statusbar"><span>12:55</span><span class="dots"><span></span><span></span></span></div>
+      <div class="hdr" id="hdr"></div>
+      <div class="screen" id="screen" tabindex="-1"></div>
+      <nav class="dock" id="dock" aria-label="App tabs"></nav>
+      <div id="overlay"></div>
+      <div class="toast" id="toast" role="status" hidden></div>
+    </div>
+  </section>
+
+  <article class="doc">
+    <p class="eyebrow">WowTodo · People tab proposal</p>
+    <h1>One People tab for contacts and everything you share</h1>
+    <p class="intro">The Shared tab goes away. Contacts, requests and every shared task live under People, and each card says who it's from in plain words. The phone on this page is a working mockup with sample people and tasks. Tap through it; nothing is saved and no real accounts are involved.</p>
+
+    <h2>What changes</h2>
+    <ol class="changes">
+      <li class="change">
+        <h3>One place for sharing</h3>
+        <dl class="ba"><dt>Before</dt><dd>Shared tab (For Me / Shared) and People tab (contacts) showed the same shares twice.</dd><dt>After</dt><dd class="after">People holds contacts, requests and every shared task. The dock loses the Shared tab.</dd></dl>
+        <button class="show" data-go="home">Show me</button>
+      </li>
+      <li class="change">
+        <h3>What's waiting for you comes first</h3>
+        <dl class="ba"><dt>Before</dt><dd>Incoming shares sat in Shared › For Me; contact requests sat in People.</dd><dt>After</dt><dd class="after">"Needs your answer" at the top of People, with Peek, Decline and Accept right on the card.</dd></dl>
+        <button class="show" data-go="peek">Show me</button>
+      </li>
+      <li class="change">
+        <h3>Direction is in the words</h3>
+        <dl class="ba"><dt>Before</dt><dd>"Their Tasks / Your Tasks" read like ownership, not who shared with whom.</dd><dt>After</dt><dd class="after">"From Riya / To Riya". Every card starts with "From Riya" or "You → Riya".</dd></dl>
+        <button class="show" data-go="riya-from">Show me</button>
+      </li>
+      <li class="change">
+        <h3>The right face on each card</h3>
+        <dl class="ba"><dt>Before</dt><dd>Your own task showed the other person's photo, so it looked like theirs.</dd><dt>After</dt><dd class="after">From cards show the sender. To cards show you, then them.</dd></dl>
+        <button class="show" data-go="riya-to">Show me</button>
+      </li>
+      <li class="change">
+        <h3>Status and Stop sharing on the card</h3>
+        <dl class="ba"><dt>Before</dt><dd>Status and Revoke lived only on the Shared tab.</dd><dt>After</dt><dd class="after">Waiting, Accepted or Declined on every To card, with Stop sharing. A declined share shows their note.</dd></dl>
+        <button class="show" data-go="kabir-to">Show me</button>
+      </li>
+      <li class="change">
+        <h3>Safety actions move into ⋯</h3>
+        <dl class="ba"><dt>Before</dt><dd>Block, Report and Remove contact sat above the tasks, in the most prominent spot.</dd><dt>After</dt><dd class="after">In the ⋯ menu on the person's page, each with a confirm step.</dd></dl>
+        <button class="show" data-go="menu">Show me</button>
+      </li>
+      <li class="change">
+        <h3>Share from the person</h3>
+        <dl class="ba"><dt>Before</dt><dd>Sharing started only from a task.</dd><dt>After</dt><dd class="after">"Share a task with Riya" on their page picks from your tasks. Sharing from a task still works.</dd></dl>
+        <button class="show" data-go="share">Show me</button>
+      </li>
+      <li class="change">
+        <h3>Optional: a By task view</h3>
+        <dl class="ba"><dt>Before</dt><dd>—</dd><dt>After</dt><dd class="after">All shared tasks in one list: Waiting for you, Shared with you, Shared by you. Useful once someone shares with many people.</dd></dl>
+        <button class="show" data-go="bytask">Show me</button>
+      </li>
+    </ol>
+
+    <h2>Where notification taps go</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Notification</th><th>Today</th><th>Proposed</th></tr></thead>
+        <tbody>
+          <tr><td>Someone shares a task with you</td><td>Shared tab</td><td>People › Needs your answer, peek opens</td></tr>
+          <tr><td>Your share is accepted or declined</td><td>The task</td><td>That person › To tab</td></tr>
+          <tr><td>Contact request or contact added</td><td>People</td><td>People (unchanged)</td></tr>
+          <tr><td>Older links to the Shared tab</td><td>Shared tab</td><td>Redirect to People</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Decide before we build</h2>
+    <ul class="decide">
+      <li><b>Tab labels on a person's page</b><span>"From Riya / To Riya" as shown, or "Shared with me / Shared by me".</span></li>
+      <li><b>Dock</b><span>3 tabs (shown first): Tasks · mic · People, with Settings moving into the ☰ menu. Or 5 tabs: the bell moves into the freed slot as Alerts. Switch it above the phone.</span></li>
+      <li><b>By task view</b><span>Keep it as a second view, or leave People person-only.</span></li>
+      <li><b>Peek before accepting</b><span>Keep Peek as a sheet (shown), or open the full task read-only.</span></li>
+    </ul>
+
+    <h2>Build notes</h2>
+    <ul class="notes">
+      <li>No database change. The screen regroups the share and contact data the app already loads.</li>
+      <li>Existing pieces are reused: share cards, the decline-with-note sheet, block and report dialogs, contact rows, Add contact.</li>
+      <li>All People copy moves into one English + Hindi file. Today the Shared and person screens are English only.</li>
+      <li>The old Shared route stays as a redirect, so taps on older notifications still land somewhere sensible.</li>
+      <li>Branch sharing is on hold. The "1 branch" chip on a card is a placeholder.</li>
+    </ul>
+  </article>
+</div>
+
+<script>
+(function () {
+  var LOGO = "data:image/png;base64,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";
+
+  var ICON = {
+    bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+    menu: '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>',
+    settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
+    tasks: '<polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>',
+    mic: '<path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/>',
+    users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    userPlus: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/>',
+    userMinus: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="22" x2="16" y1="11" y2="11"/>',
+    left: '<path d="m15 18-6-6 6-6"/>',
+    right: '<path d="m9 18 6-6-6-6"/>',
+    more: '<circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>',
+    inArrow: '<path d="M17 7 7 17"/><path d="M17 17H7V7"/>',
+    outArrow: '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>',
+    eye: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+    branch: '<line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>',
+    ban: '<circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/>',
+    flag: '<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>',
+    check: '<path d="M20 6 9 17l-5-5"/>',
+    clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+    x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+    inbox: '<polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>'
+  };
+  function ic(name) { return '<svg class="i" viewBox="0 0 24 24" aria-hidden="true">' + ICON[name] + '</svg>'; }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+  // ── copy (EN + HI) ──
+  var COPY = {
+    en: {
+      people: 'People', add: 'Add', byPerson: 'By person', byTask: 'By task',
+      needs: 'Needs your answer', contacts: 'Contacts',
+      wantsShare: '<b>{name}</b> wants to share a task with you', wantsAdd: '<b>{name}</b> wants to add you as a contact',
+      steps: '{n} steps', peek: 'Peek', decline: 'Decline', accept: 'Accept', ignore: 'Ignore',
+      fromN: '{n} from {name}', toN: '{n} to {name}', waitingYou: '{n} waiting for you', nothing: 'Nothing shared yet',
+      from: 'From {name}', to: 'To {name}', youTo: 'You → {name}',
+      waiting: 'Waiting', accepted: 'Accepted', declined: 'Declined', done: 'Done',
+      stop: 'Stop sharing', remove: 'Remove', branch: '1 branch',
+      shareWith: 'Share a task with {name}', back: 'People',
+      emptyFromT: 'Nothing from {name} yet', emptyFromB: 'Tasks {name} shares with you will show up here.',
+      emptyToT: "You haven't shared with {name}", emptyToB: 'Share a task and you can follow their progress here.',
+      emptyPeopleT: 'No contacts yet', emptyPeopleB: 'Add someone with your link, QR code or email.',
+      waitForYou: 'Waiting for you', sharedWithYou: 'Shared with you', sharedByYou: 'Shared by you',
+      menuShare: 'Share a task', menuRemove: 'Remove contact', menuRemoveHint: 'Shared tasks stop syncing between you',
+      menuBlock: 'Block', menuBlockHint: "They can't share with you or add you", menuReport: 'Report', menuReportHint: 'Tell WowTodo about a problem',
+      cancel: 'Cancel', stopQ: 'Stop sharing "{task}"?', stopB: "{name} won't see this task any more. Your task stays as it is.",
+      declineQ: 'Decline "{task}"?', declineB: '{name} will see that you declined.', notePh: 'Add a note for {name} (optional)',
+      blockQ: 'Block {name}?', blockB: "They won't be able to share tasks with you or add you again. Tasks you shared with each other stop syncing.",
+      removeQ: 'Remove {name} from contacts?', removeB: 'You can add each other again later with a link or QR code.',
+      pickTitle: 'Share with {name}', pickLead: 'Pick one of your tasks.', already: 'Already shared', share: 'Share',
+      tSettings: 'Settings', tTasks: 'Tasks', tPeople: 'People', tAlerts: 'Alerts',
+      toastAccepted: '"{task}" is now in People › From {name}.', toastDeclined: 'Declined. {name} will be told.',
+      toastStopped: 'Stopped sharing with {name}.', toastShared: 'Shared with {name}. Waiting for them to accept.',
+      toastContact: '{name} is now a contact.', toastIgnored: 'Request ignored.', toastBlocked: '{name} is blocked.',
+      toastRemoved: '{name} removed from contacts.', toastReport: 'Opens the existing report dialog.',
+      toastOpen: 'Opens the task screen (not part of this mockup).', toastAdd: 'Opens Add contact: link, QR or email (unchanged).',
+      toastBell: 'Opens Notifications.', toastTab: 'Not part of this mockup.', toastRemovedShare: 'Removed.',
+      updated: 'updated {t}'
+    },
+    hi: {
+      people: 'लोग', add: 'जोड़ें', byPerson: 'व्यक्ति के हिसाब से', byTask: 'टास्क के हिसाब से',
+      needs: 'आपके जवाब का इंतज़ार', contacts: 'संपर्क',
+      wantsShare: '<b>{name}</b> आपके साथ एक टास्क शेयर करना चाहते हैं', wantsAdd: '<b>{name}</b> आपको संपर्क में जोड़ना चाहते हैं',
+      steps: '{n} स्टेप', peek: 'देखें', decline: 'मना करें', accept: 'स्वीकार करें', ignore: 'अनदेखा करें',
+      fromN: '{name} से {n}', toN: '{name} को {n}', waitingYou: '{n} आपके जवाब के लिए', nothing: 'अभी कुछ शेयर नहीं हुआ',
+      from: '{name} से', to: '{name} को', youTo: 'आप → {name}',
+      waiting: 'जवाब बाकी', accepted: 'स्वीकार किया', declined: 'मना किया', done: 'पूरा',
+      stop: 'शेयर बंद करें', remove: 'हटाएँ', branch: '1 ब्रांच',
+      shareWith: '{name} के साथ टास्क शेयर करें', back: 'लोग',
+      emptyFromT: '{name} से अभी कुछ नहीं', emptyFromB: '{name} जो टास्क आपके साथ शेयर करेंगे, वे यहाँ दिखेंगे।',
+      emptyToT: 'आपने {name} के साथ कुछ शेयर नहीं किया', emptyToB: 'टास्क शेयर करें और यहाँ उनकी प्रगति देखें।',
+      emptyPeopleT: 'अभी कोई संपर्क नहीं', emptyPeopleB: 'अपने लिंक, QR कोड या ईमेल से किसी को जोड़ें।',
+      waitForYou: 'आपके जवाब के लिए', sharedWithYou: 'आपके साथ शेयर किए', sharedByYou: 'आपने शेयर किए',
+      menuShare: 'टास्क शेयर करें', menuRemove: 'संपर्क हटाएँ', menuRemoveHint: 'शेयर किए टास्क सिंक होना बंद हो जाएँगे',
+      menuBlock: 'ब्लॉक करें', menuBlockHint: 'वे आपसे शेयर नहीं कर पाएँगे, न आपको जोड़ पाएँगे', menuReport: 'रिपोर्ट करें', menuReportHint: 'WowTodo को किसी समस्या के बारे में बताएँ',
+      cancel: 'रद्द करें', stopQ: '"{task}" शेयर करना बंद करें?', stopB: '{name} को यह टास्क अब नहीं दिखेगा। आपका टास्क जैसा है वैसा रहेगा।',
+      declineQ: '"{task}" के लिए मना करें?', declineB: '{name} को पता चलेगा कि आपने मना किया।', notePh: '{name} के लिए नोट लिखें (ज़रूरी नहीं)',
+      blockQ: '{name} को ब्लॉक करें?', blockB: 'वे आपके साथ टास्क शेयर नहीं कर पाएँगे और आपको दोबारा नहीं जोड़ पाएँगे। आपस में शेयर किए टास्क सिंक होना बंद हो जाएँगे।',
+      removeQ: '{name} को संपर्कों से हटाएँ?', removeB: 'बाद में लिंक या QR कोड से फिर जुड़ सकते हैं।',
+      pickTitle: '{name} के साथ शेयर करें', pickLead: 'अपना एक टास्क चुनें।', already: 'पहले से शेयर', share: 'शेयर करें',
+      tSettings: 'सेटिंग्स', tTasks: 'टास्क', tPeople: 'लोग', tAlerts: 'सूचनाएँ',
+      toastAccepted: '"{task}" अब लोग › {name} से में है।', toastDeclined: 'मना कर दिया। {name} को बताया जाएगा।',
+      toastStopped: '{name} के साथ शेयर बंद।', toastShared: '{name} के साथ शेयर किया। उनके स्वीकार करने का इंतज़ार।',
+      toastContact: '{name} अब संपर्क में हैं।', toastIgnored: 'अनुरोध अनदेखा किया।', toastBlocked: '{name} ब्लॉक किए गए।',
+      toastRemoved: '{name} संपर्कों से हटाए गए।', toastReport: 'मौजूदा रिपोर्ट डायलॉग खुलेगा।',
+      toastOpen: 'टास्क स्क्रीन खुलेगी (इस मॉकअप में नहीं)।', toastAdd: 'संपर्क जोड़ें खुलेगा: लिंक, QR या ईमेल।',
+      toastBell: 'सूचनाएँ खुलेंगी।', toastTab: 'इस मॉकअप में नहीं।', toastRemovedShare: 'हटाया गया।',
+      updated: '{t} अपडेट'
+    }
+  };
+
+  // ── sample data ──
+  function seed() {
+    return {
+      people: {
+        riya: { name: 'Riya Kapoor', email: 'riya.c@example.com', color: '#B45309', contact: true },
+        rohan:  { name: 'Rohan Mehta', email: 'rohan.m@example.com', color: '#3B6EA8', contact: true },
+        kabir:  { name: 'Kabir Shah', email: 'kabir.s@example.com', color: '#15803D', contact: true },
+        meera:  { name: 'Meera Iyer', email: 'meera.i@example.com', color: '#9D4EDD', contact: false, request: true }
+      },
+      shares: [
+        { id: 's3', dir: 'from', p: 'rohan', title: 'Diwali shopping list', done: 0, total: 6, status: 'pending', when: '10 min ago',
+          steps: ['Diyas and candles', 'Rangoli colours', 'Sweets from the corner shop', 'Gift hampers for the office', 'Lights for the balcony', 'New kurta'] },
+        { id: 's1', dir: 'from', p: 'riya', title: 'Groceries for the week', done: 3, total: 5, status: 'accepted', when: '2h ago' },
+        { id: 's5', dir: 'from', p: 'riya', title: 'Book tickets for Goa', done: 4, total: 4, status: 'accepted', when: 'yesterday' },
+        { id: 's2', dir: 'to', p: 'riya', title: "Plan Ayesha's Birthday Dinner", done: 2, total: 3, status: 'accepted', when: '12:15 PM', branch: true },
+        { id: 's4', dir: 'to', p: 'rohan', title: 'Car service on Saturday', done: 1, total: 4, status: 'pending', when: '1h ago' },
+        { id: 's6', dir: 'to', p: 'kabir', title: 'Office move checklist', done: 0, total: 7, status: 'declined', when: 'Mon', note: "I'm not on this project any more." }
+      ],
+      myTasks: [
+        { id: 'm1', title: 'Weekend deep clean', total: 6 },
+        { id: 'm2', title: 'Pay the electricity bill', total: 2 },
+        { id: 'm3', title: "Plan Ayesha's Birthday Dinner", total: 3, sharedWith: ['riya'] },
+        { id: 'm4', title: 'Book a doctor appointment', total: 3 }
+      ]
+    };
+  }
+
+  var S = { lang: 'en', dock: 'B', screen: 'people', view: 'person', pid: null, tab: 'from', overlay: null, data: seed() };
+
+  function t(key, vars) {
+    var s = (COPY[S.lang] && COPY[S.lang][key]) || COPY.en[key] || key;
+    if (vars) Object.keys(vars).forEach(function (k) { s = s.split('{' + k + '}').join(vars[k]); });
+    return s;
+  }
+  function first(pid) { return S.data.people[pid].name.split(' ')[0]; }
+  function initials(name) { return name.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase(); }
+  function av(pid, cls) {
+    if (pid === 'me') return '<span class="av ' + (cls || '') + '" style="background:#78716C" aria-hidden="true">A</span>';
+    var p = S.data.people[pid];
+    return '<span class="av ' + (cls || '') + '" style="background:' + p.color + '" aria-hidden="true">' + initials(p.name) + '</span>';
+  }
+  function sharesFor(pid, dir) { return S.data.shares.filter(function (s) { return s.p === pid && s.dir === dir; }); }
+  function pendingIn() { return S.data.shares.filter(function (s) { return s.dir === 'from' && s.status === 'pending'; }); }
+  function requests() { var P = S.data.people; return Object.keys(P).filter(function (k) { return P[k].request; }); }
+  function contacts() { var P = S.data.people; return Object.keys(P).filter(function (k) { return P[k].contact; }); }
+
+  // ── pieces ──
+  function askShareCard(s) {
+    return '<div class="card ask"><div class="ask-top">' + av(s.p) +
+      '<div class="ask-text">' + t('wantsShare', { name: esc(first(s.p)) }) +
+      '<span class="ask-title">' + esc(s.title) + '</span><span class="ask-meta">' + t('steps', { n: s.total }) + ' · ' + esc(s.when) + '</span></div></div>' +
+      '<div class="ask-actions"><button class="btn ghost sm" data-a="peek" data-id="' + s.id + '">' + ic('eye') + t('peek') + '</button>' +
+      '<button class="btn ghost sm" data-a="decline" data-id="' + s.id + '">' + t('decline') + '</button>' +
+      '<button class="btn primary sm" data-a="accept" data-id="' + s.id + '">' + t('accept') + '</button></div></div>';
+  }
+  function askContactCard(pid) {
+    return '<div class="card ask"><div class="ask-top">' + av(pid) +
+      '<div class="ask-text">' + t('wantsAdd', { name: esc(S.data.people[pid].name) }) +
+      '<span class="ask-meta">' + esc(S.data.people[pid].email) + '</span></div></div>' +
+      '<div class="ask-actions"><button class="btn ghost sm" data-a="ignore" data-id="' + pid + '">' + t('ignore') + '</button>' +
+      '<button class="btn primary sm" data-a="acceptContact" data-id="' + pid + '">' + t('accept') + '</button></div></div>';
+  }
+  function statusChip(s) {
+    if (s.status === 'pending') return '<span class="chip wait">' + ic('clock') + t('waiting') + '</span>';
+    if (s.status === 'declined') return '<span class="chip bad">' + ic('x') + t('declined') + '</span>';
+    return '<span class="chip ok">' + ic('check') + t('accepted') + '</span>';
+  }
+  function progress(s) {
+    var pct = s.total ? Math.round(100 * s.done / s.total) : 0;
+    var full = s.done === s.total;
+    return '<div class="prog"><span class="bar' + (full ? ' done' : '') + '"><i style="width:' + pct + '%"></i></span><span>' + s.done + '/' + s.total + '</span></div>';
+  }
+  function taskCard(s) {
+    var head;
+    if (s.dir === 'from') {
+      head = '<div class="dir">' + av(s.p, 'sm') + '<span><span class="who">' + t('from', { name: esc(first(s.p)) }) + '</span> <span class="when">· ' + esc(s.when) + '</span></span>' +
+        '<span class="spacer"></span>' + (s.done === s.total ? '<span class="chip ok">' + ic('check') + t('done') + '</span>' : '') + '</div>';
+    } else {
+      head = '<div class="dir"><span class="av-pair">' + av('me', 'sm') + av(s.p, 'sm') + '</span><span class="who">' + t('youTo', { name: esc(first(s.p)) }) + '</span>' +
+        '<span class="spacer"></span>' + statusChip(s) + '</div>';
+    }
+    var body = '<div class="task-title">' + esc(s.title) + '</div>' + progress(s);
+    if (s.branch) body += '<div class="row-meta" style="margin-top:10px"><span class="chip">' + ic('branch') + t('branch') + '</span></div>';
+    if (s.note) body += '<div class="note"><b>' + esc(first(s.p)) + ':</b> "' + esc(s.note) + '"</div>';
+    var foot = '';
+    if (s.dir === 'to') {
+      foot = '<div class="task-foot"><span class="when" style="font-size:12.5px;color:var(--muted)">' + t('updated', { t: esc(s.when) }) + '</span><span class="spacer"></span>' +
+        (s.status === 'declined'
+          ? '<button class="link-btn" data-a="removeShare" data-id="' + s.id + '">' + t('remove') + '</button>'
+          : '<button class="link-btn danger" data-a="stop" data-id="' + s.id + '">' + t('stop') + '</button>') + '</div>';
+    }
+    return '<div class="card task" role="button" tabindex="0" data-a="open" data-id="' + s.id + '">' + head + body + foot + '</div>';
+  }
+  function emptyState(icon, title, body) {
+    return '<div class="empty"><div class="ring">' + ic(icon) + '</div><h3>' + title + '</h3><p>' + body + '</p></div>';
+  }
+
+  // ── screens ──
+  function renderPeople() {
+    var h = '<div class="title-row"><h1 class="scr">' + t('people') + '</h1>' +
+      '<button class="btn primary sm" data-a="add">' + ic('userPlus') + t('add') + '</button></div>';
+    h += '<div class="seg" role="group"><button data-a="view" data-id="person" aria-pressed="' + (S.view === 'person') + '">' + t('byPerson') + '</button>' +
+      '<button data-a="view" data-id="task" aria-pressed="' + (S.view === 'task') + '">' + t('byTask') + '</button></div>';
+
+    var pend = pendingIn(), reqs = requests();
+    var nNeeds = pend.length + reqs.length;
+
+    if (S.view === 'person') {
+      if (nNeeds) {
+        h += '<div class="sec">' + t('needs') + ' <span class="count">' + nNeeds + '</span></div><div class="stack">';
+        pend.forEach(function (s) { h += askShareCard(s); });
+        reqs.forEach(function (pid) { h += askContactCard(pid); });
+        h += '</div>';
+      }
+      var cs = contacts();
+      h += '<div class="sec">' + t('contacts') + ' <span class="count">' + cs.length + '</span></div>';
+      if (!cs.length) h += emptyState('users', t('emptyPeopleT'), t('emptyPeopleB'));
+      cs.forEach(function (pid) {
+        var f = sharesFor(pid, 'from').filter(function (s) { return s.status === 'accepted'; }).length;
+        var w = sharesFor(pid, 'from').filter(function (s) { return s.status === 'pending'; }).length;
+        var o = sharesFor(pid, 'to').length;
+        var chips = '';
+        if (w) chips += '<span class="chip wait">' + ic('inbox') + t('waitingYou', { n: w }) + '</span>';
+        if (f) chips += '<span class="chip from">' + ic('inArrow') + t('fromN', { n: f, name: esc(first(pid)) }) + '</span>';
+        if (o) chips += '<span class="chip to">' + ic('outArrow') + t('toN', { n: o, name: esc(first(pid)) }) + '</span>';
+        if (!chips) chips = '<span class="chip quiet">' + t('nothing') + '</span>';
+        h += '<button class="row" data-a="person" data-id="' + pid + '">' + av(pid) +
+          '<span class="row-main"><span class="row-name" style="display:block">' + esc(S.data.people[pid].name) + '</span><span class="row-meta">' + chips + '</span></span>' +
+          '<span class="chev">' + ic('right') + '</span></button>';
+      });
+    } else {
+      var groups = [
+        ['waitForYou', S.data.shares.filter(function (s) { return s.dir === 'from' && s.status === 'pending'; }), true],
+        ['sharedWithYou', S.data.shares.filter(function (s) { return s.dir === 'from' && s.status === 'accepted'; })],
+        ['sharedByYou', S.data.shares.filter(function (s) { return s.dir === 'to'; })]
+      ];
+      groups.forEach(function (g) {
+        if (!g[1].length) return;
+        h += '<div class="sec">' + t(g[0]) + ' <span class="count">' + g[1].length + '</span></div><div class="stack">';
+        g[1].forEach(function (s) { h += g[2] ? askShareCard(s) : taskCard(s); });
+        h += '</div>';
+      });
+    }
+    return h;
+  }
+
+  function renderPerson() {
+    var pid = S.pid, p = S.data.people[pid], fn = esc(first(pid));
+    var from = sharesFor(pid, 'from'), to = sharesFor(pid, 'to');
+    var fromAcc = from.filter(function (s) { return s.status === 'accepted'; });
+    var fromPend = from.filter(function (s) { return s.status === 'pending'; });
+    var h = '<div class="topbar"><button class="back" data-a="back">' + ic('left') + t('back') + '</button><span class="spacer"></span>' +
+      '<button class="icon-btn" data-a="menu" aria-label="More options">' + ic('more') + '</button></div>';
+    h += '<div class="person-hero">' + av(pid, 'lg') + '<div style="min-width:0"><h1>' + esc(p.name) + '</h1><div class="sub">' + esc(p.email) + '</div>' +
+      '<div class="summary"><span class="chip from">' + ic('inArrow') + t('fromN', { n: from.length, name: fn }) + '</span>' +
+      '<span class="chip to">' + ic('outArrow') + t('toN', { n: to.length, name: fn }) + '</span></div></div></div>';
+    h += '<button class="btn primary block" data-a="shareWith">' + ic('share') + t('shareWith', { name: fn }) + '</button>';
+    h += '<div class="seg" role="group" style="margin-top:16px">' +
+      '<button data-a="tab" data-id="from" aria-pressed="' + (S.tab === 'from') + '">' + ic('inArrow') + '<span>' + t('from', { name: fn }) + '</span><span class="n">' + from.length + '</span></button>' +
+      '<button data-a="tab" data-id="to" aria-pressed="' + (S.tab === 'to') + '">' + ic('outArrow') + '<span>' + t('to', { name: fn }) + '</span><span class="n">' + to.length + '</span></button></div>';
+    var list = '';
+    if (S.tab === 'from') {
+      fromPend.forEach(function (s) { list += askShareCard(s); });
+      fromAcc.forEach(function (s) { list += taskCard(s); });
+      if (!from.length) list = emptyState('inArrow', t('emptyFromT', { name: fn }), t('emptyFromB', { name: fn }));
+    } else {
+      to.forEach(function (s) { list += taskCard(s); });
+      if (!to.length) list = emptyState('outArrow', t('emptyToT', { name: fn }), t('emptyToB'));
+    }
+    return h + '<div class="stack">' + list + '</div>';
+  }
+
+  function renderHeader() {
+    var bellDot = pendingIn().length + requests().length > 0;
+    var h = '<img src="' + LOGO + '" alt=""><span class="brand">wowtodo</span>';
+    if (S.dock === 'B') h += '<button class="icon-btn" data-a="bell" aria-label="Notifications">' + ic('bell') + (bellDot ? '<span class="dot"></span>' : '') + '</button>';
+    h += '<button class="icon-btn" data-a="tabx" aria-label="Menu">' + ic('menu') + '</button>';
+    return h;
+  }
+  function renderDock() {
+    var bellDot = pendingIn().length + requests().length > 0;
+    function tab(icon, label, cur, dot) {
+      return '<button class="tab" data-a="' + (cur ? 'home' : 'tabx') + '"' + (cur ? ' aria-current="page"' : '') + '><span class="ic">' + ic(icon) + (dot ? '<span class="dot"></span>' : '') + '</span>' + label + '</button>';
+    }
+    var mic = '<button class="mic" data-a="tabx" aria-label="Speak a task">' + ic('mic') + '</button>';
+    var h = S.dock === 'A'
+      ? tab('settings', t('tSettings')) + tab('tasks', t('tTasks')) + mic + tab('users', t('tPeople'), true) + tab('bell', t('tAlerts'), false, bellDot)
+      : tab('tasks', t('tTasks')) + mic + tab('users', t('tPeople'), true);
+    return h + '<span class="home-bar"></span>';
+  }
+
+  // ── overlays ──
+  function findShare(id) { return S.data.shares.filter(function (s) { return s.id === id; })[0]; }
+  function renderOverlay() {
+    var o = S.overlay;
+    if (!o) return '';
+    var s, fn;
+    if (o.type === 'peek') {
+      s = findShare(o.id); fn = esc(first(s.p));
+      return '<div class="scrim" data-a="close"><div class="sheet" role="dialog" aria-modal="true" aria-label="' + esc(s.title) + '" data-stop>' +
+        '<div class="grab"></div><div class="dir" style="margin-bottom:6px">' + av(s.p, 'sm') + '<span class="who">' + t('from', { name: fn }) + '</span><span class="when">· ' + esc(s.when) + '</span></div>' +
+        '<h2>' + esc(s.title) + '</h2><p class="lead">' + t('steps', { n: s.total }) + '</p>' +
+        '<ul class="steps">' + s.steps.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+        '<div class="sheet-actions"><button class="btn ghost" data-a="decline" data-id="' + s.id + '">' + t('decline') + '</button><button class="btn primary" data-a="accept" data-id="' + s.id + '">' + t('accept') + '</button></div></div></div>';
+    }
+    if (o.type === 'menu') {
+      fn = esc(first(S.pid));
+      return '<div class="scrim" data-a="close"><div class="sheet" role="dialog" aria-modal="true" aria-label="' + esc(S.data.people[S.pid].name) + '" data-stop><div class="grab"></div>' +
+        '<div class="menu-list">' +
+        '<button data-a="shareWith">' + ic('share') + '<span>' + t('menuShare') + '</span></button>' +
+        '<button data-a="askRemove">' + ic('userMinus') + '<span>' + t('menuRemove') + '<span class="hint">' + t('menuRemoveHint') + '</span></span></button>' +
+        '<button class="danger" data-a="askBlock">' + ic('ban') + '<span>' + t('menuBlock') + '<span class="hint">' + t('menuBlockHint') + '</span></span></button>' +
+        '<button class="danger" data-a="report">' + ic('flag') + '<span>' + t('menuReport') + '<span class="hint">' + t('menuReportHint') + '</span></span></button>' +
+        '</div></div></div>';
+    }
+    if (o.type === 'confirm') {
+      var note = o.note ? '<textarea id="decline-note" aria-label="Note" placeholder="' + o.note + '"></textarea>' : '';
+      return '<div class="scrim center" data-a="close"><div class="dialog" role="alertdialog" aria-modal="true" data-stop>' +
+        '<h2>' + o.title + '</h2><p>' + o.body + '</p>' + note +
+        '<div class="sheet-actions"><button class="btn ghost" data-a="close">' + t('cancel') + '</button>' +
+        '<button class="btn ' + (o.danger ? 'danger' : 'primary') + '" data-a="' + o.ok + '" data-id="' + (o.id || '') + '">' + o.okLabel + '</button></div></div></div>';
+    }
+    if (o.type === 'pick') {
+      fn = esc(first(S.pid));
+      var items = S.data.myTasks.map(function (m) {
+        var already = (m.sharedWith || []).indexOf(S.pid) !== -1;
+        return '<label class="' + (already ? 'off' : (o.sel === m.id ? 'on' : '')) + '"><input type="radio" name="pick" id="pick-' + m.id + '" value="' + m.id + '"' + (already ? ' disabled' : '') + (o.sel === m.id ? ' checked' : '') + ' data-a="pick">' +
+          '<span class="t">' + esc(m.title) + '<span class="s" style="display:block">' + (already ? t('already') : t('steps', { n: m.total })) + '</span></span></label>';
+      }).join('');
+      return '<div class="scrim" data-a="close"><div class="sheet" role="dialog" aria-modal="true" aria-label="' + t('pickTitle', { name: fn }) + '" data-stop><div class="grab"></div>' +
+        '<h2>' + t('pickTitle', { name: fn }) + '</h2><p class="lead">' + t('pickLead') + '</p><div class="pick">' + items + '</div>' +
+        '<button class="btn primary block" data-a="doShare"' + (o.sel ? '' : ' disabled style="opacity:.5"') + '>' + t('share') + '</button></div></div>';
+    }
+    return '';
+  }
+
+  // ── render + toast ──
+  var toastTimer;
+  function toast(msg) {
+    var el = document.getElementById('toast');
+    el.textContent = msg; el.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { el.hidden = true; }, 2800);
+  }
+  function render(keepScroll) {
+    var scr = document.getElementById('screen');
+    var top = scr.scrollTop;
+    document.getElementById('hdr').innerHTML = renderHeader();
+    scr.innerHTML = S.screen === 'person' ? renderPerson() : renderPeople();
+    document.getElementById('dock').innerHTML = renderDock();
+    document.getElementById('overlay').innerHTML = renderOverlay();
+    scr.scrollTop = keepScroll ? top : 0;
+    document.getElementById('phone').lang = S.lang === 'hi' ? 'hi' : 'en';
+  }
+
+  // ── actions ──
+  function act(a, id, el) {
+    var s, fn;
+    switch (a) {
+      case 'close': S.overlay = null; render(true); break;
+      case 'view': S.view = id; render(); break;
+      case 'home': S.screen = 'people'; S.overlay = null; render(); break;
+      case 'person': S.screen = 'person'; S.pid = id; S.tab = 'from'; render(); break;
+      case 'back': S.screen = 'people'; render(); break;
+      case 'tab': S.tab = id; render(true); break;
+      case 'peek': S.overlay = { type: 'peek', id: id }; render(true); break;
+      case 'accept':
+        s = findShare(id); s.status = 'accepted'; s.when = 'just now'; S.overlay = null;
+        render(true); toast(t('toastAccepted', { task: s.title, name: first(s.p) })); break;
+      case 'decline':
+        s = findShare(id);
+        S.overlay = { type: 'confirm', title: t('declineQ', { task: esc(s.title) }), body: t('declineB', { name: esc(first(s.p)) }),
+          note: esc(t('notePh', { name: first(s.p) })), ok: 'doDecline', okLabel: t('decline'), danger: false, id: id };
+        render(true); break;
+      case 'doDecline':
+        s = findShare(id); fn = first(s.p);
+        S.data.shares = S.data.shares.filter(function (x) { return x.id !== id; }); S.overlay = null;
+        render(true); toast(t('toastDeclined', { name: fn })); break;
+      case 'ignore': S.data.people[id].request = false; render(true); toast(t('toastIgnored')); break;
+      case 'acceptContact':
+        S.data.people[id].request = false; S.data.people[id].contact = true;
+        render(true); toast(t('toastContact', { name: S.data.people[id].name })); break;
+      case 'stop':
+        s = findShare(id);
+        S.overlay = { type: 'confirm', title: t('stopQ', { task: esc(s.title) }), body: t('stopB', { name: esc(first(s.p)) }),
+          ok: 'doStop', okLabel: t('stop'), danger: true, id: id };
+        render(true); break;
+      case 'doStop':
+        s = findShare(id); fn = first(s.p);
+        S.data.shares = S.data.shares.filter(function (x) { return x.id !== id; });
+        S.data.myTasks.forEach(function (m) { if (m.title === s.title) m.sharedWith = (m.sharedWith || []).filter(function (p) { return p !== s.p; }); });
+        S.overlay = null; render(true); toast(t('toastStopped', { name: fn })); break;
+      case 'removeShare':
+        S.data.shares = S.data.shares.filter(function (x) { return x.id !== id; }); render(true); toast(t('toastRemovedShare')); break;
+      case 'menu': S.overlay = { type: 'menu' }; render(true); break;
+      case 'askBlock':
+        fn = esc(first(S.pid));
+        S.overlay = { type: 'confirm', title: t('blockQ', { name: fn }), body: t('blockB'), ok: 'doBlock', okLabel: t('menuBlock'), danger: true };
+        render(true); break;
+      case 'doBlock':
+        fn = first(S.pid); S.data.people[S.pid].contact = false;
+        S.data.shares = S.data.shares.filter(function (x) { return x.p !== S.pid; });
+        S.overlay = null; S.screen = 'people'; render(); toast(t('toastBlocked', { name: fn })); break;
+      case 'askRemove':
+        fn = esc(first(S.pid));
+        S.overlay = { type: 'confirm', title: t('removeQ', { name: fn }), body: t('removeB'), ok: 'doRemove', okLabel: t('remove'), danger: true };
+        render(true); break;
+      case 'doRemove':
+        fn = first(S.pid); S.data.people[S.pid].contact = false;
+        S.data.shares = S.data.shares.filter(function (x) { return x.p !== S.pid; });
+        S.overlay = null; S.screen = 'people'; render(); toast(t('toastRemoved', { name: fn })); break;
+      case 'report': S.overlay = null; render(true); toast(t('toastReport')); break;
+      case 'shareWith': S.overlay = { type: 'pick', sel: null }; render(true); break;
+      case 'pick': S.overlay.sel = el.value; render(true); break;
+      case 'doShare':
+        if (!S.overlay.sel) return;
+        var m = S.data.myTasks.filter(function (x) { return x.id === S.overlay.sel; })[0];
+        m.sharedWith = (m.sharedWith || []).concat(S.pid);
+        S.data.shares.push({ id: 'n' + Date.now(), dir: 'to', p: S.pid, title: m.title, done: 0, total: m.total, status: 'pending', when: 'just now' });
+        S.overlay = null; S.tab = 'to'; render(true); toast(t('toastShared', { name: first(S.pid) })); break;
+      case 'open': toast(t('toastOpen')); break;
+      case 'add': toast(t('toastAdd')); break;
+      case 'bell': toast(t('toastBell')); break;
+      case 'tabx': toast(t('toastTab')); break;
+      case 'report2': break;
+    }
+  }
+
+  var phone = document.getElementById('phone');
+  phone.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-a]');
+    if (!el || !phone.contains(el)) return;
+    // clicks inside a sheet shouldn't bubble to the scrim's close
+    if (el.getAttribute('data-a') === 'close' && el.classList.contains('scrim') && e.target.closest('[data-stop]')) return;
+    if (el.tagName === 'INPUT') { act('pick', null, el); return; }
+    act(el.getAttribute('data-a'), el.getAttribute('data-id'), el);
+  });
+  phone.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && S.overlay) { S.overlay = null; render(true); return; }
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.card.task[data-a]')) { e.preventDefault(); act('open'); }
+  });
+
+  // ── "Show me" links ──
+  var GO = {
+    home: function () { S.screen = 'people'; S.view = 'person'; S.overlay = null; },
+    peek: function () { S.screen = 'people'; S.view = 'person'; var p = pendingIn()[0]; S.overlay = p ? { type: 'peek', id: p.id } : null; },
+    'riya-from': function () { S.screen = 'person'; S.pid = 'riya'; S.tab = 'from'; S.overlay = null; },
+    'riya-to': function () { S.screen = 'person'; S.pid = 'riya'; S.tab = 'to'; S.overlay = null; },
+    'kabir-to': function () { S.screen = 'person'; S.pid = 'kabir'; S.tab = 'to'; S.overlay = null; },
+    menu: function () { S.screen = 'person'; S.pid = 'riya'; S.tab = 'from'; S.overlay = { type: 'menu' }; },
+    share: function () { S.screen = 'person'; S.pid = 'riya'; S.tab = 'to'; S.overlay = { type: 'pick', sel: null }; },
+    bytask: function () { S.screen = 'people'; S.view = 'task'; S.overlay = null; }
+  };
+  document.querySelectorAll('[data-go]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var key = b.getAttribute('data-go');
+      if ((key === 'riya-from' || key === 'riya-to' || key === 'menu' || key === 'share') && !S.data.people.riya.contact) S.data = seed();
+      if (key === 'kabir-to' && !S.data.people.kabir.contact) S.data = seed();
+      GO[key](); render();
+      if (window.matchMedia('(max-width: 960px)').matches) phone.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // ── controls ──
+  function press(groupId, btn) { document.querySelectorAll('#' + groupId + ' button').forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); }); }
+  document.querySelectorAll('[data-theme-set]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = b.getAttribute('data-theme-set');
+      if (v === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', v);
+      press('ctl-theme', b);
+    });
+  });
+  document.querySelectorAll('[data-lang]').forEach(function (b) {
+    b.addEventListener('click', function () { S.lang = b.getAttribute('data-lang'); press('ctl-lang', b); render(true); });
+  });
+  document.querySelectorAll('[data-dock]').forEach(function (b) {
+    b.addEventListener('click', function () { S.dock = b.getAttribute('data-dock'); press('ctl-dock', b); render(true); });
+  });
+  document.getElementById('ctl-reset').addEventListener('click', function () {
+    S.data = seed(); S.screen = 'people'; S.view = 'person'; S.overlay = null; render();
+  });
+
+  render();
+})();
+</script>

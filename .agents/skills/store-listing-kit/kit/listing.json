@@ -1,0 +1,20 @@
+{
+  "store": "Google Play",
+  "where": "Play Console → Grow users → Store presence → Main store listing",
+  "fields": [
+    { "label": "App name", "limit": 30, "text": "WowTodo: Voice To-Do & Tasks" },
+    { "label": "Short description", "limit": 80, "text": "Just say it. WowTodo turns your words into tasks and reminders. Hindi & English." },
+    { "label": "Full description", "limit": 4000, "text": "Just say it. WowTodo does the rest.\n\n…" }
+  ],
+  "checklist": [
+    "Main store listing: paste the app name, short and full description.",
+    "App icon: icon-512.png (512×512).",
+    "Feature graphic: feature-graphic.png (1024×500).",
+    "Phone screenshots: 01…0N in number order.",
+    "Store settings: category, tags, contact email, website.",
+    "Save. Listing changes go live with the next review."
+  ],
+  "extraFiles": [
+    { "label": "App icon (512×512)", "path": "icon-512.png" }
+  ]
+}

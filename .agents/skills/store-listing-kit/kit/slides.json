@@ -1,0 +1,34 @@
+[
+  {
+    "id": "voice",
+    "mode": "light",
+    "headline": "Just say it.",
+    "emphasis": "say",
+    "subline": "WowTodo turns your words into a to-do list.",
+    "image": "raw/voice-home-light.png",
+    "logo": true,
+    "callouts": [
+      { "type": "bubble", "left": 48, "top": 930, "width": 640, "mic": true, "text": "“Pay the electricity bill tomorrow at 10, and remind me to call Ayesha on Sunday.”" },
+      { "type": "bubble", "right": 40, "top": 1290, "small": true, "text": "कल सुबह 7 बजे योग क्लास" }
+    ]
+  },
+  {
+    "id": "reminders",
+    "mode": "light",
+    "headline": "Reminders that actually remind you.",
+    "emphasis": "actually",
+    "subline": "Right on time, for every task.",
+    "image": "raw/reminder-light.png",
+    "callouts": [
+      { "type": "notif", "left": 56, "top": 720, "width": 968, "app": "WowTodo · now", "title": "Pay the electricity bill", "body": "Reminder · 10:00 AM" }
+    ]
+  },
+  {
+    "id": "hindi",
+    "mode": "dark",
+    "headline": "हिंदी में बोलिए।",
+    "emphasis": "बोलिए",
+    "subline": "Speak Hindi or English. WowTodo understands both.",
+    "image": "raw/hindi-dark.png"
+  }
+]
