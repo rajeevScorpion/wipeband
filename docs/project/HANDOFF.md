@@ -74,3 +74,8 @@ Visually checked at 1440/1920/2545px. Same mockup URL; no app implementation.
 Latest composition moves scene left and product beside Add to Cart. Raised
 wave fully covers image bottom (SVG coverage checked at 1440/1920/2547px).
 Same mockup URL; awaiting review.
+
+Hero now has a single clean Add to Cart $19.95 action: supporting kit line,
+step labels and scroll link removed by explicit request. Product levitates
+above a soft ground shadow; bottom fade supplements wave edge coverage.
+Mockup only, same URL.

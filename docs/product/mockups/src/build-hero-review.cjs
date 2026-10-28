@@ -27,6 +27,14 @@ const data = (mime, buffer) => `data:${mime};base64,${buffer.toString('base64')}
       const norm = s => s.replace(/\s+/g, ' ').trim();
       return { sections: [...document.querySelectorAll('main section')].map(s => norm(s.textContent)), links: [...document.querySelectorAll('a')].map(a => ({ text: norm(a.textContent), href: a.getAttribute('href') })) };
     });
+    // Explicitly approved hero simplification; all other content remains unchanged.
+    baseline.sections[0] = baseline.sections[0]
+      .replace('1 reusable band + 30 fresh wipes', '')
+      .replace('WearWipeTear', '')
+      .replace('See how it works', '')
+      .replace(/Add to Cart\s*\u2014\s*/, 'Add to Cart ');
+    const heroLink = baseline.links.findIndex(a => a.href === '#how-it-works' && a.text === 'See how it works');
+    if (heroLink !== -1) baseline.links.splice(heroLink, 1);
     assert(baseline.sections.length > 5);
     const bodies = await page.evaluate(() => {
       const goodImages = new Set([...document.images].filter(el => el.complete && el.naturalWidth > 0).map(el => el.getAttribute('src')));

@@ -30,3 +30,11 @@
 .hero-study[data-option=one] .scene{top:0;bottom:auto;height:auto;aspect-ratio:1916/821;width:min(100%,1440px);right:calc(max((100% - 1920px)/2,-120px) + 160px);background-size:100% 100%;background-position:right top;mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%)}
 .hero-study[data-option=one] .scene:after{display:none}
 }
+
+.hero-study .product{animation:product-hover 6s ease-in-out infinite;filter:drop-shadow(0 10px 14px #052a3015)}
+.hero-study .product-wrap:before{width:62%;height:24px;left:22%;bottom:20px;background:#052a3038;filter:blur(13px);animation:ground-shadow 6s ease-in-out infinite}
+@keyframes product-hover{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes ground-shadow{0%,100%{transform:scaleX(1);opacity:.8}50%{transform:scaleX(.88);opacity:.55}}
+.hero-study[data-motion=off] .product,.hero-study[data-motion=off] .product-wrap:before{animation:none}
+@media(prefers-reduced-motion:reduce){.hero-study .product,.hero-study .product-wrap:before{animation:none}}
+@media(min-width:701px){.hero-study{min-height:710px}.hero-study .scene{mask-image:linear-gradient(to bottom,#000 0%,#000 82%,transparent 100%)}.hero-study[data-option=one] .scene{mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%),linear-gradient(to bottom,#000 0%,#000 82%,transparent 100%);mask-composite:intersect;-webkit-mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%),linear-gradient(to bottom,#000 0%,#000 82%,transparent 100%);-webkit-mask-composite:source-in}}

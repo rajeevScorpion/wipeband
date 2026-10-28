@@ -151,3 +151,11 @@ the purchase area, clear of the boy's wristband. Desktop wave increased to
 320px. Screenshots inspected at 1440/1920/2547px; SVG fill checks confirm every
 sampled point of the photo bottom edge is covered. Content fidelity and
 horizontal overflow checks pass. Mobile layout unchanged.
+
+Hero cleanup approved by owner: removed supporting kit line, Wear/Wipe/Tear
+labels and secondary scroll link. Hero purchase label is Add to Cart $19.95
+without a separator. Product has gentle levitation and a grounded soft shadow;
+Motion Off/reduced-motion disables animation. Added bottom mask as responsive
+edge protection alongside the wave. Content checks now explicitly account for
+these requested removals; other sections unchanged. Checks passed at five
+widths (768 through 2547px); desktop screenshot inspected.
