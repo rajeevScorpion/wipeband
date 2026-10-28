@@ -105,3 +105,6 @@ Latest update uses replaced Hero_option_01-wider.png and removes the CSS
 right-hand fade by request. Bottom mask/wave retained. Image uses a static
 import with a hashed URL to avoid stale image caches. Local update; no new
 push requested. Other alternate uploads remain untracked.
+
+Latest image refinement restores only a minimal desktop right-edge CSS fade
+(final 14% of scene), preserving the new image's natural fade. Not pushed.

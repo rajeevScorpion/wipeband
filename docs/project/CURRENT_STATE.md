@@ -203,3 +203,11 @@ Replacement validation: lint/TypeScript and production build pass (27/27).
 Rendered replacement inspected at 1920px; image URL is hashed, CSS radial mask
 is absent, and overflow checks pass at 375/1440/1920px. Local production server
 restarted on port 3000; update not pushed.
+
+Minimal right-edge correction: a white CSS overlay fades only the final 14%
+of the desktop scene, supplementing the replacement image's natural fade.
+No composition or mobile changes; bottom mask remains.
+
+Minimal fade validation: production build passes (27/27), including lint/types.
+Computed desktop fade and rendered screenshot checked. Local server restarted;
+not pushed.

@@ -54,3 +54,13 @@
   .product, .productWrap::before { animation: none; }
   .productWrap { transform: none; transition: none; }
 }
+
+@media (min-width: 701px) {
+  .scene::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 86%;
+    background: linear-gradient(to right, transparent, white);
+    pointer-events: none;
+  }
+}
