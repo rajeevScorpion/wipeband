@@ -53,3 +53,9 @@ Latest correction: all runtime orange accents replaced with existing dark teal
 tokens, including the sleeve headline, navigation, buttons and placeholder art.
 Headless homepage computed-color check, source scan, lint and TypeScript pass.
 No content/order changes and nothing pushed. Keep orange out of future UI work.
+
+Current review: hero study 03 at http://localhost:3011/hero-options.html.
+Owner requested two supplied hero scenes, transparent product overlay and fluid
+wave. Built as a standalone mockup; no live hero changes. Await owner selection.
+Preview server: Python loopback port 3011 (exec session 58067). Source assets in
+public/assets/sections remain owner-supplied untracked files.

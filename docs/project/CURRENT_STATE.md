@@ -121,3 +121,12 @@ logo. Copy, catalog and section order preserved. Source scan finds no old orange
 accent; headless homepage check found no rendered orange and all four purchase
 buttons plus the sleeve headline resolve to dark teal. Lint and TypeScript pass.
 Local only; no push or deployment.
+
+## Hero study 03
+
+Draft: docs/product/mockups/hero-options.html, served at
+http://localhost:3011/hero-options.html. Uses current local v2 content and the
+three owner-supplied images, with two scene choices, product overlay and mint
+wave. Full page preserved; Desktop/Phone, Motion and notes controls available.
+Headless content/link fidelity, image rendering, safe demo actions and phone
+overflow checks passed. Awaiting image/composition choice; app source unchanged.

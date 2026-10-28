@@ -1,6 +1,6 @@
 # Mockup index
 
-**Obsolete baseline notice:** Both studies below were built from local app base
+**Obsolete baseline notice:** Studies 01 and 02 below were built from local app base
 f49359f, which was behind the deployed GitHub v2 implementation at cb2e76d.
 Do not use either as the current storefront/spec. Local main is now updated;
 future studies must capture that v2 version and compare it with the deployment.
@@ -14,6 +14,7 @@ changing storefront content/order and for an underdeveloped admin workflow.
 
 | Mockup | Local artifact | Status | Date | Decisions |
 |---|---|---|---|---|
+| Hero image comparison 03 | [Two-option review](hero-options.html) | Draft | 2026-10-28 | Supplied hero options 1/2, transparent product overlay, mint wave. Current v2 capture; Desktop/Phone and Motion controls. |
 | Landing page visual study 02 | [Historical prototype](storefront-operations.html) | Obsolete — stale app baseline | 2026-10-28 | Content audit passed against f49359f, not the newer deployment. Rebuild from v2 before review. |
 | Storefront + admin study 01 | [Archived first draft](archive/storefront-operations-v1.html) | Rejected | 2026-10-28 | Storefront content/order must not change. Admin requires a separate, considered operational design. |
 
@@ -38,3 +39,8 @@ build/payment/fulfillment behavior was not changed or retested for this artifact
 Run source scripts with WIPEBAND_PLAYWRIGHT set to an installed Playwright
 package path, and optionally WIPEBAND_CHROMIUM to its Chromium executable. A
 loopback static server on port 3011 serves this directory for review.
+
+Study 03 reuses the full study-02 review frame, refreshed with the current
+local v2 page and approved teal corrections. No frozen template is approved.
+Original image assets are unchanged; mockup embeds WebP copies.
+Review at http://localhost:3011/hero-options.html .
