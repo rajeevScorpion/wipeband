@@ -36,7 +36,8 @@ Assessed 2026-10-28. Local code assessment; production parity is unverified.
 - `components/commerce/CartDrawer.tsx`: drawer and checkout request.
 - `components/ui/`: Button, Accordion, motion helpers, logo, PlaceholderMedia.
 - `lib/cart.tsx`: React context and `wipeband_cart` localStorage persistence;
-  quantities, totals, drawer state. No database or server cart.
+  quantities, totals, drawer state. No database or server cart exists yet;
+  minimal operational storage for direct orders is now approved.
 - `lib/products.ts`: runtime catalog, hardcoded prices and Amazon defaults.
 - `lib/site.ts`: runtime site text, identity, navigation and claims.
 - `lib/types.ts`: Product, ProductVariant and CartItem interfaces.
@@ -65,7 +66,8 @@ defaults/placeholders. Never place secret values in project docs.
 - `public/assets/branding/wipeband_logo.svg`: supplied logo.
 - `public/assets/{product,lifestyle}/`: image destinations, mostly empty at
   assessment. PlaceholderMedia renders designed fallbacks if images fail.
-- No database is planned. New owner-supplied images will ship with the repo.
+- Minimal order/fulfillment/retry storage is approved; provider is undecided.
+  New owner-supplied images will ship with the repo.
 
 ## Commands and deployment
 
@@ -84,3 +86,5 @@ defaults/placeholders. Never place secret values in project docs.
 Skills live in `.agents/skills`; Claude uses a directory junction to them.
 AGENTS.md and imported CLAUDE.md direct both hosts to the same docs/project
 status, handoff, contract, decisions, and memory. Use `catch up` and `check out`.
+Six Ponytail skills are installed alongside Studio Method in the same shared
+directory, with full mode as the default for coding tasks.

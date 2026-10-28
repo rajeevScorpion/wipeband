@@ -9,6 +9,8 @@ The canonical skills are `.agents/skills/<name>/SKILL.md`; Claude's
 `.claude/skills` points to that exact directory. Use these project copies
 for Studio Method workflows, including catch-up and check-out, even if a
 similarly named user skill exists. Read supporting resources only as needed.
+For coding tasks, apply `.agents/skills/ponytail/SKILL.md` (default full mode).
+Ponytail and its five companion skills share the same directory with Claude.
 
 Keep status, handoff, decisions, and lasting project memory in the shared
 documents. Update them before switching tools or ending a session. Do not

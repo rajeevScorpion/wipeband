@@ -8,7 +8,8 @@ Existing Wipeband website repository with Next.js 14, React 18, Tailwind,
 motion libraries, and Stripe dependency, as declared in package.json.
 Studio Method shared revision 4b6e124 adopted 2026-10-28. Owner confirmed the
 assessment and deployment/asset constraints. Dependencies and local baseline
-checks are complete; the next implementation goal is awaiting confirmation.
+checks are complete. The owner has defined a storefront motion refresh, compact
+admin order desk, minimal customer email, and future direct ordering via MCF.
 
 ## Working
 
@@ -22,6 +23,11 @@ checks are complete; the next implementation goal is awaiting confirmation.
 - All planned route modules are present. Product selection, pattern-to-cart,
   localStorage cart, informational pages, campaigns, and motion exist in code.
 - Shared project map, product brief, mockup index, and owner decisions are saved.
+- Six Ponytail skills are installed project-locally in the shared skill folder
+  and validated. Claude and Codex resolve the same skill files.
+- A clickable storefront/order-desk draft is saved at
+  `docs/product/mockups/storefront-operations.html`. It uses the existing logo,
+  embedded fonts and tokens; fictional orders and illustrative product shapes.
 - Hostinger auto-deploys GitHub pushes; Vercel testing copy is planned by owner.
 
 ## Validation
@@ -39,6 +45,10 @@ checks are complete; the next implementation goal is awaiting confirmation.
   including compilation, lint/types, and static generation (28/28).
 - Static assessment: 10 JSON inputs parsed, no missing planned route modules
   or unresolved literal internal route links found. No browser/payment checks.
+- Prototype-only headless checks passed: pattern/cart totals, sample confirmation,
+  Escape dismissal, retry/filter/reset/search, connections, phone overflow,
+  reduced motion and no page errors. Desktop/store/admin/phone screenshots viewed.
+  These do not validate the production application's ordering behavior.
 
 ## Open / unverified
 
@@ -50,8 +60,8 @@ checks are complete; the next implementation goal is awaiting confirmation.
   state is unverified; no webhook, order store, or fulfillment adapter found.
 - Tracking always reports an order found. Feedback and school inquiry UI do
   not send submissions. Contact can show success on failure; the contact and
-  feedback APIs acknowledge without delivery/storage. No database is planned;
-  future workflows must respect that constraint.
+  feedback APIs acknowledge without delivery/storage. Minimal operational
+  storage is now approved for orders/fulfillment/retries; provider undecided.
 - Family Bundle is still offered; age/material/patent/policy/review claims,
   Amazon destinations, and commercial values need confirmed sources.
 - Most image directories are empty; logo is present. Owner will supply images.
@@ -63,7 +73,10 @@ checks are complete; the next implementation goal is awaiting confirmation.
 
 ## Next
 
-Wait for the owner's main implementation goal and supplied images/Vercel URL.
-Use the saved project map and actual code to plan targeted work. No push,
-deployment, redesign, database, or commerce/support changes are authorized by
-this dependency/setup task. Local work is on chore/studio-adoption.
+Review the prototype's Expressive/Quiet motion and compact admin workflow with
+the owner. Final images and Vercel URL are pending. Owner confirms FBA inventory;
+the existing public site only redirects to Amazon. MCF availability/API access
+and SKU mappings still need assessment before implementation. Routine order
+email is customer confirmation + tracking only; merchant checks admin. No push,
+deployment or production commerce changes have been made. Local work remains
+on chore/studio-adoption.

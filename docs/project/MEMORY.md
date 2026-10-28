@@ -15,6 +15,18 @@
   pushes. Treat a push as deployment-capable. The owner plans a Vercel copy for
   HTTPS preview/debugging; no preview URL has been supplied yet. The owner's
   reported HTTPS limitation concerns their current setup, not all Hostinger sites.
-- No database is planned. Images will ship in the repository's asset folder;
-  the owner will provide more images for placement based on their content.
-- The main next implementation goal is still to be confirmed by the owner.
+- Minimal operational storage is now approved for order/fulfillment/retry state;
+  this supersedes the initial no-database preference only for that narrow scope.
+  Images remain repository assets, supplied by the owner for contextual placement.
+- Wipeband.com is the existing public website being redesigned/redeveloped in
+  this React/Next.js project. Core products are wristbands and refill tissue packs;
+  Amazon US sales already exist. Refill repurchases do not imply subscriptions.
+- Aim for a small admin order/exception workflow and Amazon MCF fulfillment.
+  Owner confirms both products use FBA inventory. Current Wipeband.com sends
+  shoppers to Amazon and does not take website orders. Direct checkout and the
+  MCF handoff are new work; MCF/API eligibility/access still needs assessment.
+- Customer emails: order confirmation and shipment tracking. Merchant checks
+  admin rather than receiving new-order alerts. Queries/bulk orders use inbox.
+- Visual direction: retain current tokens and brand, add purposeful pointer and
+  scroll motion with polished product storytelling. Avoid generic illustrations
+  and effects. Owner-supplied final images are pending. Prototype before building.

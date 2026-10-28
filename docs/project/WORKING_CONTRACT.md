@@ -44,7 +44,9 @@ These rules override the upstream skills' host-specific defaults.
   this shared copy; preserve adaptations when deliberately merging an update.
 - Keep the existing Next.js stack and current branch conventions. Installation
   alone is not full codebase adoption or permission to scaffold/migrate.
-- No database is planned. Ship owner-supplied images in repository assets.
+- Minimal durable operational storage is approved for orders, fulfillment
+  references and retries. Do not expand it into a CMS or marketplace backend.
+  Ship owner-supplied images in repository assets.
   GitHub pushes trigger Hostinger deployment; local validation does not authorize
   a push. The owner plans a Vercel testing copy and will provide its URL.
 - The owner reports client feedback was implemented. Reconcile review items
