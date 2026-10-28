@@ -25,6 +25,8 @@
 .hero-study .mini-steps{display:flex;gap:16px;margin-top:22px;font-size:12px;font-weight:700;color:#0A4D57}.hero-study .mini-steps span:before{content:"";display:inline-block;width:5px;height:5px;background:#62B44A;border-radius:50%;margin:0 6px 2px 0}
 
 @media(min-width:701px){
-.hero-study[data-option=one] .scene{top:0;bottom:auto;height:auto;aspect-ratio:1916/821;width:min(100%,1440px);right:max(calc((100% - 1920px)/2),-120px);background-size:100% 100%;background-position:right top;mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%)}
+.hero-study .product-wrap{left:calc(50% - 260px);right:auto}
+.hero-study .wave{height:320px}
+.hero-study[data-option=one] .scene{top:0;bottom:auto;height:auto;aspect-ratio:1916/821;width:min(100%,1440px);right:calc(max((100% - 1920px)/2,-120px) + 160px);background-size:100% 100%;background-position:right top;mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%);-webkit-mask-image:linear-gradient(to right,#000 0%,#000 88%,transparent 100%)}
 .hero-study[data-option=one] .scene:after{display:none}
 }

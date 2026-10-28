@@ -70,3 +70,7 @@ Natural fade is preserved without an additional desktop fade overlay.
 Latest correction fixes the floating/chopped photo top: image begins exactly
 at the navigation bottom, with a CSS right-edge fade and wave overlap.
 Visually checked at 1440/1920/2545px. Same mockup URL; no app implementation.
+
+Latest composition moves scene left and product beside Add to Cart. Raised
+wave fully covers image bottom (SVG coverage checked at 1440/1920/2547px).
+Same mockup URL; awaiting review.

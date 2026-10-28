@@ -145,3 +145,9 @@ navigation boundary, keeps its aspect ratio, and uses a CSS mask at the right
 edge. Reduced excess hero bottom spacing so the wave overlaps the scene.
 Screenshots inspected at 1440, 1920 and 2545px; image/hero top equals navigation
 bottom at every width. Content fidelity and horizontal overflow checks pass.
+
+Hero composition revision: scene moved 160px left; product overlay moved beside
+the purchase area, clear of the boy's wristband. Desktop wave increased to
+320px. Screenshots inspected at 1440/1920/2547px; SVG fill checks confirm every
+sampled point of the photo bottom edge is covered. Content fidelity and
+horizontal overflow checks pass. Mobile layout unchanged.
