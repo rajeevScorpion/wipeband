@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import heroScene from '@/public/assets/sections/Hero_option_01-wider.png';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { useCart } from '@/lib/cart';
@@ -41,7 +42,7 @@ export function HeroSplit() {
     >
       <div className={styles.scene}>
         <Image
-          src="/assets/sections/Hero_option_01-wider.png"
+          src={heroScene}
           alt="Child wearing Wipeband on his wrist in a classroom"
           fill
           priority

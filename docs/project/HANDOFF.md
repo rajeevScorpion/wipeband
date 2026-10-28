@@ -100,3 +100,8 @@ Owner authorized push to origin/main, including the approved hero implementation
 2ca77e7 and prior local work. Remote fetched with no divergence. Hostinger
 auto-deployment outcome still needs verification; do not assume deployment
 success merely from a successful GitHub push.
+
+Latest update uses replaced Hero_option_01-wider.png and removes the CSS
+right-hand fade by request. Bottom mask/wave retained. Image uses a static
+import with a hashed URL to avoid stale image caches. Local update; no new
+push requested. Other alternate uploads remain untracked.

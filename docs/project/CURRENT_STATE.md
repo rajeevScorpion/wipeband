@@ -193,3 +193,13 @@ and has no commits absent from local main. Push includes approved hero, teal
 corrections and shared tooling/history. Hostinger deploys automatically; actual
 deployment outcome remains unverified. Unused hero option 1/2 uploads stay
 local and untracked.
+
+Hero image replacement: owner supplied a revised Hero_option_01-wider.png with
+natural side fades. Removed the CSS right-hand radial fade; bottom mask stays
+for wave coverage. Hero imports the image statically so Next generates a
+content-hashed URL and does not reuse the old optimized image path.
+
+Replacement validation: lint/TypeScript and production build pass (27/27).
+Rendered replacement inspected at 1920px; image URL is hashed, CSS radial mask
+is absent, and overflow checks pass at 375/1440/1920px. Local production server
+restarted on port 3000; update not pushed.

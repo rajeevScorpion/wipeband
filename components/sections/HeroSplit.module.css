@@ -12,12 +12,9 @@
   width: min(100%, 1440px);
   aspect-ratio: 1916 / 821;
   z-index: -3;
-  --rounded-fade: radial-gradient(ellipse 50% 105% at 35% 46%, #000 0%, #000 60%, rgba(0,0,0,.85) 73%, rgba(0,0,0,.3) 89%, transparent 100%);
   --bottom-fade: linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%);
-  -webkit-mask-image: var(--rounded-fade), var(--bottom-fade);
-  -webkit-mask-composite: source-in;
-  mask-image: var(--rounded-fade), var(--bottom-fade);
-  mask-composite: intersect;
+  -webkit-mask-image: var(--bottom-fade);
+  mask-image: var(--bottom-fade);
 }
 .sceneImage { object-fit: fill; }
 .inner { max-width: 1200px; margin: auto; padding: 48px 32px 100px; position: relative; z-index: 2; }
