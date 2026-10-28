@@ -185,3 +185,11 @@ overflow, exact CTA, Unicorn selection reaches cart at $19.95, persisted cart
 survives refresh, reduced motion disables levitation, no browser errors. Desktop
 and mobile screenshots inspected; mobile overlay shifted away from wristband.
 Served locally at http://localhost:3000/ using production server. No push/deploy.
+
+## Release handoff
+
+Owner explicitly authorized pushing local main to GitHub. Remote was fetched
+and has no commits absent from local main. Push includes approved hero, teal
+corrections and shared tooling/history. Hostinger deploys automatically; actual
+deployment outcome remains unverified. Unused hero option 1/2 uploads stay
+local and untracked.
