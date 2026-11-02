@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { CleanerSleevesCTA } from '@/components/sections/CleanerSleevesCTA';
 
 export const metadata: Metadata = {
-  title: 'Shop Wipeband — Starter Kit & Soft Tissue Refills',
+  title: 'Shop Wipeband - Starter Kit & Soft Tissue Refills',
   description:
     'Shop the Wipeband Starter Kit ($19.95) for kids ages 2–6 and replacement soft tissue refills. Soft, wearable, and ready for school, playdates, and travel.',
 };
@@ -115,8 +115,8 @@ export default function ShopPage() {
                       fullWidth
                     >
                       {isStarter
-                        ? `Choose Pattern — $${prod.price.toFixed(2)}`
-                        : `Shop Refills — $${prod.price.toFixed(2)}`}
+                        ? `Choose Pattern - $${prod.price.toFixed(2)}`
+                        : `Shop Refills - $${prod.price.toFixed(2)}`}
                     </Button>
                     {prod.defaultAmazonUrl && (
                       <div className="text-center pt-1">

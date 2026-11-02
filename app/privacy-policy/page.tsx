@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { SITE_CONFIG } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Wipeband',
+  title: 'Privacy Policy - Wipeband',
   description: 'How Wipeband and Atah Life LLC collect, protect, and respect your personal information.',
 };
 

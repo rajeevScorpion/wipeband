@@ -57,7 +57,7 @@ export function HeroSplit() {
             No more wiping runny noses{' '}
             <span>on sleeves.</span>
           </h1>
-          <p>Meet Wipeband — soft, refillable tissues worn right on their wrist, so little ones can wipe their nose wherever they are.</p>
+          <p>Meet Wipeband - soft, refillable tissues worn right on their wrist, so little ones can wipe their nose wherever they are.</p>
           <div className={styles.selector} role="group" aria-label="Choose your Wipeband pattern">
             {(STARTER_KIT_PRODUCT.variants || []).map((variant) => (
               <button

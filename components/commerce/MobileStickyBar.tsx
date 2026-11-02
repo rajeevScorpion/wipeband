@@ -52,10 +52,10 @@ export function MobileStickyBar() {
         >
           {justAdded ? (
             <span className="inline-flex items-center justify-center gap-1">
-              <Check className="w-4 h-4" /> Added — ${STARTER_KIT_PRODUCT.price.toFixed(2)}
+              <Check className="w-4 h-4" /> Added - ${STARTER_KIT_PRODUCT.price.toFixed(2)}
             </span>
           ) : (
-            `Add to Cart — $${STARTER_KIT_PRODUCT.price.toFixed(2)}`
+            `Add to Cart - $${STARTER_KIT_PRODUCT.price.toFixed(2)}`
           )}
         </button>
       </div>

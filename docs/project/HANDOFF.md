@@ -11,6 +11,11 @@ unavailable; syntax and key content checks passed, visual checks remain pending.
 accordion, preserving the dividers between questions. Targeted lint and local
 HTML checks passed. Check Git status for push state.
 
+**Latest copy edit:** Replaced website-facing em dashes with hyphens throughout
+the app, including metadata and buttons. Developer comments and historical
+mockup artifacts were left intact. TypeScript, lint and local homepage checks
+passed; check Git status for push state.
+
 **Images:** Owner originals, including the earlier alternatives, are in local,
 Git-ignored `image-inbox/` and are not backed up to GitHub. The site uses WebP
 copies. Optimizer tests and guarded production build passed; local HTTP checks

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { CampaignLanding } from '@/components/campaign/CampaignLanding';
 
 export const metadata: Metadata = {
-  title: 'Back to School Essential — Wipeband',
+  title: 'Back to School Essential - Wipeband',
   description: 'The smart school supply upgrade: keep tissues right where little students can reach them.',
   robots: {
     index: false,

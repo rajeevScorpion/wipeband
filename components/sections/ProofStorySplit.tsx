@@ -107,7 +107,7 @@ export function ProofStorySplit() {
               </div>
 
               <p className="mt-4 text-sm sm:text-base text-ink/80 leading-relaxed">
-                Wipeband started from a simple family observation: when kids are busy playing or learning, a tissue across the room is too far away — so sleeves take the hit. Co-inventors{' '}
+                Wipeband started from a simple family observation: when kids are busy playing or learning, a tissue across the room is too far away - so sleeves take the hit. Co-inventors{' '}
                 <strong className="text-teal-900">Sachin Yadav</strong> and{' '}
                 <a
                   href={SITE_CONFIG.tianaUrl}

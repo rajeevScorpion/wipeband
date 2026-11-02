@@ -9,7 +9,7 @@ import { REFILLS_PRODUCT } from '@/lib/products';
 import { SITE_CONFIG } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Wipeband Tissue Refills — Made to Fit Every Wipeband',
+  title: 'Wipeband Tissue Refills - Made to Fit Every Wipeband',
   description:
     'Keep the band and refresh the soft tissues with replacement Wipeband tissue packs. Made to fit every Wipeband. 10 packs per box (60 fresh wipes).',
 };
@@ -29,7 +29,7 @@ export default function RefillsPage() {
     {
       num: '3',
       title: 'Wear',
-      desc: 'Put Wipeband back on their wrist — ready again for school, playdates, and travel.',
+      desc: 'Put Wipeband back on their wrist - ready again for school, playdates, and travel.',
     },
   ];
 
@@ -52,7 +52,7 @@ export default function RefillsPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button href="/products/tissue-refills" variant="primary" size="lg">
-                  Shop Refills — ${REFILLS_PRODUCT.price.toFixed(2)}
+                  Shop Refills - ${REFILLS_PRODUCT.price.toFixed(2)}
                 </Button>
                 <Link
                   href="/products/wipeband-starter-kit"
@@ -154,7 +154,7 @@ export default function RefillsPage() {
             </p>
             <div className="flex flex-col items-center gap-3 justify-center">
               <Button href="/products/tissue-refills" variant="primary" size="lg">
-                Buy Refill Box — ${REFILLS_PRODUCT.price.toFixed(2)}
+                Buy Refill Box - ${REFILLS_PRODUCT.price.toFixed(2)}
               </Button>
               <a
                 href={SITE_CONFIG.amazonRefillsUrl}
@@ -193,7 +193,7 @@ export default function RefillsPage() {
                 Replace only the soft tissues
               </h3>
               <p className="text-sm text-ink/75">
-                Refresh only what gets used up — 6 fresh wipes per pack, 10 packs per refill box.
+                Refresh only what gets used up - 6 fresh wipes per pack, 10 packs per refill box.
               </p>
             </div>
 

@@ -4,7 +4,7 @@ import { Truck, RotateCcw, ShieldCheck, Mail } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Shipping & Returns — Wipeband',
+  title: 'Shipping & Returns - Wipeband',
   description: 'Shipping details, delivery expectations and our 30-day return policy for Wipeband orders.',
 };
 

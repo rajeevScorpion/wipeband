@@ -42,7 +42,7 @@ export function CleanerSleevesCTA() {
             The tissue little noses can actually reach.
           </h2>
           <p className="text-white/80 text-base sm:text-lg max-w-lg mx-auto">
-            Cleaner sleeves start here — 1 reusable Wipeband + 30 fresh wipes for kids ages 2–6.
+            Cleaner sleeves start here - 1 reusable Wipeband + 30 fresh wipes for kids ages 2–6.
           </p>
         </motion.div>
 
@@ -85,10 +85,10 @@ export function CleanerSleevesCTA() {
           >
             {justAdded ? (
               <span className="inline-flex items-center gap-1.5">
-                <Check className="w-5 h-5" /> Added — ${STARTER_KIT_PRODUCT.price.toFixed(2)}
+                <Check className="w-5 h-5" /> Added - ${STARTER_KIT_PRODUCT.price.toFixed(2)}
               </span>
             ) : (
-              `Add to Cart — $${STARTER_KIT_PRODUCT.price.toFixed(2)}`
+              `Add to Cart - $${STARTER_KIT_PRODUCT.price.toFixed(2)}`
             )}
           </Button>
         </motion.div>

@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/lib/site';
 import { STARTER_KIT_PRODUCT } from '@/lib/products';
 
 export const metadata: Metadata = {
-  title: 'Our Story — Why Sachin & Tiana Invented Wipeband',
+  title: 'Our Story - Why Sachin & Tiana Invented Wipeband',
   description:
     'Learn how co-inventors Sachin Yadav and Tiana created Wipeband so kids ages 2–6 always have a soft tissue right on their wrist.',
 };
@@ -32,7 +32,7 @@ export default function OurStoryPage() {
               </p>
               <div className="pt-2">
                 <Button href="/products/wipeband-starter-kit" variant="primary" size="lg">
-                  Shop Starter Kit — ${STARTER_KIT_PRODUCT.price.toFixed(2)}
+                  Shop Starter Kit - ${STARTER_KIT_PRODUCT.price.toFixed(2)}
                 </Button>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function OurStoryPage() {
               </a>
             </div>
             <p className="text-sm sm:text-base text-ink/80 leading-relaxed">
-              Together, Sachin and Tiana turned a simple family observation into a practical everyday wearable for little ones — helping children wipe their own nose with a soft tissue and tear away the used layer to reveal a fresh one underneath.
+              Together, Sachin and Tiana turned a simple family observation into a practical everyday wearable for little ones - helping children wipe their own nose with a soft tissue and tear away the used layer to reveal a fresh one underneath.
             </p>
           </div>
         </div>

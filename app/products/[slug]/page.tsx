@@ -22,7 +22,7 @@ export function generateMetadata({
   const product = getProductBySlug(params.slug);
   if (!product) return {};
   return {
-    title: `${product.name} — Wipeband`,
+    title: `${product.name} - Wipeband`,
     description: product.shortDescription,
   };
 }

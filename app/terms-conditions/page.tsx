@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { SITE_CONFIG } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions — Wipeband',
+  title: 'Terms & Conditions - Wipeband',
   description: 'Terms of service and sale governing Wipeband and Atah Life LLC website use.',
 };
 

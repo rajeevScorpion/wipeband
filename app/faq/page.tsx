@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { OBJECTION_FAQS } from '@/components/sections/FaqSection';
 
 export const metadata: Metadata = {
-  title: 'Wipeband FAQ — Frequently Asked Questions',
+  title: 'Wipeband FAQ - Frequently Asked Questions',
   description:
     'Answers about Wipeband for kids ages 2–6: how the 6-layer soft tissue pack works, tearing and disposing of used layers, washing the silicone band, refills, and 30-day returns.',
 };
@@ -28,7 +28,7 @@ export default function FaqPage() {
         {
           question: 'Do tissue refills fit every Wipeband?',
           answer:
-            'Yes — Wipeband Tissue Refills ($5.99 for a box of 10 packs / 60 fresh wipes) are made to fit every Wipeband strap.',
+            'Yes - Wipeband Tissue Refills ($5.99 for a box of 10 packs / 60 fresh wipes) are made to fit every Wipeband strap.',
         },
         {
           question: 'How do direct website returns compare to Amazon orders?',

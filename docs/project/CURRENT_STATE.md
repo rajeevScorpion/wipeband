@@ -52,6 +52,9 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Replaced em dashes with hyphens in website copy, buttons, alt text and page
+  metadata. Ampersands and en dashes were left as-is. TypeScript, lint, source
+  search and local homepage HTML checks passed. Not yet pushed.
 - Removed the first and last separator lines from the homepage FAQ accordion;
   dividers between questions remain. Targeted lint and local HTML checks passed;
   the change has not been visually checked in a browser or pushed.

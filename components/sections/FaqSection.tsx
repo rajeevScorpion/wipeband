@@ -47,7 +47,7 @@ export const OBJECTION_FAQS = [
   {
     question: "What if my child doesn't like it?",
     answer:
-      'Direct orders placed on Wipeband.com are covered by our 30-day return policy — simply email support@wipeband.com for return instructions. Orders placed on Amazon follow Amazon’s return terms.',
+      'Direct orders placed on Wipeband.com are covered by our 30-day return policy - simply email support@wipeband.com for return instructions. Orders placed on Amazon follow Amazon’s return terms.',
   },
 ];
 

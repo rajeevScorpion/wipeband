@@ -59,7 +59,7 @@ export function CampaignLanding({
 
               <div className="flex flex-wrap items-center gap-4 pt-3">
                 <Button href="#starter-kit" variant="primary" size="lg">
-                  Shop Starter Kit — ${STARTER_KIT_PRODUCT.price.toFixed(2)}
+                  Shop Starter Kit - ${STARTER_KIT_PRODUCT.price.toFixed(2)}
                 </Button>
                 <a
                   href={SITE_CONFIG.amazonStarterKitUrl}

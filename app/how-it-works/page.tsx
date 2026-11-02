@@ -8,7 +8,7 @@ import { CleanerSleevesCTA } from '@/components/sections/CleanerSleevesCTA';
 import { STARTER_KIT_PRODUCT } from '@/lib/products';
 
 export const metadata: Metadata = {
-  title: 'How Wipeband Works — Wear It. Wipe It. Tear It.',
+  title: 'How Wipeband Works - Wear It. Wipe It. Tear It.',
   description:
     'See how Wipeband works for kids ages 2–6: Wear it like a watch, wipe on the soft tissue, and tear off the used layer to reveal a fresh one underneath.',
 };
@@ -27,7 +27,7 @@ export default function HowItWorksPage() {
       num: '02',
       title: 'Wipe it.',
       tag: 'Wipe their nose on the soft tissue.',
-      body: 'When a runny nose happens during play, preschool, or travel, the soft tissue pad on their wrist faces and gently wipes their nose — no searching across the room.',
+      body: 'When a runny nose happens during play, preschool, or travel, the soft tissue pad on their wrist faces and gently wipes their nose - no searching across the room.',
       assetId: 'howitworks_step2_wipe.webp',
       alt: 'Child wiping nose on the soft tissue pad on wrist',
     },
@@ -77,7 +77,7 @@ export default function HowItWorksPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Button href="/products/wipeband-starter-kit" variant="primary" size="lg">
-                  Shop Starter Kit — ${STARTER_KIT_PRODUCT.price.toFixed(2)}
+                  Shop Starter Kit - ${STARTER_KIT_PRODUCT.price.toFixed(2)}
                 </Button>
                 <Button href="#steps" variant="secondary" size="lg">
                   See the 3 steps ↓

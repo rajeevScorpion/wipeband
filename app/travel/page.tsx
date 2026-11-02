@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { CampaignLanding } from '@/components/campaign/CampaignLanding';
 
 export const metadata: Metadata = {
-  title: 'Travel & Family Outings — Wipeband',
+  title: 'Travel & Family Outings - Wipeband',
   description: 'Convenient wrist-worn tissue pack for flights, road trips, theme parks and family adventures.',
   robots: {
     index: false,

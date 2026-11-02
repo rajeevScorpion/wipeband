@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { CampaignLanding } from '@/components/campaign/CampaignLanding';
 
 export const metadata: Metadata = {
-  title: 'Cold & Allergy Season Relief — Wipeband',
+  title: 'Cold & Allergy Season Relief - Wipeband',
   description: 'Gentle, soft wearable tissue pad ready for winter sniffles and spring pollen.',
   robots: {
     index: false,

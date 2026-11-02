@@ -164,8 +164,8 @@ export function ProductClientView({ product }: Props) {
               className="shadow-md"
             >
               {addedNotice
-                ? `Added to Cart — $${(product.price * quantity).toFixed(2)}`
-                : `Add to Cart — $${(product.price * quantity).toFixed(2)}`}
+                ? `Added to Cart - $${(product.price * quantity).toFixed(2)}`
+                : `Add to Cart - $${(product.price * quantity).toFixed(2)}`}
             </Button>
           </div>
         </div>

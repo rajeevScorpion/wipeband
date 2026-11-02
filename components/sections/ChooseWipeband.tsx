@@ -67,7 +67,7 @@ export function ChooseWipeband() {
             <div className="lg:col-span-5">
               <PlaceholderMedia
                 assetId="product_starter-kit_hero.webp"
-                alt="Wipeband Starter Kit — 1 reusable Wipeband and 5 soft tissue packs"
+                alt="Wipeband Starter Kit - 1 reusable Wipeband and 5 soft tissue packs"
                 aspectRatio="1:1"
                 category="product"
                 className="rounded-3xl border border-teal-900/10 shadow-xs"
@@ -134,10 +134,10 @@ export function ChooseWipeband() {
                 >
                   {justAdded ? (
                     <span className="inline-flex items-center gap-1.5">
-                      <Check className="w-5 h-5" /> Added to Cart — ${STARTER_KIT_PRODUCT.price.toFixed(2)}
+                      <Check className="w-5 h-5" /> Added to Cart - ${STARTER_KIT_PRODUCT.price.toFixed(2)}
                     </span>
                   ) : (
-                    `Add to Cart — $${STARTER_KIT_PRODUCT.price.toFixed(2)}`
+                    `Add to Cart - $${STARTER_KIT_PRODUCT.price.toFixed(2)}`
                   )}
                 </Button>
 

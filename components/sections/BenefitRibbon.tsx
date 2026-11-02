@@ -48,7 +48,7 @@ export function BenefitRibbon() {
               <span className="text-teal-700">The sleeve isn&apos;t.</span>
             </h2>
             <p className="text-base sm:text-lg text-teal-950/75 leading-relaxed max-w-lg">
-              Kids don&apos;t stop playing to hunt for a tissue box — so we put the tissue where they already reach.
+              Kids don&apos;t stop playing to hunt for a tissue box - so we put the tissue where they already reach.
             </p>
           </motion.div>
 
