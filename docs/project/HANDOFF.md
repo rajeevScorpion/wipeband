@@ -1,6 +1,16 @@
 # Shared handoff - 2026-11-02
 
-**Current task:** Owner approved implementation of the footer brand-finish
+**Current task:** Product section video mockup is ready for review at
+http://127.0.0.1:3011/product-video-review.html. The original is in ignored
+`image-inbox/Wipeband_Loading.mp4`; the preview copy is 1,096,143 bytes versus
+15,610,450 bytes, 720 x 900 H.264, fast-start, with a WebP poster. Decoding,
+local HTTP and simulated controls/reduced motion passed; browser visual QA was
+unavailable. No product code changed. Wait for explicit owner approval before
+implementation. The port-3000 website and port-3011 mockup servers were left
+running. FFmpeg and a sample frame are in system temp under
+`wipeband-video-tools`.
+
+**Previous task:** Owner approved implementation of the footer brand-finish
 mockup. The homepage now replaces its closing sales CTA with the sinking
 wordmark, faded pattern, subtle scroll lift, footer shadow and insignia. Other
 pages retain their existing CTA and footer treatment. Source assets remain in
