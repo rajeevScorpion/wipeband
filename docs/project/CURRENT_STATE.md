@@ -52,12 +52,16 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- At the owner's request, removed the four repeated real-life placeholder cards
+  and combined their message with the School, Playdates and Travel heading. The
+  three existing image cards remain. TypeScript, targeted lint and local HTML
+  checks passed; browser visual review and deployment remain unverified.
 - Investigated local hot reload: the existing `npm run dev` server detected a
   temporary source edit, served the new content and sent WebSocket refresh events.
   `PlaceholderMedia` now resets remembered image/video failures when its source
   changes, so a previous placeholder failure does not hide a newly selected
   image during refresh. TypeScript and targeted lint passed; actual browser-side
-  refresh still needs owner verification. Change is local pending Git push.
+  refresh still needs owner verification. Fix was pushed at 288ffc2.
 - Added the owner's classroom, playground and car images to the homepage School,
   Playdates and Travel cards locally. Optimized WebP copies are used; originals
   remain in `image-inbox/`. TypeScript, image guard and local image HTTP checks
