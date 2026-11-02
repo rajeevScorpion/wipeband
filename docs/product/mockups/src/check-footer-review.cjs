@@ -18,10 +18,12 @@ for (const viewport of [320, 390, 640, 1440, 2547]) {
   const mobile = viewport < 640;
   const width = mobile ? viewport * 0.94 : Math.min(viewport * 0.75, 1100);
   const height = width * 265.91 / 823.6;
-  const hidden = mobile ? viewport * 0.085 : Math.min(viewport * 0.0675, 99);
-  const lift = mobile ? 14 : 28;
+  const hidden = mobile ? viewport * 0.105 : Math.min(viewport * 0.0675, 99) + Math.min(viewport * 0.016, 22);
+  const lift = Math.min(28, viewport * (mobile ? 0.02 : 0.027));
   const visibleSvgHeight = (height - hidden) / height * 265.91;
   assert(visibleSvgHeight > 167.64, `W valleys are clipped at ${viewport}px`);
   assert(hidden > lift, `The wordmark fully reveals at ${viewport}px`);
+  const visibleAtMaxLift = (height - hidden + lift) / height * 265.91;
+  assert(visibleAtMaxLift < 205.52, `A gap below the W could reappear at ${viewport}px`);
 }
 console.log('Mockup script, current page, footer links, embedded assets and wordmark clipping geometry verified.');

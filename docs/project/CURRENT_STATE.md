@@ -54,9 +54,10 @@ they are historical and must not be reused as the current baseline.
 
 - Footer brand-finish mockup at `docs/product/mockups/footer-review.html` uses
   the current local page, supplied insignia/pattern and official SVG wordmark.
-  It now hides more of the wordmark behind the footer, adds a subtle scroll lift,
-  halves the faded repeat pattern and removes the FAQ divider in the proposal.
-  Wordmark geometry, script and footer-link checks passed; browser visual review
+  It now sinks the wordmark further to meet the footer edge, adds a restrained
+  footer shadow and scroll lift, halves the faded pattern and removes the FAQ
+  divider. W shape and edge contact geometry, script and footer-link checks
+  passed; browser visual review
   is unavailable and owner approval is pending. Website code was not changed.
   Local mockup server: http://127.0.0.1:3011/footer-review.html (PID 8408).
 - Moved the footer's support navigation below the brand/tagline, tightened the

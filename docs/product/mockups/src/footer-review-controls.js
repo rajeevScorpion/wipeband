@@ -9,7 +9,7 @@ function updateReveal() {
   if (!stage) return;
   const top = frame.getBoundingClientRect().top + stage.getBoundingClientRect().top;
   const progress = Math.max(0, Math.min(1, (window.innerHeight - top) / (window.innerHeight + stage.offsetHeight * 0.3)));
-  const maxLift = frame.clientWidth < 640 ? 14 : 28;
+  const maxLift = Math.min(28, frame.clientWidth * (frame.clientWidth < 640 ? 0.02 : 0.027));
   const lift = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : progress * maxLift;
   stage.style.setProperty('--footer-lift', `${(-lift).toFixed(1)}px`);
 }
@@ -37,9 +37,9 @@ function setup() {
     main img{opacity:1!important}
     .footer-study{position:relative;height:clamp(190px,24vw,350px);overflow:hidden;background:#fff;isolation:isolate}
     .footer-study-pattern{position:absolute;inset:0;background-image:url("${ASSETS.pattern}");background-size:clamp(120px,15vw,200px) auto;background-position:center center;opacity:.13;mask-image:radial-gradient(ellipse 50% 50% at center,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 50% 50% at center,#000 30%,transparent 100%)}
-    .footer-study-wordmark{position:absolute;display:block;width:min(75%,1100px);height:auto;left:50%;bottom:max(-6.75vw,-99px);transform:translate(-50%,var(--footer-lift,0px))}
+    .footer-study-wordmark{position:absolute;display:block;width:min(75%,1100px);height:auto;left:50%;bottom:calc(max(-6.75vw,-99px) - min(1.6vw,22px));transform:translate(-50%,var(--footer-lift,0px))}
     .footer-study[data-pattern="off"] .footer-study-pattern{display:none}
-    @media(max-width:639px){.footer-study{height:170px}.footer-study-pattern{background-size:122.5px auto}.footer-study-wordmark{width:94%;bottom:-8.5vw}}
+    @media(max-width:639px){.footer-study{height:170px}.footer-study-pattern{background-size:122.5px auto}.footer-study-wordmark{width:94%;bottom:-10.5vw}}
   `;
   doc.head.appendChild(style);
   if (design === 'proposed') {
@@ -52,6 +52,9 @@ function setup() {
     section.replaceWith(stage);
     stage.previousElementSibling?.classList.remove('border-b');
     stage.parentElement.classList.remove('pb-14');
+    footer.style.position = 'relative';
+    footer.style.zIndex = '2';
+    footer.style.boxShadow = '0 -9px 18px -12px rgba(5, 42, 48, 0.38)';
     const logo = footer.querySelector('img[alt="Wipeband"]');
     if (logo) {
       logo.src = ASSETS.insignia;

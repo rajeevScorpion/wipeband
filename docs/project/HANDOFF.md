@@ -1,11 +1,12 @@
 # Shared handoff - 2026-11-02
 
 **Current task:** Footer brand-finish mockup only, awaiting owner review and
-explicit approval before any product code changes. The revised proposal hides
-more of the wordmark, subtly lifts it on scroll, halves the faded repeat pattern
-and removes the FAQ divider. The SVG W's valleys remain above the clipping edge
-in geometry checks across phone and desktop widths; the logo remains partly
-hidden at maximum lift. The supplied insignia sits in the footer. Compare Current and
+explicit approval before any product code changes. The latest revision sinks the
+wordmark further to meet the footer edge and adds a subtle upward footer shadow.
+The pattern stays half-scale and faded; the FAQ divider is removed. Geometry
+checks across phone and desktop keep the W valleys visible and its lower edge
+covered even at maximum scroll lift. The supplied insignia sits in the footer.
+Compare Current and
 Proposed, Desktop and Phone, and Pattern on/off in
 `docs/product/mockups/footer-review.html` or
 http://127.0.0.1:3011/footer-review.html. Local preview server PID 8408; owner's
