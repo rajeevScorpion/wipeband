@@ -14,10 +14,14 @@ confirmed all three card images are present and served as WebP. Converted images
 were visually inspected individually. Browser preview was unavailable, so
 desktop and phone rendering still need visual review.
 
-**Next step:** Ask the owner to review the mockup and, once agreed, implement it
-in the app with optimized WebP icons. Continue adding images as supplied. The
-owner's port-3000 server was already running and was left running. Ask before a
-push that isn't already authorized; a GitHub push triggers Hostinger deployment.
+**Implementation:** At the owner's direction, square testimonial cards and the
+two parent avatars are also implemented locally; all four supplied avatars have
+optimized WebP copies. TypeScript, targeted lint and local HTTP checks passed.
+Check Git status for push state; the actual page has not had a browser visual QA.
+
+**Next step:** Let the owner review the mockup and local page, then continue adding
+images as supplied. The owner's port-3000 server was already running and was left
+running. A GitHub push triggers Hostinger deployment.
 
 **Open:** CURRENT_STATE.md records unfinished checkout, payment, fulfillment,
 email and support flows. Vercel preview and Amazon MCF readiness remain pending.

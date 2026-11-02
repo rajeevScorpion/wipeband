@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ExternalLink, Lightbulb } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -11,12 +12,14 @@ export function ProofStorySplit() {
     {
       quote: 'My 2 yr old literally adores his pretend watch (aka Wipeband).',
       author: 'Henry M.',
+      avatar: '/assets/images/testimonial-father.webp',
       context: 'Parent review on Wipeband.com',
       sourceHref: null as string | null,
     },
     {
       quote: 'Game changer for school and sports. No more messy sleeves after soccer practice or playground time.',
       author: 'Sarah K.',
+      avatar: '/assets/images/testimonial-mother.webp',
       context: 'Parent review on Wipeband.com',
       sourceHref: null as string | null,
     },
@@ -42,15 +45,18 @@ export function ProofStorySplit() {
                 {reviews.map((rev) => (
                   <div
                     key={rev.author}
-                    className="p-5 bg-white rounded-2xl border border-teal-700/10 shadow-xs flex flex-col justify-between"
+                    className="aspect-square p-5 bg-white rounded-2xl border border-teal-700/10 shadow-xs flex flex-col justify-between"
                   >
                     <p className="font-serif italic text-base sm:text-lg text-teal-950 leading-snug">
                       &ldquo;{rev.quote}&rdquo;
                     </p>
-                    <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between text-xs text-muted">
-                      <span className="font-heading font-bold text-teal-900">
-                        {rev.author} · {rev.context}
-                      </span>
+                    <div className="mt-4 pt-3 border-t border-border/60 flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
+                      <div className="flex min-w-0 items-center gap-2">
+                        <Image src={rev.avatar} alt="" width={42} height={42} className="h-10 w-10 shrink-0 rounded-full object-cover" />
+                        <span className="font-heading font-bold text-teal-900">
+                          {rev.author}<span className="block font-normal text-muted">{rev.context}</span>
+                        </span>
+                      </div>
                       {rev.sourceHref && (
                         <a
                           href={rev.sourceHref}

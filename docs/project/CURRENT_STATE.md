@@ -57,7 +57,9 @@ they are historical and must not be reused as the current baseline.
   slots. Desktop/phone and two/four-card controls included. Built from local
   rendered homepage HTML; JavaScript syntax and key content checked. Browser
   preview unavailable, so visual and interactive behavior still need owner review.
-  Application implementation awaits mockup approval.
+  At the owner's direction, square cards and parent avatars are also implemented
+  locally; all four supplied avatars were converted to WebP for current/future use.
+  TypeScript, targeted lint and local HTTP checks passed. Not yet pushed.
 - At the owner's request, removed the four repeated real-life placeholder cards
   and combined their message with the School, Playdates and Travel heading. The
   three existing image cards remain. TypeScript, targeted lint and local HTML
