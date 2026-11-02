@@ -1,5 +1,16 @@
 # Shared handoff - 2026-11-02
 
+**Current task:** Footer brand-finish mockup only, awaiting owner review and
+explicit approval before any product code changes. The requested replacement
+for the closing CTA uses the oversized sinking SVG wordmark, supplied insignia
+in the footer and a softly faded supplied repeat pattern. Compare Current and
+Proposed, Desktop and Phone, and Pattern on/off in
+`docs/product/mockups/footer-review.html` or
+http://127.0.0.1:3011/footer-review.html. Local preview server PID 8408; owner's
+website server on port 3000 was left alone. Capture uses the current local page,
+including unpushed work. Script/content/link checks passed; browser visual QA
+was unavailable. No app code changed for this mockup.
+
 **Stopped at:** Created `docs/product/mockups/testimonial-review.html` from the
 current local homepage for the owner's requested square testimonials and profile
 icons. Existing reviews are preserved; two extra cards are explicitly sample
