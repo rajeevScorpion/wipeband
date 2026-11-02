@@ -54,10 +54,10 @@ they are historical and must not be reused as the current baseline.
 
 - Footer brand-finish mockup at `docs/product/mockups/footer-review.html` uses
   the current local page, supplied insignia/pattern and official SVG wordmark.
-  It compares the current closing CTA with a sinking wordmark, footer insignia
-  and fading repeat pattern; desktop/phone and pattern controls are included.
-  Source, control syntax and footer-link checks passed; browser visual review is
-  unavailable and owner approval is pending. Website code was not changed.
+  It now hides more of the wordmark behind the footer, adds a subtle scroll lift,
+  halves the faded repeat pattern and removes the FAQ divider in the proposal.
+  Wordmark geometry, script and footer-link checks passed; browser visual review
+  is unavailable and owner approval is pending. Website code was not changed.
   Local mockup server: http://127.0.0.1:3011/footer-review.html (PID 8408).
 - Moved the footer's support navigation below the brand/tagline, tightened the
   text and bottom-divider spacing, and arranged seven links in two mobile rows.

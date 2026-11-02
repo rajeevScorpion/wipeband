@@ -1,6 +1,22 @@
 const frame = document.getElementById('site-frame');
 let design = 'proposed';
 let pattern = true;
+let revealFrame = 0;
+
+function updateReveal() {
+  revealFrame = 0;
+  const stage = frame.contentDocument?.querySelector('.footer-study');
+  if (!stage) return;
+  const top = frame.getBoundingClientRect().top + stage.getBoundingClientRect().top;
+  const progress = Math.max(0, Math.min(1, (window.innerHeight - top) / (window.innerHeight + stage.offsetHeight * 0.3)));
+  const maxLift = frame.clientWidth < 640 ? 14 : 28;
+  const lift = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : progress * maxLift;
+  stage.style.setProperty('--footer-lift', `${(-lift).toFixed(1)}px`);
+}
+
+function scheduleReveal() {
+  if (!revealFrame) revealFrame = requestAnimationFrame(updateReveal);
+}
 
 function resize() {
   frame.style.height = `${frame.contentDocument.documentElement.scrollHeight + 16}px`;
@@ -20,10 +36,10 @@ function setup() {
     main [style*="opacity"]{opacity:1!important;transform:none!important}
     main img{opacity:1!important}
     .footer-study{position:relative;height:clamp(190px,24vw,350px);overflow:hidden;background:#fff;isolation:isolate}
-    .footer-study-pattern{position:absolute;inset:0;background-image:url("${ASSETS.pattern}");background-size:clamp(240px,30vw,400px) auto;background-position:center center;opacity:.13;mask-image:radial-gradient(ellipse 50% 50% at center,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 50% 50% at center,#000 30%,transparent 100%)}
-    .footer-study-wordmark{position:absolute;display:block;width:min(75%,1100px);height:auto;left:50%;bottom:-11%;transform:translateX(-50%)}
+    .footer-study-pattern{position:absolute;inset:0;background-image:url("${ASSETS.pattern}");background-size:clamp(120px,15vw,200px) auto;background-position:center center;opacity:.13;mask-image:radial-gradient(ellipse 50% 50% at center,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 50% 50% at center,#000 30%,transparent 100%)}
+    .footer-study-wordmark{position:absolute;display:block;width:min(75%,1100px);height:auto;left:50%;bottom:max(-6.75vw,-99px);transform:translate(-50%,var(--footer-lift,0px))}
     .footer-study[data-pattern="off"] .footer-study-pattern{display:none}
-    @media(max-width:639px){.footer-study{height:170px}.footer-study-pattern{background-size:245px auto}.footer-study-wordmark{width:94%;bottom:-5%}}
+    @media(max-width:639px){.footer-study{height:170px}.footer-study-pattern{background-size:122.5px auto}.footer-study-wordmark{width:94%;bottom:-8.5vw}}
   `;
   doc.head.appendChild(style);
   if (design === 'proposed') {
@@ -34,6 +50,7 @@ function setup() {
     stage.innerHTML = '<div class="footer-study-pattern" aria-hidden="true"></div><img class="footer-study-wordmark" alt="" aria-hidden="true">';
     stage.querySelector('img').src = ASSETS.logo;
     section.replaceWith(stage);
+    stage.previousElementSibling?.classList.remove('border-b');
     stage.parentElement.classList.remove('pb-14');
     const logo = footer.querySelector('img[alt="Wipeband"]');
     if (logo) {
@@ -47,6 +64,7 @@ function setup() {
   }, true);
   document.getElementById('audit-result').textContent = 'Current page captured locally; preview changes only the closing panel and footer brand mark.';
   resize();
+  scheduleReveal();
   doc.fonts.ready.then(resize);
 }
 
@@ -84,5 +102,7 @@ document.getElementById('jump').onclick = () => {
   const target = frame.contentDocument.querySelector('.footer-study') || frame.contentDocument.querySelector('footer');
   if (target) window.scrollTo({ top: frame.getBoundingClientRect().top + window.scrollY + target.getBoundingClientRect().top - document.querySelector('.review-bar').offsetHeight - 10, behavior: 'smooth' });
 };
+window.addEventListener('scroll', scheduleReveal, { passive: true });
+window.addEventListener('resize', scheduleReveal);
 frame.addEventListener('load', setup);
 reload();
