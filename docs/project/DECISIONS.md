@@ -1,5 +1,9 @@
 # Project decisions
 
+- 2026-11-02: Owner approved implementation of the footer brand-finish mockup:
+  remove the homepage's final repeated sales CTA, use the large peeking wordmark,
+  softly faded repeat pattern and footer insignia, with subtle scroll lift and
+  shadow. Keep the wordmark flush to the footer and the W recognizable.
 - 2026-11-02: Mockups requested by the owner or proposed by the agent must be
   separate from the product. Implement only after the owner has reviewed and
   explicitly approved the mockup. Keep the already implemented testimonial

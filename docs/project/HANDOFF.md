@@ -1,20 +1,15 @@
 # Shared handoff - 2026-11-02
 
-**Current task:** Footer brand-finish mockup only, awaiting owner review and
-explicit approval before any product code changes. After the owner observed a
-remaining white gap, the latest revision places the artwork directly next to the
-footer and measures the wordmark edge so it remains flush. It retains the subtle
-upward footer shadow.
-The pattern stays half-scale and faded; the FAQ divider is removed. Geometry
-checks across phone and desktop keep the W valleys visible and its lower edge
-covered even at maximum scroll lift. The supplied insignia sits in the footer.
-Compare Current and
-Proposed, Desktop and Phone, and Pattern on/off in
-`docs/product/mockups/footer-review.html` or
-http://127.0.0.1:3011/footer-review.html. Local preview server PID 8408; owner's
-website server on port 3000 was left alone. Capture uses the current local page,
-including unpushed work. Script/content/link checks passed; browser visual QA
-was unavailable. No app code changed for this mockup.
+**Current task:** Owner approved implementation of the footer brand-finish
+mockup. The homepage now replaces its closing sales CTA with the sinking
+wordmark, faded pattern, subtle scroll lift, footer shadow and insignia. Other
+pages retain their existing CTA and footer treatment. Source assets remain in
+`image-inbox/`; WebP copies are used by the site. TypeScript, targeted lint,
+image guard, local HTTP checks and an isolated 27-page production build passed;
+browser visual QA remains pending. The build copy was moved to system temp after
+automatic review blocked deleting its directory. The approved mockup remains at
+`docs/product/mockups/footer-review.html`; its local server is PID 8408 on port
+3011. The owner's website server on port 3000 was left alone.
 
 **Stopped at:** Created `docs/product/mockups/testimonial-review.html` from the
 current local homepage for the owner's requested square testimonials and profile

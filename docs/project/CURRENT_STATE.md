@@ -52,14 +52,13 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
-- Footer brand-finish mockup at `docs/product/mockups/footer-review.html` uses
-  the current local page, supplied insignia/pattern and official SVG wordmark.
-  It now sinks the wordmark further to meet the footer edge, adds a restrained
-  footer shadow and scroll lift, halves the faded pattern and removes the FAQ
-  divider. After the owner observed a remaining gap, the preview artwork was
-  placed directly adjacent to the footer and given a measured edge adjustment.
-  Script and geometry checks passed; actual browser visual review
-  is unavailable and owner approval is pending. Website code was not changed.
+- Owner approved the footer brand-finish mockup; it is implemented locally on
+  the homepage. The final sales CTA is replaced with a sinking SVG wordmark,
+  faded WebP pattern, subtle scroll lift and footer shadow; the footer uses the
+  supplied WebP insignia. Other pages retain their existing footer and CTA.
+  TypeScript, targeted lint, image guard, local HTML checks and an isolated
+  27-page production build passed; browser visual QA remains pending. Check Git
+  status for push state.
   Local mockup server: http://127.0.0.1:3011/footer-review.html (PID 8408).
 - Moved the footer's support navigation below the brand/tagline, tightened the
   text and bottom-divider spacing, and arranged seven links in two mobile rows.

@@ -1,16 +1,29 @@
+'use client';
+
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { WipebandLogo } from '@/components/ui/WipebandLogo';
+import { FooterBrandFinish } from '@/components/sections/FooterBrandFinish';
 import { SITE_CONFIG } from '@/lib/site';
 
 export function SiteFooter() {
+  const isHome = usePathname() === '/';
+
   return (
-    <footer className="bg-white border-t border-border pt-12 pb-14 text-ink">
+    <footer className={isHome ? 'bg-white text-ink' : 'bg-white border-t border-border pt-12 pb-14 text-ink'}>
+      {isHome && <FooterBrandFinish />}
+      <div className={isHome ? 'relative z-[2] bg-white border-t border-border pt-12 pb-24 md:pb-14 shadow-[0_-9px_18px_-12px_rgba(5,42,48,0.38)]' : ''}>
       <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start justify-between gap-6 pb-6 border-b border-border/60">
           {/* Brand Info */}
           <div className="flex min-w-0 flex-col items-start text-left">
-            <WipebandLogo size="md" />
+            {isHome ? (
+              <Link href="/" aria-label="Wipeband Home" className="inline-flex rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-700">
+                <Image src="/assets/branding/footer-insignia.webp" alt="" width={48} height={43} />
+              </Link>
+            ) : <WipebandLogo size="md" />}
             <p className="mt-2 text-xs font-medium text-muted">
               {SITE_CONFIG.legalEntity}
             </p>
@@ -66,6 +79,7 @@ export function SiteFooter() {
             <Link href="/our-story" className="hover:underline">Our Story</Link>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );

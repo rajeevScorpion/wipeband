@@ -7,12 +7,11 @@ import { EverydayAdventures } from '@/components/sections/EverydayAdventures';
 import { ProofStorySplit } from '@/components/sections/ProofStorySplit';
 import { ChooseWipeband } from '@/components/sections/ChooseWipeband';
 import { FaqSection } from '@/components/sections/FaqSection';
-import { CleanerSleevesCTA } from '@/components/sections/CleanerSleevesCTA';
 import { MobileStickyBar } from '@/components/commerce/MobileStickyBar';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col pb-14 md:pb-0">
+    <div className="flex flex-col">
       {/* 1. H01 — Hero with silent usage loop slot, ages 2–6, Wear → Wipe → Tear cue, direct pattern & Add to Cart */}
       <HeroSplit />
       {/* 2. H02 — Immediate 3-step explanation (Wear it. Wipe it. Tear it.) */}
@@ -29,8 +28,6 @@ export default function HomePage() {
       <ChooseWipeband />
       {/* 10. H09 — Objection-driven FAQ */}
       <FaqSection />
-      {/* 11. H10 — Final CTA and brand payoff */}
-      <CleanerSleevesCTA />
       {/* C18 — Mobile sticky purchase bar */}
       <MobileStickyBar />
     </div>

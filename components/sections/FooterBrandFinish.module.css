@@ -1,0 +1,35 @@
+.finish {
+  position: relative;
+  width: 100%;
+  height: clamp(190px, 24vw, 350px);
+  overflow: hidden;
+  background: #fff;
+  isolation: isolate;
+}
+
+.pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/branding/footer-pattern.webp');
+  background-size: clamp(120px, 15vw, 200px) auto;
+  background-position: center;
+  opacity: .13;
+  mask-image: radial-gradient(ellipse 50% 50% at center, #000 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, #000 30%, transparent 100%);
+}
+
+.wordmark {
+  position: absolute;
+  display: block;
+  width: min(75%, 1100px);
+  height: auto;
+  left: 50%;
+  bottom: calc(max(-6.75vw, -99px) - min(1.6vw, 22px));
+  transform: translate(-50%, calc(var(--footer-lift, 0px) + var(--footer-edge-adjust, 0px)));
+}
+
+@media (max-width: 639px) {
+  .finish { height: 170px; }
+  .pattern { background-size: 122.5px auto; }
+  .wordmark { width: 94%; bottom: -10.5vw; }
+}
