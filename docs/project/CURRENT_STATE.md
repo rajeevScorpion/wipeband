@@ -56,8 +56,9 @@ they are historical and must not be reused as the current baseline.
   the current local page, supplied insignia/pattern and official SVG wordmark.
   It now sinks the wordmark further to meet the footer edge, adds a restrained
   footer shadow and scroll lift, halves the faded pattern and removes the FAQ
-  divider. W shape and edge contact geometry, script and footer-link checks
-  passed; browser visual review
+  divider. After the owner observed a remaining gap, the preview artwork was
+  placed directly adjacent to the footer and given a measured edge adjustment.
+  Script and geometry checks passed; actual browser visual review
   is unavailable and owner approval is pending. Website code was not changed.
   Local mockup server: http://127.0.0.1:3011/footer-review.html (PID 8408).
 - Moved the footer's support navigation below the brand/tagline, tightened the

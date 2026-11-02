@@ -14,7 +14,7 @@ changing storefront content/order and for an underdeveloped admin workflow.
 
 | Mockup | Local artifact | Status | Date | Decisions |
 |---|---|---|---|---|
-| Footer brand finish | [Current/proposed review](footer-review.html) | Draft - awaiting owner approval | 2026-11-02 | Wordmark sinks further and meets the footer edge, with subtle footer shadow and scroll lift; half-scale faded pattern and seamless FAQ transition. |
+| Footer brand finish | [Current/proposed review](footer-review.html) | Draft - awaiting owner approval | 2026-11-02 | Artwork sits directly against the footer, with measured wordmark contact, subtle shadow and scroll lift; half-scale faded pattern and seamless FAQ transition. |
 | Testimonial cards | [Desktop and phone review](testimonial-review.html) | Implemented locally; review pending | 2026-11-02 | Square cards, supplied parent icons, two current reviews and two clearly labeled future slots. |
 | Hero image comparison 03 | [Two-option review](hero-options.html) | Built locally | 2026-10-28 | Supplied hero options 1/2, transparent product overlay, mint wave. Current v2 capture; Desktop/Phone and Motion controls. |
 | Landing page visual study 02 | [Historical prototype](storefront-operations.html) | Obsolete — stale app baseline | 2026-10-28 | Content audit passed against f49359f, not the newer deployment. Rebuild from v2 before review. |

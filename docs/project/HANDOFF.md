@@ -1,8 +1,10 @@
 # Shared handoff - 2026-11-02
 
 **Current task:** Footer brand-finish mockup only, awaiting owner review and
-explicit approval before any product code changes. The latest revision sinks the
-wordmark further to meet the footer edge and adds a subtle upward footer shadow.
+explicit approval before any product code changes. After the owner observed a
+remaining white gap, the latest revision places the artwork directly next to the
+footer and measures the wordmark edge so it remains flush. It retains the subtle
+upward footer shadow.
 The pattern stays half-scale and faded; the FAQ divider is removed. Geometry
 checks across phone and desktop keep the W valleys visible and its lower edge
 covered even at maximum scroll lift. The supplied insignia sits in the footer.
