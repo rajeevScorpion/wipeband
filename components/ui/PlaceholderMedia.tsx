@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 interface PlaceholderMediaProps {
@@ -49,6 +49,13 @@ export function PlaceholderMedia({
     : category === 'product' || category === 'explainer'
     ? `/assets/product/${assetId}`
     : `/assets/lifestyle/${assetId}`;
+
+  useEffect(() => {
+    setImageError(false);
+    setImageLoaded(false);
+    setVideoError(false);
+    setVideoLoaded(false);
+  }, [imageSrc, isVideoSlot]);
 
   const renderVisualContent = () => {
     if (children) return children;

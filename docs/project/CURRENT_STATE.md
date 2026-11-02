@@ -52,6 +52,12 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Investigated local hot reload: the existing `npm run dev` server detected a
+  temporary source edit, served the new content and sent WebSocket refresh events.
+  `PlaceholderMedia` now resets remembered image/video failures when its source
+  changes, so a previous placeholder failure does not hide a newly selected
+  image during refresh. TypeScript and targeted lint passed; actual browser-side
+  refresh still needs owner verification. Change is local pending Git push.
 - Added the owner's classroom, playground and car images to the homepage School,
   Playdates and Travel cards locally. Optimized WebP copies are used; originals
   remain in `image-inbox/`. TypeScript, image guard and local image HTTP checks
