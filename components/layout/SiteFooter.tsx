@@ -7,45 +7,45 @@ export function SiteFooter() {
   return (
     <footer className="bg-white border-t border-border pt-12 pb-14 text-ink">
       <div className="max-w-content mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 pb-10 border-b border-border/60">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-6 pb-6 border-b border-border/60">
           {/* Brand Info */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="flex min-w-0 flex-col items-start text-left">
             <WipebandLogo size="md" />
             <p className="mt-2 text-xs font-medium text-muted">
               {SITE_CONFIG.legalEntity}
             </p>
-            <p className="mt-3 text-xs text-muted max-w-xs">
+            <p className="mt-1 text-xs text-muted max-w-xs">
               {SITE_CONFIG.tagline}
             </p>
-          </div>
 
-          {/* Navigation Links */}
-          <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-3 text-sm font-medium text-ink/80">
-            <Link href="/contact" className="hover:text-teal-700 transition-colors">
-              Support
-            </Link>
-            <Link href="/contact" className="hover:text-teal-700 transition-colors">
-              Contact
-            </Link>
-            <Link href="/track-order" className="hover:text-teal-700 transition-colors">
-              Track order
-            </Link>
-            <Link href="/shipping-returns#returns" className="hover:text-teal-700 transition-colors">
-              Returns
-            </Link>
-            <Link href="/privacy-policy" className="hover:text-teal-700 transition-colors">
-              Privacy
-            </Link>
-            <Link href="/terms-conditions" className="hover:text-teal-700 transition-colors">
-              Terms
-            </Link>
-            <Link href="/schools" className="hover:text-teal-700 transition-colors">
-              Wholesale
-            </Link>
+            {/* Navigation Links */}
+            <nav aria-label="Footer navigation" className="mt-4 grid grid-cols-[repeat(4,max-content)] gap-x-3 gap-y-3 sm:flex sm:flex-wrap sm:gap-x-6 text-xs sm:text-sm font-medium text-ink/80">
+              <Link href="/contact" className="hover:text-teal-700 transition-colors">
+                Support
+              </Link>
+              <Link href="/contact" className="hover:text-teal-700 transition-colors">
+                Contact
+              </Link>
+              <Link href="/track-order" className="hover:text-teal-700 transition-colors">
+                Track order
+              </Link>
+              <Link href="/shipping-returns#returns" className="hover:text-teal-700 transition-colors">
+                Returns
+              </Link>
+              <Link href="/privacy-policy" className="hover:text-teal-700 transition-colors">
+                Privacy
+              </Link>
+              <Link href="/terms-conditions" className="hover:text-teal-700 transition-colors">
+                Terms
+              </Link>
+              <Link href="/schools" className="hover:text-teal-700 transition-colors">
+                Wholesale
+              </Link>
+            </nav>
           </div>
 
           {/* Contact & Copyright */}
-          <div className="flex flex-col items-center md:items-end text-center md:text-right text-xs text-muted">
+          <div className="flex shrink-0 flex-col items-start md:items-end text-left md:text-right text-xs text-muted">
             <a
               href={`mailto:${SITE_CONFIG.supportEmail}`}
               className="text-teal-800 hover:text-teal-700 font-medium hover:underline mb-1"

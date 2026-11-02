@@ -16,6 +16,10 @@ the app, including metadata and buttons. Developer comments and historical
 mockup artifacts were left intact. TypeScript, lint and local homepage checks
 passed; check Git status for push state.
 
+**Latest layout:** Footer support links now sit below the left-aligned brand
+copy, with tighter spacing and a two-row mobile grid. TypeScript, lint and local
+HTML checks passed; desktop and phone browser visual review remains pending.
+
 **Images:** Owner originals, including the earlier alternatives, are in local,
 Git-ignored `image-inbox/` and are not backed up to GitHub. The site uses WebP
 copies. Optimizer tests and guarded production build passed; local HTTP checks

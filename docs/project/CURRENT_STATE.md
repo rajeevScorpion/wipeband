@@ -52,6 +52,10 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Moved the footer's support navigation below the brand/tagline, tightened the
+  text and bottom-divider spacing, and arranged seven links in two mobile rows.
+  TypeScript, lint and local HTML checks passed. Browser visual QA remains
+  pending; check Git status for push state.
 - Replaced em dashes with hyphens in website copy, buttons, alt text and page
   metadata. Ampersands and en dashes were left as-is. TypeScript, lint, source
   search and local homepage HTML checks passed. Not yet pushed.
