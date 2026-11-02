@@ -1,15 +1,16 @@
 # Shared handoff - 2026-11-02
 
-**Current task:** Product section video mockup is ready for review at
-http://127.0.0.1:3011/product-video-review.html. Revised per owner feedback:
-no outer box or controls, a larger video and a subtle frame shadow. The original is in ignored
-`image-inbox/Wipeband_Loading.mp4`; the preview copy is 1,096,143 bytes versus
-15,610,450 bytes, 720 x 900 H.264, fast-start, with a WebP poster. Decoding,
-local HTTP and simulated controls/reduced motion passed; browser visual QA was
-unavailable. No product code changed. Wait for explicit owner approval before
-implementation. The port-3000 website and port-3011 mockup servers were left
-running. FFmpeg and a sample frame are in system temp under
-`wipeband-video-tools`.
+**Current task:** Owner approved the product video mockup and requested commit
+and push. The homepage six-layer panel is replaced by the optimized 1.05 MiB
+video, without outer box or controls, with a larger rounded frame and subtle
+shadow. It loads near the viewport, loops muted, pauses off screen and respects
+reduced motion. Original remains in ignored `image-inbox/Wipeband_Loading.mp4`.
+TypeScript, targeted lint, image guard, local HTTP and an isolated 27-page
+production build passed; browser visual QA remains unavailable. Check Git for
+push state and Hostinger separately for deployment. The owner's port-3000 site
+and port-3011 mockup servers were left running. Temporary build copies remain at
+`D:/DEV/wipeband-video-build-d2c9a9024ee948e0a79f61f49db77361` and in system
+temp, alongside temporary video conversion tools.
 
 **Previous task:** Owner approved implementation of the footer brand-finish
 mockup. The homepage now replaces its closing sales CTA with the sinking

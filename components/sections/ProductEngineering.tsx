@@ -1,13 +1,24 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Watch, Layers, Scissors, RotateCcw } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import React, { useEffect, useRef } from 'react';
+import { Watch, Layers, Scissors } from 'lucide-react';
+import { motion, useInView, useReducedMotion } from 'motion/react';
 
 export function ProductEngineering() {
-  const [peeledCount, setPeeledCount] = useState(0);
-  const totalLayers = 6;
-  const activeLayer = peeledCount + 1;
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(videoRef, { margin: '200px' });
+  const reducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (!isInView || reducedMotion) {
+      video.pause();
+      return;
+    }
+    if (!video.getAttribute('src')) video.src = '/assets/videos/wipeband-loading.mp4';
+    video.play().catch(() => {});
+  }, [isInView, reducedMotion]);
 
   const features = [
     {
@@ -29,14 +40,6 @@ export function ProductEngineering() {
       color: 'bg-[#62B44A]/15 text-[#62B44A]',
     },
   ];
-
-  const handlePeelLayer = () => {
-    if (peeledCount < totalLayers - 1) {
-      setPeeledCount((prev) => prev + 1);
-    } else {
-      setPeeledCount(0);
-    }
-  };
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-[#FFFDF9] border-b border-teal-900/8 overflow-hidden">
@@ -86,87 +89,18 @@ export function ProductEngineering() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-7"
           >
-            <div className="rounded-[2rem] p-6 sm:p-8 bg-gradient-to-br from-[#FFF6EB] via-[#EFF9F6] to-[#EAF7EA] border border-teal-900/10 shadow-sm">
-              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-                <span className="font-heading font-bold text-lg text-teal-950">
-                  Layer {activeLayer} of 6 ready on wrist
-                </span>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={handlePeelLayer}
-                    className="px-5 py-2.5 rounded-full bg-teal-700 hover:bg-teal-800 text-white font-heading font-bold text-sm transition-colors cursor-pointer whitespace-nowrap shrink-0 shadow-xs"
-                  >
-                    {peeledCount < totalLayers - 1
-                      ? `Peel Layer ${activeLayer} →`
-                      : 'Snap In Fresh Pack'}
-                  </button>
-                  {peeledCount > 0 && (
-                    <button
-                      type="button"
-                      onClick={() => setPeeledCount(0)}
-                      className="p-2.5 rounded-full bg-white text-teal-950 border border-teal-900/10 hover:bg-teal-50 transition-colors cursor-pointer"
-                      aria-label="Reset 6 layers"
-                      title="Reset 6 layers"
-                    >
-                      <RotateCcw className="w-4 h-4" />
-                    </button>
-                  )}
-                </div>
-              </div>
-
-              <div className="space-y-2.5 my-4">
-                {[1, 2, 3, 4, 5, 6].map((layerNum) => {
-                  const isPeeled = layerNum <= peeledCount;
-                  const isCurrentTop = layerNum === activeLayer;
-
-                  return (
-                    <AnimatePresence key={layerNum} mode="popLayout">
-                      {!isPeeled ? (
-                        <motion.div
-                          layout
-                          initial={{ opacity: 0, y: -8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, x: 40, rotate: -3 }}
-                          transition={{ duration: 0.2 }}
-                          className={`flex items-center justify-between px-4 py-3 rounded-2xl border transition-all ${
-                            isCurrentTop
-                              ? 'bg-white border-[#62B44A] shadow-sm'
-                              : 'bg-white/85 border-teal-900/10'
-                          }`}
-                        >
-                          <div className="flex items-center gap-3">
-                            <span
-                              className={`w-7 h-7 rounded-full flex items-center justify-center font-heading font-bold text-xs tabular-nums ${
-                                isCurrentTop
-                                  ? 'bg-[#62B44A] text-white'
-                                  : 'bg-teal-900/8 text-teal-950'
-                              }`}
-                            >
-                              {layerNum}
-                            </span>
-                            <span className="font-heading font-bold text-base text-teal-950">
-                              Soft Tissue Layer {layerNum}
-                            </span>
-                          </div>
-
-                          <span
-                            className={`text-sm font-medium ${
-                              isCurrentTop ? 'text-[#62B44A]' : 'text-teal-950/55'
-                            }`}
-                          >
-                            {isCurrentTop ? 'Ready on top' : 'Fresh underneath'}
-                          </span>
-                        </motion.div>
-                      ) : null}
-                    </AnimatePresence>
-                  );
-                })}
-              </div>
-
-              <div className="mt-4 py-3 px-4 rounded-2xl bg-teal-950 text-white text-center font-heading font-bold text-sm">
-                Reusable Silicone Wristband Base (Ages 2–6)
+            <div className="flex justify-center">
+              <div className="w-full max-w-[440px] aspect-[4/5] overflow-hidden rounded-2xl sm:rounded-[20px] bg-[#e7f4ef] shadow-[0_10px_28px_rgba(5,42,48,0.13),0_2px_6px_rgba(5,42,48,0.08)]">
+                <video
+                  ref={videoRef}
+                  className="block h-full w-full object-contain"
+                  poster="/assets/images/wipeband-loading-poster.webp"
+                  aria-label="Wipeband tissue pack animation"
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                />
               </div>
             </div>
           </motion.div>

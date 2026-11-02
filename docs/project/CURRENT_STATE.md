@@ -52,15 +52,14 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
-- Product section video mockup awaits owner review at
-  http://127.0.0.1:3011/product-video-review.html. The draft replaces the
-  six-layer panel only; the enlarged video has no outer box or controls and
-  has a subtle shadow. Website code is unchanged. Source video remains
-  in ignored image-inbox. The preview copy is 1,096,143 bytes versus
-  15,610,450 bytes for the original (720 x 900 H.264, 10.42 seconds, fast
-  start), with a WebP poster. Decoding, local HTTP, simulated playback and
-  reduced-motion checks passed; actual browser visual QA was unavailable.
-  Await explicit owner approval before implementing.
+- Owner approved the product video mockup at
+  http://127.0.0.1:3011/product-video-review.html. The homepage now uses the
+  optimized 1,096,143-byte MP4 with a WebP poster, larger rounded frame and
+  subtle shadow, no outer box or controls. It loads near the viewport, loops
+  silently, pauses out of view, and respects reduced motion. The original
+  remains in ignored image-inbox. TypeScript, lint, image guard, local HTTP
+  and an isolated 27-page production build passed; browser visual QA remains
+  unverified. Check Git and Hostinger for current push/deployment state.
 
 - Owner approved the footer brand-finish mockup; it is implemented locally on
   the homepage. The final sales CTA is replaced with a sinking SVG wordmark,
