@@ -1,5 +1,10 @@
 # Shared project memory
 
+- Owner instruction, 2026-11-02: put supplied originals in the Git-ignored
+  `image-inbox/` folder. When told where to use them, preserve the originals,
+  convert and review WebP copies, then add the copies to the website. Originals
+  are local only and need a separate backup; the build checks common raster
+  formats in local website folders. SVG and ICO remain in their native formats.
 - The owner wants Claude Code and Codex to use the same skill files and shared
   project context, scoped to this repository. Why: switching tools should not
   lose project history or require manual synchronization. Apply by updating

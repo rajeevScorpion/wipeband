@@ -42,4 +42,14 @@ Any file placed inside `/public/assets/...` is accessible in the browser and acr
 ## How It Works in Wipeband
 The site's `PlaceholderMedia` component is designed to:
 1. Render high-fidelity, brand-aligned illustrations and placeholders if image files are not yet uploaded.
-2. When you drop the actual `.webp`, `.png`, or `.jpg` file with the corresponding filename into `/public/assets/...`, it seamlessly renders your live photography and product visuals without any code refactoring!
+2. Put the finished `.webp` file at the matching path under `/public/assets/...` to replace its placeholder.
+
+## Preparing images
+
+Keep original image files outside `public` (the local `image-inbox/` folder is ignored by Git and is not backed up to GitHub). Convert a copy before adding it to the site:
+
+```sh
+npm run optimize:image -- image-inbox/photo.png public/assets/lifestyle/photo.webp
+```
+
+The command preserves the original, keeps its dimensions and transparency, and refuses to overwrite an existing output. Review the result, reference the `.webp` in the site, and commit that WebP. `npm run build` rejects common non-WebP raster files in the website directories. SVG logos and `.ico` favicons are allowed. Animated images need separate review; external images are not checked by this local-file guard.

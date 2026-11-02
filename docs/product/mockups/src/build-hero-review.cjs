@@ -1,5 +1,5 @@
 // Capture the existing homepage, embed its assets, then add a visual-only treatment.
-// Run with WIPEBAND_PLAYWRIGHT pointing to an installed Playwright package directory.
+// Run with WIPEBAND_PLAYWRIGHT pointing to Playwright and the alternative in image-inbox/.
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
@@ -64,11 +64,8 @@ const data = (mime, buffer) => `data:${mime};base64,${buffer.toString('base64')}
     const htmlAttrs = await page.locator('html').getAttribute('class');
     const license = fs.readFileSync(path.join(root, 'node_modules/motion/LICENSE.md'), 'utf8');
     const library = '/*!\n' + license + '\n*/\n' + fs.readFileSync(path.join(root, 'node_modules/motion/dist/motion.js'), 'utf8');
-    const scenes = await page.evaluate(async () => {
-      const encode = async name => { const img = new Image(); img.src='/assets/sections/'+name; await img.decode(); const canvas=document.createElement('canvas'); canvas.width=img.naturalWidth; canvas.height=img.naturalHeight; canvas.getContext('2d').drawImage(img,0,0); return canvas.toDataURL('image/webp',.92); };
-      return Promise.all(['Hero_option_01-wider.png','Hero_option_02.png'].map(encode));
-    });
-    const document = `<!doctype html><html lang="en" class="${htmlAttrs}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><style>html{scrollbar-width:none}body{margin:0}html[data-motion=off] main section:first-child *{animation:none!important;transition:none!important}html[data-motion=off] main section:first-child *::before{animation:none!important}</style></head>${body}<script>${escapeScript(read('hero-treatment.js').replace('%%SCENE_TWO%%', scenes[1]))}</script></html>`;
+    const alternative = await require('sharp')(path.join(root, 'image-inbox/Hero_option_02.png')).webp({ quality: 92 }).toBuffer();
+    const document = `<!doctype html><html lang="en" class="${htmlAttrs}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${css}</style><style>html{scrollbar-width:none}body{margin:0}html[data-motion=off] main section:first-child *{animation:none!important;transition:none!important}html[data-motion=off] main section:first-child *::before{animation:none!important}</style></head>${body}<script>${escapeScript(read('hero-treatment.js').replace('%%SCENE_TWO%%', data('image/webp', alternative)))}</script></html>`;
     const output = read('hero-review.html').replace('%%MANIFEST%%', escapeScript(JSON.stringify(baseline))).replace('%%DOCUMENT%%', escapeScript(JSON.stringify(document)));
     assert(!output.includes('%%DOCUMENT%%'));
     const target = path.join(artifactRoot, 'hero-options.html');

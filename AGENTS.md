@@ -23,3 +23,9 @@ sessions must agree on disjoint file ownership and one context-doc writer.
 Existing Next.js code, copy bank, prompt pack, and feedback pack remain the
 project's implementation sources. Do not scaffold a new app or migrate the
 stack merely because a skill's examples use Expo or Vite.
+
+For website raster images, preserve the owner's original outside `public`, run
+`npm run optimize:image -- <original> <destination.webp>`, review the result,
+and use and commit the WebP. The production build checks local website image
+files; keep SVG logos and ICO favicons in their native formats. See
+`public/assets/README.md`. Pushes still require the owner's authorization.

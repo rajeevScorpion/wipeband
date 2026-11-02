@@ -1,7 +1,8 @@
 # Wipeband current state
 
-Updated: 2026-10-28 (Asia/Kolkata). Usage: unknown.
-Last pushed: 5bc27a6 on main, verified against GitHub. Checkout notes committed locally afterward.
+Updated: 2026-11-02 (Asia/Kolkata). Usage: unknown.
+Last push verified before this image workflow: 5bc27a6 on main. Check Git for
+the current tip and confirm Hostinger separately after any subsequent push.
 
 ## Summary
 
@@ -51,6 +52,16 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- WebP workflow and homepage Wear/Wipe/Tear images implemented locally: originals
+  go in `image-inbox/`, optimizer creates WebP, and the build rejects common
+  non-WebP raster files in website folders. Owner-supplied cards and hero images
+  use WebP. Tests and guarded build passed; local HTTP confirms all three card
+  URLs return WebP. Browser preview was unavailable; desktop/phone visual review
+  is still needed. The owner requested the Git workflow and authorized completing
+  the work while away; a push triggers Hostinger deployment.
+- Original hero PNGs and the three earlier owner alternatives were moved to the
+  Git-ignored local `image-inbox/` folder. They are not backed up to GitHub
+  there; the previously tracked originals remain in Git history.
 - Verify latest Hostinger deployment at
   https://darkslategrey-mouse-465156.hostingersite.com/ . Pushes auto-deploy.
   Wipeband.com is the original public site; Vercel test URL remains pending.
@@ -77,8 +88,8 @@ rendered website; preserve approved text/products/prices/order in future mockups
 
 Only main exists locally; no branches to tidy. No helpers/timers/monitors active.
 Local website server stopped with owner approval; mockup server already stopped.
-Three owner-supplied alternatives remain untracked and intentionally preserved:
-Hero_option_01.png, Hero_option_02.png, Hero_option_02-wider.png (assets/sections).
+Three owner-supplied alternatives are preserved in local `image-inbox/`:
+Hero_option_01.png, Hero_option_02.png, Hero_option_02-wider.png.
 No cleanup performed. Optimize-repo reminder says routine cleanup is due;
 offer only when useful. Restart website: npm run dev (port 3000).
 Restart mockup: python -m http.server 3011 --bind 127.0.0.1 --directory docs/product/mockups.

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import heroScene from '@/public/assets/sections/Hero_option_01-wider.png';
+import heroScene from '@/public/assets/sections/Hero_option_01-wider.webp';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { useCart } from '@/lib/cart';
@@ -87,7 +87,7 @@ export function HeroSplit() {
         <path d="M0 168 Q420 205 760 165 T1440 172 L1440 200 L0 200 Z" fill="#F3FAF0" />
       </svg>
       <div className={styles.productWrap} aria-hidden="true">
-        <Image src="/assets/sections/wipeband-transparent.png" alt="" width={440} height={440} sizes="(max-width: 700px) 270px, 440px" className={styles.product} />
+        <Image src="/assets/sections/wipeband-transparent.webp" alt="" width={440} height={440} sizes="(max-width: 700px) 270px, 440px" className={styles.product} />
       </div>
     </section>
   );

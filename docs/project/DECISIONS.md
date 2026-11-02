@@ -1,5 +1,8 @@
 # Project decisions
 
+- 2026-11-02: Use `image-inbox/` for owner-supplied originals, ignored by Git;
+  convert website raster images to WebP and run the build guard. The owner asked
+  to place the wear, wipe and tear images in their respective homepage cards.
 - 2026-10-28: Use a repository-local shared Studio Method skill set for Claude
   Code and Codex, with canonical files in `.agents/skills/` and a Claude directory
   junction. Both tools maintain the same docs/project context files.

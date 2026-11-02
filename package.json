@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
+    "build": "node scripts/check-images.cjs && next build",
+    "optimize:image": "node scripts/optimize-image.cjs",
     "start": "next start -p 3000",
     "lint": "next lint"
   },
@@ -27,6 +28,7 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.20",
     "postcss": "^8.4.49",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   }

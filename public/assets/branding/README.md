@@ -7,12 +7,8 @@ Place your official logo and branding files in this directory (`/public/assets/b
    - File path: `/public/assets/branding/wipeband_logo.svg`
    - Will automatically be loaded by `WipebandLogo` across the header, footer, and navigation.
 
-2. **Logo (PNG alternative)**:
-   - File path: `/public/assets/branding/wipeband_logo.png`
-   - Transparent background recommended.
-
-3. **Favicon / App Icon**:
-   - File path: `/public/favicon.ico` or `/public/icon.png`
+2. **Favicon / App Icon**:
+   - File path: `/public/favicon.ico`
    - Automatically picked up by Next.js in the browser tab.
 
 ### Where It Appears:
