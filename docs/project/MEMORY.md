@@ -1,5 +1,11 @@
 # Shared project memory
 
+- Owner correction, 2026-11-02: whenever the owner requests a mockup or we
+  propose one, build it separately and wait for the owner's explicit approval
+  before changing product code. Why: the mockup is the review and decision
+  stage; implementing immediately defeats it. Apply even when the original
+  request also says to go ahead. The testimonial implementation already made
+  may remain in place; this correction applies going forward.
 - Owner instruction, 2026-11-02: put supplied originals in the Git-ignored
   `image-inbox/` folder. When told where to use them, preserve the originals,
   convert and review WebP copies, then add the copies to the website. Originals

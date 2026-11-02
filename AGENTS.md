@@ -12,6 +12,10 @@ similarly named user skill exists. Read supporting resources only as needed.
 For coding tasks, apply `.agents/skills/ponytail/SKILL.md` (default full mode).
 Ponytail and its five companion skills share the same directory with Claude.
 
+When the owner asks for a mockup, or a mockup is proposed, keep it separate
+from the website. Do not implement it in application code until the owner has
+reviewed and explicitly approved that mockup. See the shared working contract.
+
 Keep status, handoff, decisions, and lasting project memory in the shared
 documents. Update them before switching tools or ending a session. Do not
 keep the only copy of a project decision in a host's private memory.

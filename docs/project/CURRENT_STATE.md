@@ -52,6 +52,10 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Owner corrected the mockup workflow: a requested or proposed mockup stays
+  separate until reviewed and explicitly approved; general go-ahead language
+  does not approve an unseen mockup. Existing testimonial implementation may
+  remain this time. Shared instructions and contract record the rule.
 - Testimonial mockup drafted at `docs/product/mockups/testimonial-review.html`:
   square cards, supplied parent avatars and two labeled future teacher-review
   slots. Desktop/phone and two/four-card controls included. Built from local

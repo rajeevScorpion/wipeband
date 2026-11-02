@@ -61,6 +61,11 @@ These rules override the upstream skills' host-specific defaults.
   products, prices, section order and link destinations. Change presentation
   only unless the owner explicitly requests content changes. Capture the real
   page and check fidelity. Keep desktop content centered at the existing width.
+- Mockup-first is a hard boundary: whenever the owner requests a mockup or we
+  propose one, prepare and iterate on a separate mockup only. Do not modify the
+  website/app implementation until the owner reviews and explicitly approves
+  that mockup. A general request to proceed with the work is not approval of a
+  mockup the owner has not yet seen. This applies across sessions and agents.
 - A small admin scope still needs a deliberate operational workflow, including
   useful states and exception handling. Do not equate simplicity with a bare
   scaffold. Settle the landing-page visual direction before the admin redesign.

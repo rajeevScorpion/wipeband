@@ -1,5 +1,9 @@
 # Project decisions
 
+- 2026-11-02: Mockups requested by the owner or proposed by the agent must be
+  separate from the product. Implement only after the owner has reviewed and
+  explicitly approved the mockup. Keep the already implemented testimonial
+  change this time; do not repeat the premature implementation.
 - 2026-11-02: Use `image-inbox/` for owner-supplied originals, ignored by Git;
   convert website raster images to WebP and run the build guard. The owner asked
   to place the wear, wipe and tear images in their respective homepage cards.
