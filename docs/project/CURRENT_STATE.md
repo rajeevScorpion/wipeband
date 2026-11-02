@@ -52,6 +52,9 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Removed the first and last separator lines from the homepage FAQ accordion;
+  dividers between questions remain. Targeted lint and local HTML checks passed;
+  the change has not been visually checked in a browser or pushed.
 - Owner corrected the mockup workflow: a requested or proposed mockup stays
   separate until reviewed and explicitly approved; general go-ahead language
   does not approve an unseen mockup. Existing testimonial implementation may

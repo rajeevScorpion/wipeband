@@ -7,6 +7,10 @@ future slots. Desktop/phone and two/four-card controls are included. Generator:
 `docs/product/mockups/src/build-testimonial-review.cjs`. Browser preview was
 unavailable; syntax and key content checks passed, visual checks remain pending.
 
+**Latest change:** Removed the outer top and bottom lines from the homepage FAQ
+accordion, preserving the dividers between questions. Targeted lint and local
+HTML checks passed. Check Git status for push state.
+
 **Images:** Owner originals, including the earlier alternatives, are in local,
 Git-ignored `image-inbox/` and are not backed up to GitHub. The site uses WebP
 copies. Optimizer tests and guarded production build passed; local HTTP checks

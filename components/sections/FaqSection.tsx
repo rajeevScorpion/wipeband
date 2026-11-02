@@ -76,7 +76,7 @@ export function FaqSection() {
         </div>
 
         <div className="bg-[#FAFCFA] rounded-3xl p-6 sm:p-8 border border-border">
-          <Accordion items={homepageFaqs} defaultOpenIndex={0} />
+          <Accordion items={homepageFaqs} defaultOpenIndex={0} className="!border-y-0" />
         </div>
       </div>
     </section>
