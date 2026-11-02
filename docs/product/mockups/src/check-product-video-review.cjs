@@ -47,7 +47,10 @@ const window = { location: { href: 'http://127.0.0.1:3011/product-video-review.h
 vm.runInNewContext(script, { document, window, URL, setTimeout(fn) { fn(); } });
 assert.equal(state.replacements.length, 1, 'Video panel must replace the original panel');
 const first = state.videos[0];
-assert(first.controls && first.muted && first.loop && first.playsInline);
+assert(!first.controls && first.muted && first.loop && first.playsInline, 'Video should loop muted with no controls');
+assert.match(doc.head.children[0].textContent, /width:min\(100%,440px\)/, 'Video frame should be enlarged');
+assert.match(doc.head.children[0].textContent, /box-shadow:/, 'Video frame should have subtle elevation');
+assert.doesNotMatch(doc.head.children[0].textContent, /product-video-panel\{[^}]*background:/, 'Outer card should not have a background');
 assert(first.src.endsWith('/media/wipeband-loading-preview.mp4'));
 assert(first.loadCount > 0 && first.playCount > 0, 'Visible video should load and play');
 designs[0].onclick();

@@ -54,7 +54,8 @@ they are historical and must not be reused as the current baseline.
 
 - Product section video mockup awaits owner review at
   http://127.0.0.1:3011/product-video-review.html. The draft replaces the
-  six-layer panel only; it does not change website code. Source video remains
+  six-layer panel only; the enlarged video has no outer box or controls and
+  has a subtle shadow. Website code is unchanged. Source video remains
   in ignored image-inbox. The preview copy is 1,096,143 bytes versus
   15,610,450 bytes for the original (720 x 900 H.264, 10.42 seconds, fast
   start), with a WebP poster. Decoding, local HTTP, simulated playback and

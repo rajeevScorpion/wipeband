@@ -1,7 +1,8 @@
 # Shared handoff - 2026-11-02
 
 **Current task:** Product section video mockup is ready for review at
-http://127.0.0.1:3011/product-video-review.html. The original is in ignored
+http://127.0.0.1:3011/product-video-review.html. Revised per owner feedback:
+no outer box or controls, a larger video and a subtle frame shadow. The original is in ignored
 `image-inbox/Wipeband_Loading.mp4`; the preview copy is 1,096,143 bytes versus
 15,610,450 bytes, 720 x 900 H.264, fast-start, with a WebP poster. Decoding,
 local HTTP and simulated controls/reduced motion passed; browser visual QA was

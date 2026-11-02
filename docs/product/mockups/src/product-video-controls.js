@@ -41,10 +41,10 @@ function setup() {
   style.textContent = `
     main [style*="opacity"]{opacity:1!important;transform:none!important}
     main img{opacity:1!important}
-    .product-video-panel{border:1px solid rgba(5,42,48,.12);border-radius:32px;padding:clamp(12px,2vw,24px);background:linear-gradient(135deg,#fff6eb,#eff9f6,#eaf7ea);display:flex;justify-content:center;box-shadow:0 2px 7px #052a300d}
-    .product-video-frame{width:min(100%,368px);aspect-ratio:4/5;overflow:hidden;border-radius:20px;background:#e7f4ef}
+    .product-video-panel{display:flex;justify-content:center}
+    .product-video-frame{width:min(100%,440px);aspect-ratio:4/5;overflow:hidden;border-radius:20px;background:#e7f4ef;box-shadow:0 10px 28px rgba(5,42,48,.13),0 2px 6px rgba(5,42,48,.08)}
     .product-video-frame video{display:block;width:100%;height:100%;object-fit:contain}
-    @media(max-width:639px){.product-video-panel{border-radius:26px;padding:12px}.product-video-frame{border-radius:16px}}
+    @media(max-width:639px){.product-video-frame{border-radius:16px}}
   `;
   doc.head.appendChild(style);
   video = null;
@@ -55,7 +55,6 @@ function setup() {
     const windowElement = doc.createElement('div');
     windowElement.className = 'product-video-frame';
     video = doc.createElement('video');
-    video.controls = true;
     video.muted = true;
     video.loop = true;
     video.playsInline = true;
