@@ -9,19 +9,19 @@ export function EverydayAdventures() {
     {
       title: 'School',
       description: 'A tissue right on their wrist during classroom circle time and recess.',
-      assetId: 'home_usecase_school.webp',
+      assetId: '/assets/images/school-classroom.webp',
       alt: 'Children at school wearing Wipeband',
     },
     {
       title: 'Playdates',
       description: 'Ready on the playground or field without pausing the fun.',
-      assetId: 'home_usecase_playdate.webp',
+      assetId: '/assets/images/playdates-outdoors.webp',
       alt: 'Kids on a playdate outdoors wearing Wipeband',
     },
     {
       title: 'Travel',
       description: 'Easy for car seats, strollers, and flights when bags are stowed away.',
-      assetId: 'home_usecase_travel.webp',
+      assetId: '/assets/images/travel-car.webp',
       alt: 'Child traveling with Wipeband on wrist',
     },
   ];

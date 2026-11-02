@@ -52,6 +52,10 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Added the owner's classroom, playground and car images to the homepage School,
+  Playdates and Travel cards locally. Optimized WebP copies are used; originals
+  remain in `image-inbox/`. TypeScript, image guard and local image HTTP checks
+  passed. No browser screenshot or production deployment verified for this change.
 - WebP workflow and homepage Wear/Wipe/Tear images implemented locally: originals
   go in `image-inbox/`, optimizer creates WebP, and the build rejects common
   non-WebP raster files in website folders. Owner-supplied cards and hero images
