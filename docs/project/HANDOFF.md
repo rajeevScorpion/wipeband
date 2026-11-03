@@ -2,7 +2,9 @@
 
 **Current task:** Starter kit redesign mockup is ready for owner review at
 http://127.0.0.1:3011/starter-kit-review.html. Owner chose package-first and requested the selected-design preview beside the
-choice buttons, clear of the package. The revised mockup awaits review. Both
+choice buttons, clear of the package. Latest revision enlarges the preview on
+the left, places the pills on the right, removes redundant selected text, and
+shows example sale pricing by default. The revised mockup awaits review. Both
 options show eight supplied variants, representative packaging, contents as a
 list and an optional example $30/$19.95 comparison. Desktop and phone layouts
 were screenshot-checked; selection, price toggle and safe mock cart were
