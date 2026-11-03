@@ -52,6 +52,10 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Our Story hero now uses the owner's school-preparation image, optimized to
+  WebP; the original remains in ignored image-inbox. Targeted lint, image
+  guard, local HTTP and a desktop screenshot passed. Check Git for push state.
+
 - Cart drawer and cart page now show each active product's current catalog
   packaging image instead of an icon; selected style text remains. Looking up
   the catalog image also updates carts saved before the image change. TypeScript

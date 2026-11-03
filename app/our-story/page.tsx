@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Lightbulb, Award, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { PlaceholderMedia } from '@/components/ui/PlaceholderMedia';
 import { CleanerSleevesCTA } from '@/components/sections/CleanerSleevesCTA';
 import { SITE_CONFIG } from '@/lib/site';
 import { STARTER_KIT_PRODUCT } from '@/lib/products';
@@ -38,12 +38,14 @@ export default function OurStoryPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <PlaceholderMedia
-                assetId="ourstory_hero_parent_child.webp"
-                alt="Parent and child wearing Wipeband together"
-                aspectRatio="4:3"
-                category="story"
-                className="shadow-hover rounded-3xl"
+              <Image
+                src="/assets/images/our-story-ready-for-school.webp"
+                alt="Parent helping a child put on a Wipeband before school"
+                width={1448}
+                height={1086}
+                sizes="(max-width: 1023px) 90vw, 40vw"
+                className="w-full aspect-[4/3] object-cover shadow-hover rounded-3xl"
+                priority
               />
             </div>
           </div>

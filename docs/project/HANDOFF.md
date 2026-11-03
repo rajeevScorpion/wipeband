@@ -1,6 +1,11 @@
 # Shared handoff - 2026-11-03
 
-**Current task:** Cart drawer and cart page show the current catalog product
+**Current task:** Replaced the Our Story hero placeholder with the owner's
+Ready for School image, optimized as WebP. The original remains in ignored
+image-inbox. Targeted lint, image guard, local HTTP and a desktop screenshot
+passed. No push was requested.
+
+**Previous task:** Cart drawer and cart page show the current catalog product
 packaging images for the starter kit and refills, retaining selected style
 labels. Catalog lookup also handles older saved carts. TypeScript and targeted
 lint passed; live browser interaction has not been verified. No push requested.
