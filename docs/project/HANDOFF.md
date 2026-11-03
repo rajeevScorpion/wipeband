@@ -1,6 +1,14 @@
 # Shared handoff - 2026-11-03
 
-**Current task:** Removed the category-heading divider and the outer top and
+**Current task:** Optimized the owner's new starter-kit and refill packaging
+images to WebP. The new starter image is used on the homepage, How It Works,
+Shop and the starter product page; the refill image is on Refills, Shop and
+the refill product page. Original images remain in ignored image-inbox; unique
+asset filenames avoid stale browser cache. TypeScript, lint, image guard, HTTP
+checks on the relevant routes and desktop Shop/Refills screenshots passed. No
+push was requested.
+
+**Previous task:** Removed the category-heading divider and the outer top and
 bottom accordion lines from both FAQ page cards, matching the homepage while
 keeping dividers between questions. Targeted lint and local HTML checks passed.
 No push was requested.
@@ -11,8 +19,7 @@ product gallery image paths. The shared closing CTA displays eight variants in
 one row on wide screens, five plus three at medium widths, and a mobile grid.
 TypeScript, lint, local HTTP, desktop/mobile screenshots and isolated 27-page
 production build passed (the first build failed fetching Google Fonts; retry
-passed). Owner will provide a separate refill image; no refill artwork was
-invented. No push was requested. Build workspace: `D:/DEV/wipeband-routes-build-c5ef1e6360564b668118fbdcda174e31`.
+passed). The owner later supplied the refill image, now implemented. No push was requested. Build workspace: `D:/DEV/wipeband-routes-build-c5ef1e6360564b668118fbdcda174e31`.
 
 **Previous task:** Owner approved the starter-kit mockup and confirmed $30.00
 as the struck-through regular price with $19.95 as sale price. Implementation

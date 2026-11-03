@@ -67,16 +67,14 @@ export default function ShopPage() {
                   }`}
                 >
                   <div>
-                    {isStarter && (
-                      <Image
-                        src={prod.image}
-                        alt="Representative rendering of the Wipeband Starter Kit packaging"
-                        width={1024}
-                        height={1024}
-                        sizes="(max-width: 767px) 85vw, 360px"
-                        className="mb-6 mx-auto w-full max-w-[360px] aspect-square object-cover rounded-2xl"
-                      />
-                    )}
+                    <Image
+                      src={prod.image}
+                      alt={isStarter ? 'Representative rendering of the Wipeband Starter Kit packaging' : 'Representative rendering of Wipeband refill boxes and tissue packs'}
+                      width={1024}
+                      height={1024}
+                      sizes="(max-width: 767px) 85vw, 360px"
+                      className="mb-6 mx-auto w-full max-w-[360px] aspect-square object-cover rounded-2xl"
+                    />
                     <div className="flex items-baseline justify-between gap-4">
                       <div>
                         <span className="text-xs font-heading font-bold text-green-700">

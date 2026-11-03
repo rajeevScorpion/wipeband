@@ -62,7 +62,7 @@ export function ChooseWipeband() {
         <div className={styles.card}>
           <div className={styles.layout}>
             <div className={styles.visual}>
-              <Image src="/assets/product/starter-kit-package.webp" alt="Representative rendering of the Wipeband Starter Kit packaging" width={1024} height={1024} sizes="(max-width: 1023px) 460px, 40vw" className={styles.packageImage} />
+              <Image src={STARTER_KIT_PRODUCT.image} alt="Representative rendering of the Wipeband Starter Kit packaging" width={1024} height={1024} sizes="(max-width: 1023px) 460px, 40vw" className={styles.packageImage} />
               <p className={styles.caption}>Kit packaging - representative render</p>
             </div>
             <div>

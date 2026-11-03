@@ -52,6 +52,13 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Owner supplied an improved starter-kit render and refill packaging image.
+  Optimized WebP versions are used on the homepage, How It Works, Shop, Refills
+  and relevant product pages. New filenames prevent stale cached images. Both
+  originals remain in ignored image-inbox. TypeScript, lint, image guard, HTTP
+  checks on all relevant routes and desktop Shop/Refills screenshots passed.
+  No push was requested.
+
 - FAQ page category cards now match the homepage accordion: no extra lines
   above or below the questions or under the category headings; question
   dividers remain. Targeted lint and local HTML checks passed. Check Git for

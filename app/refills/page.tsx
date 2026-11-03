@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { RefreshCw, Layers, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { PlaceholderMedia } from '@/components/ui/PlaceholderMedia';
 import { CleanerSleevesCTA } from '@/components/sections/CleanerSleevesCTA';
 import { REFILLS_PRODUCT } from '@/lib/products';
 import { SITE_CONFIG } from '@/lib/site';
@@ -74,12 +74,14 @@ export default function RefillsPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <PlaceholderMedia
-                assetId="refills_hero_box_and_stack.webp"
-                alt="Wipeband refills box with 10 soft tissue packs"
-                aspectRatio="1:1"
-                category="product"
-                className="shadow-hover rounded-3xl"
+              <Image
+                src={REFILLS_PRODUCT.image}
+                alt="Representative rendering of Wipeband refill boxes and tissue packs"
+                width={1254}
+                height={1254}
+                sizes="(max-width: 1023px) 90vw, 40vw"
+                className="w-full aspect-square object-cover shadow-hover rounded-3xl"
+                priority
               />
             </div>
           </div>
