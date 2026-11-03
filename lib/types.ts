@@ -15,6 +15,7 @@ export interface Product {
   shortDescription: string;
   fullDescription: string[];
   price: number;
+  compareAtPrice?: number;
   currency: string;
   includes: string[];
   features: { title: string; description: string }[];

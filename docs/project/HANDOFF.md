@@ -1,20 +1,16 @@
 # Shared handoff - 2026-11-03
 
-**Current task:** Starter kit redesign mockup is ready for owner review at
-http://127.0.0.1:3011/starter-kit-review.html. Owner chose package-first and requested the selected-design preview beside the
-choice buttons, clear of the package. Latest revision enlarges the preview on
-the left, places the pills on the right, removes redundant selected text, and
-shows example sale pricing by default. Reassurance points now spread across
-the card and wrap on mobile. The selected-design preview has a magnifying lens
-for mouse, touch-and-hold and keyboard, enlarged to 144px at the owner?s
-request. The revised mockup awaits review. Both
-options show eight supplied variants, representative packaging, contents as a
-list and an optional example $30/$19.95 comparison. Desktop and phone layouts
-were screenshot-checked; selection, price toggle and safe mock cart were
-simulated. All new assets were converted to embedded WebP for this mockup;
-originals remain in ignored image-inbox. New variants, availability, pricing
-and checkout support remain unconfirmed. Wait for explicit design approval;
-no website code was changed. Local website and mockup servers were left running.
+**Current task:** Owner approved the starter-kit mockup and confirmed $30.00
+as the struck-through regular price with $19.95 as sale price. Implementation
+is local: package-first design, eight optimized WebP variants, magnifier,
+contents list and distributed reassurance points. Catalog and checkout accept
+all eight; Stripe session metadata records pattern quantities. Local Stripe is
+unconfigured and webhook, order storage and fulfillment are not implemented.
+TypeScript, lint, image guard, mocked Stripe metadata/validation tests, local
+HTTP and isolated 27-page production build passed. Desktop/phone appearance was
+checked from the isolated rendered section; live browser interaction and real
+payments remain untested. No push was requested. Original images remain in
+ignored image-inbox. Build workspace: `D:/DEV/wipeband-starter-build-2dbdb26679f449ad9dc3113b4afb0606`.
 
 **Previous task:** Owner approved the product video mockup and requested commit
 and push. The homepage six-layer panel is replaced by the optimized 1.05 MiB

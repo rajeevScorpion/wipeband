@@ -59,7 +59,7 @@ export function HeroSplit() {
           </h1>
           <p>Meet Wipeband - soft, refillable tissues worn right on their wrist, so little ones can wipe their nose wherever they are.</p>
           <div className={styles.selector} role="group" aria-label="Choose your Wipeband pattern">
-            {(STARTER_KIT_PRODUCT.variants || []).map((variant) => (
+            {(STARTER_KIT_PRODUCT.variants || []).filter((variant, index) => index < 3 || variant.id === selectedPattern).map((variant) => (
               <button
                 key={variant.id}
                 type="button"

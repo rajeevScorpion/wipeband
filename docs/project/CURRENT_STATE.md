@@ -52,20 +52,17 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
-- Starter kit redesign mockup awaits owner review at
-  http://127.0.0.1:3011/starter-kit-review.html. Owner chose package-first; the
-  revised selector pairs a larger preview on the left with design buttons on
-  the right, the example sale price is visible by default, and reassurance
-  points are distributed across the card. The mockup also includes a design
-  magnifier for pointer, touch-and-hold, and keyboard arrow keys. Its lens was
-  enlarged from 96px to 144px at the owner?s request.
-  Both options use eight supplied images and the representative packaging render,
-  a contents list, and optional $30/$19.95 example pricing. New variants and
-  the example comparison price are not confirmed for sale. Source files stay
-  in ignored image-inbox; optimized copies are embedded in the mockup only.
-  Desktop options and phone layout were screenshot-checked; selection, price
-  toggle and safe mock cart were simulated. No website code changed. Await
-  approval, availability/pricing decisions and checkout support before building.
+- Owner approved and requested implementation of the starter kit mockup. The
+  homepage now shows the representative packaging, eight supplied designs as
+  optimized WebP, a magnifier, and the contents list. Owner confirmed showing
+  $30.00 as regular price and $19.95 as the sale price. The selected design is
+  carried into the cart and recorded by quantity in Stripe session metadata;
+  invalid/missing designs are rejected. Local Stripe is in scaffold mode;
+  fulfillment, webhooks and live payments remain unverified. TypeScript, lint,
+  image guard, simulated Stripe metadata tests, local HTTP and isolated 27-page
+  build passed. Desktop/phone appearance checked from isolated rendered
+  section; actual browser interaction and real payment were not tested. No
+  push was requested. The originals remain in ignored image-inbox.
 
 - Owner approved the product video mockup at
   http://127.0.0.1:3011/product-video-review.html. The homepage now uses the
@@ -133,8 +130,8 @@ they are historical and must not be reused as the current baseline.
 - Verify latest Hostinger deployment at
   https://darkslategrey-mouse-465156.hostingersite.com/ . Pushes auto-deploy.
   Wipeband.com is the original public site; Vercel test URL remains pending.
-- Checkout has server-selected Stripe prices, but pattern is not forwarded and
-  success UI does not verify payment. Webhook, order storage and MCF adapter are
+- Checkout has server-selected Stripe prices and now stores starter-kit pattern
+  quantities in session metadata, but success UI does not verify payment. Webhook, order storage and MCF adapter are
   not implemented. No live payment, inventory or fulfillment verification.
 - Tracking always reports an order found. School/feedback submissions are demo
   flows; contact can show success on failure. APIs do not deliver/store messages.

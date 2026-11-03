@@ -1,0 +1,36 @@
+.card { border: 1px solid #0a4d571c; border-radius: 36px; background: linear-gradient(125deg, #fff9f0, #fffdf9 50%, #eef9f5); padding: clamp(22px, 3vw, 40px); }
+.layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
+.visual { min-width: 0; }
+.packageImage { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px; display: block; }
+.caption { font-size: 12px; color: #557678; margin: 10px 4px 0; }
+.heading { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+.heading h3 { font-size: clamp(24px, 2.4vw, 32px); line-height: 1.1; font-weight: 900; letter-spacing: -.025em; color: #052f2f; margin: 0; }
+.age { font-size: 15px; color: #627d7c; margin: 6px 0 0; }
+.price { font-size: 29px; font-weight: 900; color: #052f2f; white-space: nowrap; line-height: 1.05; }
+.priceTop { display: flex; align-items: center; justify-content: flex-end; margin-bottom: 6px; }
+.priceTop s { color: #718783; font-size: 14px; font-weight: 600; margin-right: 7px; }
+.saleTag { font-size: 10px; font-weight: 800; letter-spacing: .02em; color: #247a67; background: #e2f4ea; border-radius: 999px; padding: 4px 8px; }
+.description { color: #53716f; font-size: 15px; line-height: 1.5; margin: 16px 0; }
+.includes { border-top: 1px solid #0a4d5719; border-bottom: 1px solid #0a4d5719; padding: 14px 0; margin: 0 0 18px; display: flex; gap: 8px 24px; flex-wrap: wrap; list-style: none; color: #123f40; font-size: 14px; font-weight: 600; }
+.includes li { display: inline-flex; align-items: center; gap: 8px; }
+.includes svg { width: 15px; height: 15px; color: #62b44a; flex-shrink: 0; }
+.label { margin-bottom: 10px; color: #123f40; font-size: 14px; font-weight: 800; }
+.picker { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: 16px; align-items: stretch; }
+.preview { position: relative; overflow: visible; z-index: 1; border-radius: 16px; aspect-ratio: 1; min-width: 0; cursor: zoom-in; touch-action: pan-y; }
+.preview:focus-visible, .variants button:focus-visible { outline: 3px solid #3ba59b; outline-offset: 3px; }
+.previewImage { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 14px #05333712; }
+.lens { position: absolute; width: 144px; height: 144px; border: 3px solid white; border-radius: 50%; box-shadow: 0 4px 18px #052a3060; transform: translate(-50%, -50%); pointer-events: none; opacity: 0; background-repeat: no-repeat; z-index: 2; }
+.zoomHint { position: absolute; left: 8px; bottom: 8px; background: #062f32d9; color: white; border-radius: 99px; padding: 4px 8px; font: 600 10px/1.2 system-ui, sans-serif; pointer-events: none; }
+.touchHint { display: none; }
+.variants { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.variants button { border: 1px solid #d7e5e1; background: white; color: #234c4d; border-radius: 12px; padding: 9px 4px; font-size: 12px; line-height: 1.15; cursor: pointer; font-weight: 600; min-height: 44px; }
+.variants button[aria-pressed='true'] { background: #063b3c; color: white; border-color: #063b3c; }
+.purchase { margin-top: 18px; }
+.refill { text-align: center; color: #426a69; font-size: 13px; margin-top: 14px; }
+.trust { border-top: 1px solid #0a4d5719; padding-top: 24px; margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; }
+.trust div { display: inline-flex; align-items: center; gap: 8px; color: #365f5e; font-size: 14px; font-weight: 500; }
+.trust svg { width: 16px; height: 16px; color: #3ba59b; }
+@media (hover: none) { .mouseHint { display: none; } .touchHint { display: inline; } }
+@media (max-width: 1023px) { .layout { grid-template-columns: 1fr; gap: 24px; } .visual { width: min(100%, 460px); margin: auto; } .heading h3 { font-size: 25px; } }
+@media (max-width: 767px) { .trust { justify-content: center; gap: 16px 20px; } }
+@media (max-width: 480px) { .card { border-radius: 26px; padding: 18px; } .picker { gap: 10px; } .preview { aspect-ratio: auto; } .variants { grid-template-columns: repeat(2, minmax(0, 1fr)); } .heading { gap: 8px; } .price { font-size: 25px; } }

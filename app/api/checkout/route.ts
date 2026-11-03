@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
+import { STARTER_KIT_PRODUCT } from '@/lib/products';
 
 const ALLOWED_PRICE_MAP: Record<string, string | undefined> = {
   'wipeband-starter-kit': process.env.STRIPE_PRICE_STARTER_KIT,
   'tissue-refills': process.env.STRIPE_PRICE_REFILLS,
 };
 
-const ALLOWED_VARIANTS = new Set(['dinosaur', 'unicorn', 'wonder-wings']);
+const ALLOWED_VARIANTS = new Set((STARTER_KIT_PRODUCT.variants || []).map((variant) => variant.id));
 
 export async function POST(req: Request) {
   try {
@@ -28,7 +29,6 @@ export async function POST(req: Request) {
       }
       if (
         item.slug === 'wipeband-starter-kit' &&
-        item.variantId &&
         !ALLOWED_VARIANTS.has(item.variantId)
       ) {
         return NextResponse.json(
@@ -54,6 +54,7 @@ export async function POST(req: Request) {
     });
 
     const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [];
+    const metadata: Record<string, string> = {};
 
     for (const item of items) {
       const priceId = ALLOWED_PRICE_MAP[item.slug];
@@ -63,15 +64,18 @@ export async function POST(req: Request) {
           { status: 400 }
         );
       }
-      line_items.push({
-        price: priceId,
-        quantity: Math.max(1, Number(item.quantity) || 1),
-      });
+      const quantity = Math.max(1, Number(item.quantity) || 1);
+      line_items.push({ price: priceId, quantity });
+      if (item.slug === 'wipeband-starter-kit') {
+        const key = `starter_${item.variantId.replaceAll('-', '_')}`;
+        metadata[key] = String((Number(metadata[key]) || 0) + quantity);
+      }
     }
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items,
+      metadata,
       mode: 'payment',
       success_url: `${siteUrl}/order/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/cart?canceled=true`,
