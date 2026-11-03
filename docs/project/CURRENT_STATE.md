@@ -1,6 +1,6 @@
 # Wipeband current state
 
-Updated: 2026-11-02 (Asia/Kolkata). Usage: unknown.
+Updated: 2026-11-03 (Asia/Kolkata). Usage: unknown.
 Last push verified before this image workflow: 5bc27a6 on main. Check Git for
 the current tip and confirm Hostinger separately after any subsequent push.
 
@@ -51,6 +51,16 @@ they are historical and must not be reused as the current baseline.
   GitHub receipt, not Hostinger build/deployment completion.
 
 ## Open / unverified
+
+- Starter kit redesign mockup awaits owner review at
+  http://127.0.0.1:3011/starter-kit-review.html. Package-first and design-first
+  options use the eight supplied images and representative packaging render,
+  a contents list, and optional $30/$19.95 example pricing. New variants and
+  the example comparison price are not confirmed for sale. Source files stay
+  in ignored image-inbox; optimized copies are embedded in the mockup only.
+  Desktop options and phone layout were screenshot-checked; selection, price
+  toggle and safe mock cart were simulated. No website code changed. Await
+  approval, availability/pricing decisions and checkout support before building.
 
 - Owner approved the product video mockup at
   http://127.0.0.1:3011/product-video-review.html. The homepage now uses the

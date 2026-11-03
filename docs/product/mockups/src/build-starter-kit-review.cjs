@@ -1,0 +1,26 @@
+const fs = require('node:fs/promises');
+const path = require('node:path');
+const sharp = require('sharp');
+const base = 'http://127.0.0.1:3000';
+const data = (type, bytes) => `data:${type};base64,${bytes.toString('base64')}`;
+const safe = value => JSON.stringify(value).replace(/<\/script/gi, '<\\/script');
+async function get(url){const r=await fetch(new URL(url,base)); if(!r.ok) throw new Error(`${url}: ${r.status}`); return r;}
+async function webp(file){return data('image/webp',await sharp(path.join(process.cwd(),'image-inbox',file)).resize({width:850,height:850,fit:'inside',withoutEnlargement:true}).webp({quality:80}).toBuffer());}
+async function main(){
+ let html=await(await get('/')).text();
+ for(const text of ['id="starter-kit"','Wipeband Starter Kit','footer-insignia.webp','wipeband-loading-poster.webp']) if(!html.includes(text)) throw Error('Missing current baseline: '+text);
+ for(const match of [...html.matchAll(/<link rel="stylesheet" href="([^"]+)"[^>]*\/>/g)]){let css=await(await get(match[1])).text();for(const res of new Set([...css.matchAll(/url\(["']?(\/(?:_next|assets)\/[^)"']+)["']?\)/g)].map(x=>x[1]))){const r=await get(res);css=css.replaceAll(res,data(r.headers.get('content-type')||'application/octet-stream',Buffer.from(await r.arrayBuffer())));} html=html.replace(match[0],`<style>${css}</style>`);}
+ html=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'').replace(/<link rel="preload"[^>]*\/>/g,'');
+ for(const src of new Set([...html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)].map(x=>x[1]).filter(x=>x.startsWith('/')))){const r=await fetch(new URL(src.replaceAll('&amp;','&'),base)); html=html.replaceAll(`src="${src}"`,`src="${r.ok?data(r.headers.get('content-type')||'image/webp',Buffer.from(await r.arrayBuffer())):''}"`);}
+ for(const poster of new Set([...html.matchAll(/<video\b[^>]*\bposter="([^"]+)"/g)].map(x=>x[1]).filter(x=>x.startsWith('/')))){const r=await get(poster);html=html.replaceAll(`poster="${poster}"`,`poster="${data(r.headers.get('content-type')||'image/webp',Buffer.from(await r.arrayBuffer()))}"`);}
+ const defs=[['Dinosaur','Dinosaur_wipeband.jpg'],['Unicorn','Unicorn_wipeband.jpg'],['Wonder Wings','Wonder_wings_wipeband.jpg'],['Under the Sea','Under_the_sea_wipeband.jpg'],['Wobbly Wonkies','Wobbly_Wonkies_wipeband.jpg'],['Exciting Emojis','Exciting_Emojis_Wipeband.jpg'],['Boonie Bears','Boonie_Bears_Wipeband.jpg'],['Hello Kitty','Hello_Kitty_wipeband.jpg']];
+ const items=await Promise.all(defs.map(async ([name,file])=>({name,image:await webp(file)})));
+ const packaging=await webp('Wipeband-main.jpeg');
+ let template=await fs.readFile(path.join(__dirname,'hero-review.html'),'utf8');
+ const controls=await fs.readFile(path.join(__dirname,'starter-kit-controls.js'),'utf8');
+ const header=`<header class="review-bar"><div class="review-brand"><strong>WIPEBAND / STARTER KIT</strong><span>Design study - sample options and pricing</span></div><div class="segment" aria-label="Layout"><button data-design="current" aria-pressed="false">Current</button><button data-design="package" aria-pressed="true">Package first</button><button data-design="design" aria-pressed="false">Design first</button></div><div class="segment" aria-label="Preview width"><button data-size="desktop" aria-pressed="true">Desktop</button><button data-size="phone" aria-pressed="false">Phone</button></div><label><input id="sale" type="checkbox"> Example sale price</label><button id="jump">Show section</button><button id="notes-toggle" aria-expanded="false">Design notes</button></header>`;
+ const notes=`<aside class="review-notes" id="notes" hidden><h2>A clearer starter kit.</h2><div class="audit" id="audit-result">Loading current page…</div><h3>Two ways to shop</h3><p><b>Package first</b> leads with the box and a selected-design preview. <b>Design first</b> leads with the selected wristband and visual design tiles. Tap any design to see it change.</p><h3>What is inside</h3><p>One reusable Wipeband and five tissue packs with six layers each - 30 fresh wipes total. The packaging image is a representative render, not a photograph of the selected pattern.</p><h3>Example pricing and availability</h3><p>The sale checkbox previews $30.00 crossed out beside $19.95; it is not a confirmed offer. All eight supplied designs appear for exploration. Availability, names, price and checkout support must be confirmed before implementation.</p><h3>Preview only</h3><p>Buttons do not place orders or change the live cart. Compare Desktop and Phone, then choose a direction or suggest changes.</p></aside>`;
+ template=template.replace('Wipeband · Hero image comparison','Wipeband · Starter kit study').replace(/<header class="review-bar">[\s\S]*?<\/header>/,header).replace(/<aside class="review-notes"[\s\S]*?<\/aside>/,notes).replace(/<script>[\s\S]*?<\/script><\/body>/,()=>`<script>const SOURCE=${safe(html)};const PACKAGING=${safe(packaging)};const ITEMS=${safe(items)};\n${controls}</script></body>`);
+ await fs.writeFile(path.join(__dirname,'../starter-kit-review.html'),template);console.log(`Created starter kit review with ${items.length} optimized WebP designs and packaging.`);
+}
+main().catch(e=>{console.error(e);process.exitCode=1});

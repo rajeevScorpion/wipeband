@@ -1,6 +1,16 @@
-# Shared handoff - 2026-11-02
+# Shared handoff - 2026-11-03
 
-**Current task:** Owner approved the product video mockup and requested commit
+**Current task:** Starter kit redesign mockup is ready for owner review at
+http://127.0.0.1:3011/starter-kit-review.html. Package-first and design-first
+options show eight supplied variants, representative packaging, contents as a
+list and an optional example $30/$19.95 comparison. Desktop and phone layouts
+were screenshot-checked; selection, price toggle and safe mock cart were
+simulated. All new assets were converted to embedded WebP for this mockup;
+originals remain in ignored image-inbox. New variants, availability, pricing
+and checkout support remain unconfirmed. Wait for explicit design approval;
+no website code was changed. Local website and mockup servers were left running.
+
+**Previous task:** Owner approved the product video mockup and requested commit
 and push. The homepage six-layer panel is replaced by the optimized 1.05 MiB
 video, without outer box or controls, with a larger rounded frame and subtle
 shadow. It loads near the viewport, loops muted, pauses off screen and respects
