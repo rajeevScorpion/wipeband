@@ -56,7 +56,8 @@ they are historical and must not be reused as the current baseline.
   http://127.0.0.1:3011/starter-kit-review.html. Owner chose package-first; the
   revised selector pairs a larger preview on the left with design buttons on
   the right, the example sale price is visible by default, and reassurance
-  points are distributed across the card.
+  points are distributed across the card. The mockup also includes a design
+  magnifier for pointer, touch-and-hold, and keyboard arrow keys.
   Both options use eight supplied images and the representative packaging render,
   a contents list, and optional $30/$19.95 example pricing. New variants and
   the example comparison price are not confirmed for sale. Source files stay
