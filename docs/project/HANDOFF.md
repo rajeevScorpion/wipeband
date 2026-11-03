@@ -1,6 +1,11 @@
 # Shared handoff - 2026-11-03
 
-**Current task:** Optimized the owner's new starter-kit and refill packaging
+**Current task:** Cart drawer and cart page show the current catalog product
+packaging images for the starter kit and refills, retaining selected style
+labels. Catalog lookup also handles older saved carts. TypeScript and targeted
+lint passed; live browser interaction has not been verified. No push requested.
+
+**Previous task:** Optimized the owner's new starter-kit and refill packaging
 images to WebP. The new starter image is used on the homepage, How It Works,
 Shop and the starter product page; the refill image is on Refills, Shop and
 the refill product page. Original images remain in ignored image-inbox; unique

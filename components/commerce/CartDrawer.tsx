@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { X, Trash2, Plus, Minus, ArrowRight, ShieldCheck, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useCart } from '@/lib/cart';
+import { getProductBySlug } from '@/lib/products';
 import { Button } from '@/components/ui/Button';
 
 export function CartDrawer() {
@@ -118,8 +120,8 @@ export function CartDrawer() {
                       className="flex gap-4 p-4 rounded-2xl border border-border bg-offwhite/50 hover:bg-white transition-all hover:shadow-sm"
                     >
                       {/* Thumbnail */}
-                      <div className="w-20 h-20 rounded-xl bg-white border border-border/80 flex items-center justify-center shrink-0 text-2xl shadow-inner">
-                        {item.slug.includes('refill') ? '📦' : '⌚'}
+                      <div className="w-20 h-20 rounded-xl bg-white border border-border/80 overflow-hidden shrink-0">
+                        <Image src={getProductBySlug(item.slug)?.image || item.image} alt="" width={80} height={80} className="w-full h-full object-cover" />
                       </div>
 
                       {/* Details */}

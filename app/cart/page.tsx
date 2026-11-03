@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Trash2, Plus, Minus, ArrowRight, ShieldCheck, ShoppingBag, AlertCircle } from 'lucide-react';
 import { useCart } from '@/lib/cart';
+import { getProductBySlug } from '@/lib/products';
 import { Button } from '@/components/ui/Button';
 
 export default function CartPage() {
@@ -75,8 +77,8 @@ export default function CartPage() {
                   className="py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-20 h-20 rounded-2xl bg-teal-50 border border-teal-700/10 flex items-center justify-center text-3xl shrink-0">
-                      {item.slug.includes('refill') ? '📦' : '⌚'}
+                    <div className="w-20 h-20 rounded-2xl bg-teal-50 border border-teal-700/10 overflow-hidden shrink-0">
+                      <Image src={getProductBySlug(item.slug)?.image || item.image} alt="" width={80} height={80} className="w-full h-full object-cover" />
                     </div>
                     <div>
                       <Link

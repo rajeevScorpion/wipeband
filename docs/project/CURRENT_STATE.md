@@ -52,6 +52,12 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- Cart drawer and cart page now show each active product's current catalog
+  packaging image instead of an icon; selected style text remains. Looking up
+  the catalog image also updates carts saved before the image change. TypeScript
+  and targeted lint passed; live browser interaction has not been verified.
+  Check Git for push state.
+
 - Owner supplied an improved starter-kit render and refill packaging image.
   Optimized WebP versions are used on the homepage, How It Works, Shop, Refills
   and relevant product pages. New filenames prevent stale cached images. Both
