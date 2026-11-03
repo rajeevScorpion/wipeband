@@ -16,6 +16,8 @@ function setup() {
   style.textContent = `
     main [style*="opacity"]{opacity:1!important;transform:none!important}main img{opacity:1!important}
     .kit-card{border:1px solid #0a4d571c;border-radius:36px;background:linear-gradient(125deg,#fff9f0,#fffdf9 50%,#eef9f5);padding:clamp(22px,3vw,40px)}
+    .kit-card > .mt-8 > div{justify-content:space-between;gap:12px 16px}
+    @media(max-width:767px){.kit-card > .mt-8 > div{justify-content:center;gap:16px 20px}}
     .kit-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,56px);align-items:center}
     .kit-visual{position:relative;min-width:0}.kit-main-image{width:100%;aspect-ratio:1;object-fit:cover;border-radius:24px;display:block}.kit-caption{font-size:12px;color:#557678;margin:10px 4px 0}
     .kit-inset{position:absolute;right:14px;bottom:36px;width:31%;background:white;padding:5px;border-radius:15px;box-shadow:0 8px 24px #05333722}.kit-inset img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:11px}.kit-inset span{display:block;text-align:center;font-size:10px;font-weight:700;color:#06444c;padding:4px 0 1px}
