@@ -52,6 +52,11 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- FAQ page category cards now match the homepage accordion: no extra lines
+  above or below the questions or under the category headings; question
+  dividers remain. Targeted lint and local HTML checks passed. Check Git for
+  push state.
+
 - How It Works now uses the existing starter-kit packaging and the three
   optimized Wear/Wipe/Tear images. Shop shows the starter-kit image, and the
   linked product page resolves the product image and uses those three existing

@@ -1,6 +1,11 @@
 # Shared handoff - 2026-11-03
 
-**Current task:** Added existing optimized packaging and Wear/Wipe/Tear images
+**Current task:** Removed the category-heading divider and the outer top and
+bottom accordion lines from both FAQ page cards, matching the homepage while
+keeping dividers between questions. Targeted lint and local HTML checks passed.
+No push was requested.
+
+**Previous task:** Added existing optimized packaging and Wear/Wipe/Tear images
 to How It Works; added starter-kit image to Shop and corrected the linked
 product gallery image paths. The shared closing CTA displays eight variants in
 one row on wide screens, five plus three at medium widths, and a mobile grid.

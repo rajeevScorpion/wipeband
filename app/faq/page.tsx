@@ -62,10 +62,10 @@ export default function FaqPage() {
               key={cat.title}
               className="bg-white rounded-3xl p-6 sm:p-8 border border-border shadow-xs"
             >
-              <h2 className="font-heading font-black text-2xl text-teal-900 mb-6 pb-3 border-b border-teal-700/10">
+              <h2 className="font-heading font-black text-2xl text-teal-900 mb-2">
                 {cat.title}
               </h2>
-              <Accordion items={cat.items} defaultOpenIndex={0} />
+              <Accordion items={cat.items} defaultOpenIndex={0} className="!border-y-0" />
             </div>
           ))}
         </div>
