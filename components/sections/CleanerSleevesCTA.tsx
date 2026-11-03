@@ -53,15 +53,16 @@ export function CleanerSleevesCTA() {
           transition={{ duration: 0.45, delay: 0.1 }}
           className="mt-8 flex flex-col items-center space-y-5"
         >
-          <div className="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15">
-            {variants.map((v) => {
+          <div className="grid w-full max-w-6xl grid-cols-2 sm:grid-cols-6 md:grid-cols-10 xl:grid-cols-8 gap-1.5 p-1.5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/15">
+            {variants.map((v, index) => {
               const isSelected = selectedPattern === v.id;
               return (
                 <button
                   key={v.id}
                   type="button"
                   onClick={() => setSelectedPattern(v.id)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+                  aria-pressed={isSelected}
+                  className={`flex min-w-0 items-center justify-center gap-1.5 px-2 py-2.5 rounded-xl text-xs font-medium transition-all cursor-pointer whitespace-nowrap sm:col-span-2 md:col-span-2 xl:col-span-1 ${index === 5 ? 'md:col-start-3 xl:col-start-auto' : ''} ${
                     isSelected
                       ? 'bg-white text-teal-950 shadow-xs'
                       : 'text-white/80 hover:text-white'

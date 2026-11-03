@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Check, ArrowRight } from 'lucide-react';
 import { ACTIVE_PRODUCTS } from '@/lib/products';
 import { SITE_CONFIG } from '@/lib/site';
@@ -66,6 +67,16 @@ export default function ShopPage() {
                   }`}
                 >
                   <div>
+                    {isStarter && (
+                      <Image
+                        src={prod.image}
+                        alt="Representative rendering of the Wipeband Starter Kit packaging"
+                        width={1024}
+                        height={1024}
+                        sizes="(max-width: 767px) 85vw, 360px"
+                        className="mb-6 mx-auto w-full max-w-[360px] aspect-square object-cover rounded-2xl"
+                      />
+                    )}
                     <div className="flex items-baseline justify-between gap-4">
                       <div>
                         <span className="text-xs font-heading font-bold text-green-700">

@@ -64,7 +64,7 @@ export default function ProductDetailPage({
           {/* Gallery / Image Column */}
           <div className="lg:col-span-6 space-y-4">
             <PlaceholderMedia
-              assetId={product.image.replace('/assets/', '')}
+              assetId={product.image}
               alt={product.name}
               aspectRatio="1:1"
               category="product"
@@ -74,21 +74,21 @@ export default function ProductDetailPage({
             {/* Thumbnail previews */}
             <div className="grid grid-cols-3 gap-3">
               <PlaceholderMedia
-                assetId="product_wrist-fit.webp"
+                assetId="/assets/images/wipeband_wear.webp"
                 alt="Wipeband worn like a watch on child's wrist"
                 aspectRatio="4:3"
                 category="lifestyle"
                 className="rounded-2xl border"
               />
               <PlaceholderMedia
-                assetId="product_exploded-layers.webp"
-                alt="Six soft tissue layers ready one after another"
+                assetId="/assets/images/wipeband_wipe.webp"
+                alt="Child wiping their nose with the tissue on their wrist"
                 aspectRatio="4:3"
                 category="explainer"
                 className="rounded-2xl border"
               />
               <PlaceholderMedia
-                assetId="home_howitworks_tear.webp"
+                assetId="/assets/images/wipeband_tear.webp"
                 alt="Remove and dispose of the used tissue layer"
                 aspectRatio="4:3"
                 category="step"

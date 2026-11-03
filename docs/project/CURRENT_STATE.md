@@ -52,6 +52,16 @@ they are historical and must not be reused as the current baseline.
 
 ## Open / unverified
 
+- How It Works now uses the existing starter-kit packaging and the three
+  optimized Wear/Wipe/Tear images. Shop shows the starter-kit image, and the
+  linked product page resolves the product image and uses those three existing
+  step images in its gallery. The shared closing CTA arranges patterns in one
+  row on wide screens, five plus three on medium screens, and a mobile grid.
+  TypeScript, targeted lint, local HTTP, desktop/mobile screenshots and an
+  isolated 27-page production build passed (after a transient Google Fonts
+  fetch error on the first attempt). Await the owner's separate refill image.
+  Changes are local; check Git for push state.
+
 - Owner approved and requested implementation of the starter kit mockup. The
   homepage now shows the representative packaging, eight supplied designs as
   optimized WebP, a magnifier, and the contents list. Owner confirmed showing

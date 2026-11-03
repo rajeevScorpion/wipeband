@@ -106,7 +106,7 @@ export function ProductClientView({ product }: Props) {
               {activeVariant?.name}
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {product.variants.map((v) => {
               const isSelected = effectiveVariantId === v.id;
               return (
@@ -114,7 +114,8 @@ export function ProductClientView({ product }: Props) {
                   key={v.id}
                   type="button"
                   onClick={() => handleVariantChange(v.id)}
-                  className={`p-3 rounded-2xl border-2 text-center transition-all cursor-pointer whitespace-nowrap shrink-0 ${
+                  aria-pressed={isSelected}
+                  className={`min-w-0 p-3 rounded-2xl border-2 text-center leading-tight transition-all cursor-pointer ${
                     isSelected
                       ? 'border-teal-700 bg-teal-50/50 text-teal-900 font-bold shadow-xs'
                       : 'border-border bg-white text-ink/75 hover:bg-offwhite'

@@ -1,6 +1,15 @@
 # Shared handoff - 2026-11-03
 
-**Current task:** Owner approved the starter-kit mockup and confirmed $30.00
+**Current task:** Added existing optimized packaging and Wear/Wipe/Tear images
+to How It Works; added starter-kit image to Shop and corrected the linked
+product gallery image paths. The shared closing CTA displays eight variants in
+one row on wide screens, five plus three at medium widths, and a mobile grid.
+TypeScript, lint, local HTTP, desktop/mobile screenshots and isolated 27-page
+production build passed (the first build failed fetching Google Fonts; retry
+passed). Owner will provide a separate refill image; no refill artwork was
+invented. No push was requested. Build workspace: `D:/DEV/wipeband-routes-build-c5ef1e6360564b668118fbdcda174e31`.
+
+**Previous task:** Owner approved the starter-kit mockup and confirmed $30.00
 as the struck-through regular price with $19.95 as sale price. Implementation
 is local: package-first design, eight optimized WebP variants, magnifier,
 contents list and distributed reassurance points. Catalog and checkout accept

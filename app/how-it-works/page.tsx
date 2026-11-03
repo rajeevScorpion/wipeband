@@ -20,7 +20,7 @@ export default function HowItWorksPage() {
       title: 'Wear it.',
       tag: 'Put Wipeband on like a watch.',
       body: 'Designed for kids ages 2–6, the soft, adjustable silicone band keeps a tissue pack right on their wrist wherever they go.',
-      assetId: 'howitworks_step1_wear.webp',
+      assetId: '/assets/images/wipeband_wear.webp',
       alt: 'Putting Wipeband on wrist like a watch',
     },
     {
@@ -28,7 +28,7 @@ export default function HowItWorksPage() {
       title: 'Wipe it.',
       tag: 'Wipe their nose on the soft tissue.',
       body: 'When a runny nose happens during play, preschool, or travel, the soft tissue pad on their wrist faces and gently wipes their nose - no searching across the room.',
-      assetId: 'howitworks_step2_wipe.webp',
+      assetId: '/assets/images/wipeband_wipe.webp',
       alt: 'Child wiping nose on the soft tissue pad on wrist',
     },
     {
@@ -36,7 +36,7 @@ export default function HowItWorksPage() {
       title: 'Tear it.',
       tag: 'Remove the used layer. A fresh one is ready underneath.',
       body: 'The used tissue layer is torn off and disposed of in the trash right after wiping. Children never keep wearing a used tissue layer.',
-      assetId: 'howitworks_step3_tear.webp',
+      assetId: '/assets/images/wipeband_tear.webp',
       alt: 'Removing and disposing of the used tissue layer',
     },
   ];
@@ -87,9 +87,9 @@ export default function HowItWorksPage() {
 
             <div className="lg:col-span-5">
               <PlaceholderMedia
-                assetId="howitworks_hero_wrist_closeup.webp"
-                alt="Close-up of Wipeband sitting comfortably on a child's wrist"
-                aspectRatio="4:3"
+                assetId={STARTER_KIT_PRODUCT.image}
+                alt="Representative rendering of the Wipeband Starter Kit packaging"
+                aspectRatio="1:1"
                 category="product"
                 className="shadow-hover rounded-3xl"
               />
