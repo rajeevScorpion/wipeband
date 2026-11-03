@@ -14,7 +14,7 @@ changing storefront content/order and for an underdeveloped admin workflow.
 
 | Mockup | Local artifact | Status | Date | Decisions |
 |---|---|---|---|---|
-| Starter kit redesign | [Package-first and design-first review](starter-kit-review.html) | Draft - awaiting owner approval | 2026-11-03 | Eight supplied designs, representative packaging render, contents list and optional example comparison price. |
+| Starter kit redesign | [Package-first and design-first review](starter-kit-review.html) | Draft - awaiting owner approval | 2026-11-03 | Package-first direction selected; revised design preview sits beside the choices, clear of the packaging. Eight designs and optional example comparison price. Revision awaits approval. |
 | Product section video | [Current/video review](product-video-review.html) | Approved; implemented locally | 2026-11-02 | Optimized supplied video replaces only the six-layer demonstration; enlarged frame, no outer box or playback controls, subtle shadow; desktop and phone comparisons. |
 | Footer brand finish | [Current/proposed review](footer-review.html) | Approved; implemented locally | 2026-11-02 | Artwork sits directly against the footer, with measured wordmark contact, subtle shadow and scroll lift; half-scale faded pattern and seamless FAQ transition. |
 | Testimonial cards | [Desktop and phone review](testimonial-review.html) | Implemented locally; review pending | 2026-11-02 | Square cards, supplied parent icons, two current reviews and two clearly labeled future slots. |

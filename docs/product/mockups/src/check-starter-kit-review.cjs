@@ -14,8 +14,8 @@ const nodes={'site-frame':frame,'audit-result':{},'frame-wrap':{classList:{toggl
 const document={getElementById:id=>nodes[id],querySelectorAll:s=>s==='[data-design]'?designs:sizes,querySelector:()=>({offsetHeight:60})};
 const window={scrollY:0,scrollTo(){},addEventListener(){}};
 vm.runInNewContext(script,{document,window,location:{search:''},URLSearchParams,setTimeout(){},clearTimeout(){}});
-assert.match(state.rendered,/Kit packaging - representative render/);assert.match(state.rendered,/Selected: Dinosaur/);
-state.choices[1].handler();assert.match(state.rendered,/Selected: Unicorn/);
+assert.match(state.rendered,/Kit packaging - representative render/);assert.match(state.rendered,/Selected: Dinosaur/);assert.doesNotMatch(state.rendered,/kit-inset/);assert.match(state.rendered,/kit-design-preview/);
+state.choices[1].handler();assert.match(state.rendered,/Selected: Unicorn/);assert.match(state.rendered,/Unicorn Wipeband design/);
 designs[2].onclick();assert.match(state.rendered,/kit-variants tiles/);assert.match(state.rendered,/Selected: Unicorn/);
 nodes.sale.onchange({target:{checked:true}});assert.match(state.rendered,/<s>\$30.00<\/s>\$19.95/);
 state.cta.handler();assert.match(nodes.toast.textContent,/Preview only: Unicorn selected/);
