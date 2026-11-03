@@ -57,7 +57,8 @@ they are historical and must not be reused as the current baseline.
   revised selector pairs a larger preview on the left with design buttons on
   the right, the example sale price is visible by default, and reassurance
   points are distributed across the card. The mockup also includes a design
-  magnifier for pointer, touch-and-hold, and keyboard arrow keys.
+  magnifier for pointer, touch-and-hold, and keyboard arrow keys. Its lens was
+  enlarged from 96px to 144px at the owner?s request.
   Both options use eight supplied images and the representative packaging render,
   a contents list, and optional $30/$19.95 example pricing. New variants and
   the example comparison price are not confirmed for sale. Source files stay
